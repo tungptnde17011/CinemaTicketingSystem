@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTS_DAL", "CTS_DAL\CTS_DAL.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTS_Persistence", "CTS_Persistence\CTS_Persistence.csproj", "{1D8E17F3-A8A8-4D6B-9932-F8C6AF0F0BCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTS_DAL_UnitTest", "CTS_DAL_UnitTest\CTS_DAL_UnitTest.csproj", "{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{1D8E17F3-A8A8-4D6B-9932-F8C6AF0F0BCF}.Release|x64.Build.0 = Release|x64
 		{1D8E17F3-A8A8-4D6B-9932-F8C6AF0F0BCF}.Release|x86.ActiveCfg = Release|x86
 		{1D8E17F3-A8A8-4D6B-9932-F8C6AF0F0BCF}.Release|x86.Build.0 = Release|x86
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Debug|x64.ActiveCfg = Debug|x64
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Debug|x64.Build.0 = Debug|x64
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Debug|x86.ActiveCfg = Debug|x86
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Debug|x86.Build.0 = Debug|x86
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Release|x64.ActiveCfg = Release|x64
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Release|x64.Build.0 = Release|x64
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Release|x86.ActiveCfg = Release|x86
+		{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal

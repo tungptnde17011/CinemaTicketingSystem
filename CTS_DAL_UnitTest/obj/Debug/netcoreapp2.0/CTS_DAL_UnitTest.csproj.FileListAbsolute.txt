@@ -1,0 +1,17 @@
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\CTS_DAL_UnitTest.deps.json
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\CTS_DAL_UnitTest.runtimeconfig.json
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\CTS_DAL_UnitTest.runtimeconfig.dev.json
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\CTS_DAL_UnitTest.dll
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\CTS_DAL_UnitTest.pdb
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\CTS_DAL.dll
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\CTS_Persistence.dll
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\CTS_DAL.pdb
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\bin\Debug\netcoreapp2.0\CTS_Persistence.pdb
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\obj\Debug\netcoreapp2.0\CTS_DAL_UnitTest.csproj.CoreCompileInputs.cache
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\obj\Debug\netcoreapp2.0\CTS_DAL_UnitTest.AssemblyInfoInputs.cache
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\obj\Debug\netcoreapp2.0\CTS_DAL_UnitTest.AssemblyInfo.cs
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\obj\Debug\netcoreapp2.0\CTS_DAL_UnitTest.dll
+C:\Users\vuong\Downloads\Nguyễn Văn Dũng - Dũng Nguyễn Văn\New folder (2)\CinemaTicketingSystem\CTS_DAL_UnitTest\obj\Debug\netcoreapp2.0\CTS_DAL_UnitTest.pdb
