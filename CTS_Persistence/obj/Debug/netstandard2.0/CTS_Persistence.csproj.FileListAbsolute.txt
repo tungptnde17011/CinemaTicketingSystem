@@ -16,3 +16,12 @@ C:/Users/vuong/Downloads/Nguyễn Văn Dũng - Dũng Nguyễn Văn/New folder (2
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/obj/Debug/netstandard2.0/CTS_Persistence.AssemblyInfo.cs
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/obj/Debug/netstandard2.0/CTS_Persistence.dll
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/obj/Debug/netstandard2.0/CTS_Persistence.pdb
+D:\xxx\CinemaTicketingSystem\CTS_Persistence\bin\Debug\netstandard2.0\CTS_Persistence.deps.json
+D:\xxx\CinemaTicketingSystem\CTS_Persistence\bin\Debug\netstandard2.0\CTS_Persistence.dll
+D:\xxx\CinemaTicketingSystem\CTS_Persistence\bin\Debug\netstandard2.0\CTS_Persistence.pdb
+D:\xxx\CinemaTicketingSystem\CTS_Persistence\obj\Debug\netstandard2.0\CTS_Persistence.csprojResolveAssemblyReference.cache
+D:\xxx\CinemaTicketingSystem\CTS_Persistence\obj\Debug\netstandard2.0\CTS_Persistence.csproj.CoreCompileInputs.cache
+D:\xxx\CinemaTicketingSystem\CTS_Persistence\obj\Debug\netstandard2.0\CTS_Persistence.AssemblyInfoInputs.cache
+D:\xxx\CinemaTicketingSystem\CTS_Persistence\obj\Debug\netstandard2.0\CTS_Persistence.AssemblyInfo.cs
+D:\xxx\CinemaTicketingSystem\CTS_Persistence\obj\Debug\netstandard2.0\CTS_Persistence.dll
+D:\xxx\CinemaTicketingSystem\CTS_Persistence\obj\Debug\netstandard2.0\CTS_Persistence.pdb
