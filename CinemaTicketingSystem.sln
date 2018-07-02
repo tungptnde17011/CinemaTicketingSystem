@@ -11,10 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTS_DAL", "CTS_DAL\CTS_DAL.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTS_Persistence", "CTS_Persistence\CTS_Persistence.csproj", "{1D8E17F3-A8A8-4D6B-9932-F8C6AF0F0BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTS_DAL_UnitTest", "CTS_DAL_UnitTest\CTS_DAL_UnitTest.csproj", "{4AF880FB-A4D9-46BF-9365-DF0ED36C3D55}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTS_DAL_XUnit", "CTS_DAL_XUnit\CTS_DAL_XUnit.csproj", "{68269439-970A-4B17-96EA-59CC1E59A883}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
