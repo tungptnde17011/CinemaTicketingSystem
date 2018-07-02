@@ -1,6 +1,7 @@
-create database if not exists CinemaTicketingSystem;
+drop database if exists CinemaTicketingSystemDB;
+create database if not exists CinemaTicketingSystemDB;
 	
-use CinemaTicketingSystem;
+use CinemaTicketingSystemDB;
 
 create table if not exists Cinemas(
 	cine_id int primary key auto_increment,
@@ -21,7 +22,7 @@ create table if not exists Movies(
     movie_dateEnd date not null
 );
 
-create table if not exists ShowTable(
+create table if not exists Shows(
 	movie_id int not null,
     cine_id int not null,
     constraint pk_ShowTable primary key (movie_id, cine_id),
