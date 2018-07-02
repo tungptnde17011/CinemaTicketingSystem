@@ -87,3 +87,17 @@ create table if not exists Accounts (
     acc_type char(20) not null,
     constraint fk_Cinemas_Accounts foreign key (cine_id) references Cinemas(cine_id)
 );
+
+
+drop user if exists 'CTSUser'@'localhost';
+create user if not exists 'CTSUser'@'localhost' identified by '123456';
+    grant all on Cinemas to 'CTSUser'@'localhost';
+    grant all on Movies to 'CTSUser'@'localhost';
+    grant all on Shows to 'CTSUser'@'localhost';
+    grant all on Rooms to 'CTSUser'@'localhost';
+    grant all on Schedules to 'CTSUser'@'localhost';
+    grant all on Accounts to 'CTSUser'@'localhost';
+    grant all on RoomTypes to 'CTSUser'@'localhost';
+    grant all on SeatTypes to 'CTSUser'@'localhost';
+    grant all on PriceSeatsOfRoomTypes to 'CTSUser'@'localhost';
+    grant all on SchedulesDetails to 'CTSUser'@'localhost';

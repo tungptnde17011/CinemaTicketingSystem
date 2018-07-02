@@ -14,7 +14,7 @@ namespace CTS_DAL
             if (connection == null)
             {
                 connection = new MySqlConnection{
-                    ConnectionString = "server=localhost;user id=root;password=123456;port=3306;database=CinemaTicketingSystemDB;SslMode=None"
+                    ConnectionString = "server=localhost;user id=CTSUser;password=123456;port=3306;database=CinemaTicketingSystemDB;SslMode=None"
                 };
             }
 
