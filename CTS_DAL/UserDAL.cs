@@ -2,7 +2,7 @@
 
 namespace CTS_DAL
 {
-    public class Class1
+    public class UserDAL
     {
     }
 }
