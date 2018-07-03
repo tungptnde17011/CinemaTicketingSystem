@@ -2,7 +2,7 @@ using System;
 
 namespace CTS_Persistence
 {
-    class Room
+    public class Room
     {
         public int? RoomId{get;set;}
         public string RoomName{get;set;}

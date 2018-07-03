@@ -1,7 +1,7 @@
 using System;
 namespace CTS_Persistence
 {
-    class Movie 
+    public class Movie 
     {
         public int? MovieId{get;set;}
         public string MovieName{get;set;}
