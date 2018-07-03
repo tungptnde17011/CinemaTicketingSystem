@@ -140,7 +140,7 @@ create table if not exists SchedulesTime(
 );
 
 create table if not exists Accounts (
-	acc_name char(20) primary key,
+	acc_username char(20) primary key,
     cine_id int not null,
     acc_password char(20) not null,
     acc_type char(20) not null,
