@@ -63,7 +63,7 @@ create table if not exists Shows(
     constraint fk_Movies_ShowTable foreign key (movie_id) references Movies(movie_id),
     constraint fk_Cinemas_ShowTable foreign key (cine_id) references Cinemas(cine_id)
 );
-    insert into ShowTable(movie_id, cine_id) values
+    insert into Shows(movie_id, cine_id) values
 	(1,1), (1,2), (1,3), (1,4), (1,5),
     (2,1), (2,2), (2,3), (2,4), (2,5),
     (3,1), (3,2), (3,3), (3,4), (3,5),
