@@ -2,7 +2,7 @@ using System;
 
 namespace CTS_Persistence
 {
-    class PriceSeatsOfRoomType
+    public class PriceSeatsOfRoomType
     {
         public string RTName{get;set;}
         public string STType{get;set;}

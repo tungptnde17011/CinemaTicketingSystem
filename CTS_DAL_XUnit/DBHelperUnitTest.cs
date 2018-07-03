@@ -19,5 +19,11 @@ namespace CTS_DAL_XUnit
             MySqlConnection con = DBHelper.OpenConnection();
             Assert.NotNull(con);
         }
+
+        [Fact]
+        public void CloseConnectionTest()
+        {
+            DBHelper.CloseConnection();
+        }
     }
 }
