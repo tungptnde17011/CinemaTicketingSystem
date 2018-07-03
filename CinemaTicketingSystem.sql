@@ -1,5 +1,5 @@
 drop database if exists CinemaTicketingSystemDB;
-create database if not exists CinemaTicketingSystemDB;
+create database if not exists CinemaTicketingSystemDB char set 'utf8';
 	
 use CinemaTicketingSystemDB;
 
