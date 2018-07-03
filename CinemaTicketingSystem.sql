@@ -129,6 +129,23 @@ create table if not exists PriceSeatsOfRoomTypes(
     constraint fk_SeatTypes_PSORT foreign key (st_type) references SeatTypes(st_type)
 );
 
+insert into PriceSeatsOfRoomTypes(rt_name, st_type, price) values
+	('3D','N',60000.00),
+    ('3D','D',100000.00),
+    ('3D','V',80000.00),
+    ('2D','N',50000.00),
+    ('2D','D',90000.00),
+    ('2D','V',70000.00),
+    ('Lamour','N',80000.00),
+    ('Lamour','D',150000.00),
+    ('Lamour','V',120000.00),
+    ('4DX2D','N',100000.00),
+    ('4DX2D','D',180000.00),
+    ('4DX2D','V',150000.00),
+    ('IMAX2D','N',70000.00),
+    ('IMAX2D','D',120000.00),
+    ('IMAX2D','V',100000.00);
+
 create table if not exists SchedulesTime(
 	sched_id int primary key ,
     sche_id int ,
@@ -138,6 +155,12 @@ create table if not exists SchedulesTime(
     sched_roomSeats text not null,
     constraint fk_Schedules_ST foreign key (sche_id) references Schedules(sche_id)
 );
+insert into SchedulesDetails(sche_id, sched_dateShow, sched_timeStart, sched_timeEnd, sched_roomSeats) values
+	(1,'2018-08-01','07:00:00','09:12:00','_________________________________________________________n_________________________________________________________nN:A1 N:A2 . V:A3 V:A4 V:A5 V:A6 V:A7 V:A8 . N:A9 N:A10nN:B1 N:B2 . V:B3 V:B4 V:B5 V:B6 V:B7 V:B8 . N:B9 N:B10nN:C1 N:C2 . V:C3 V:C4 V:C5 V:C6 V:C7 V:C8 . N:C9 N:C10nN:D1 N:D2 . V:D3 V:D4 V:D5 V:D6 V:D7 V:D8 . N:D9 N:D10nN:E1 N:E2 . V:E3 V:E4 V:E5 V:E6 V:E7 V:E8 . N:E9 N:E10nN:F1 N:F2 . V:F3 V:F4 V:F5 V:F6 V:F7 V:F8 . N:F9 N:F10nN:G1 N:G2 . V:G3 V:G4 V:G5 V:G6 V:G7 V:G8 . N:G9 N:G10nN:H1 N:H2 . V:H3 V:H4 V:H5 V:H6 V:H7 V:H8 . N:H9 N:H10nN:I1 N:I2 . V:I3 V:I4 V:I5 V:I6 V:I7 V:I8 . N:I9 N:I10nN:J1 N:J2 . V:J3 V:J4 V:J5 V:J6 V:J7 V:J8 . N:J9 N:J10nN:K1 N:K2 . V:K3 V:K4 V:K5 V:K6 V:K7 V:K8 . N:K9 N:K10n'),
+    (2,'2018-08-01','09:00:00','10:50:00','_________________________________________________________n_________________________________________________________nN:A1 N:A2 . V:A3 V:A4 V:A5 V:A6 V:A7 V:A8 . N:A9 N:A10nN:B1 N:B2 . V:B3 V:B4 V:B5 V:B6 V:B7 V:B8 . N:B9 N:B10nN:C1 N:C2 . V:C3 V:C4 V:C5 V:C6 V:C7 V:C8 . N:C9 N:C10nN:D1 N:D2 . V:D3 V:D4 V:D5 V:D6 V:D7 V:D8 . N:D9 N:D10nN:E1 N:E2 . V:E3 V:E4 V:E5 V:E6 V:E7 V:E8 . N:E9 N:E10nN:F1 N:F2 . V:F3 V:F4 V:F5 V:F6 V:F7 V:F8 . N:F9 N:F10nN:G1 N:G2 . V:G3 V:G4 V:G5 V:G6 V:G7 V:G8 . N:G9 N:G10nN:H1 N:H2 . V:H3 V:H4 V:H5 V:H6 V:H7 V:H8 . N:H9 N:H10nN:I1 N:I2 . V:I3 V:I4 V:I5 V:I6 V:I7 V:I8 . N:I9 N:I10nN:J1 N:J2 . V:J3 V:J4 V:J5 V:J6 V:J7 V:J8 . N:J9 N:J10nN:K1 N:K2 . V:K3 V:K4 V:K5 V:K6 V:K7 V:K8 . N:K9 N:K10n'),
+    (3,'2018-08-01','11:00:00','13:08:00','_________________________________________________________n_________________________________________________________nN:A1 N:A2 . V:A3 V:A4 V:A5 V:A6 V:A7 V:A8 . N:A9 N:A10nN:B1 N:B2 . V:B3 V:B4 V:B5 V:B6 V:B7 V:B8 . N:B9 N:B10nN:C1 N:C2 . V:C3 V:C4 V:C5 V:C6 V:C7 V:C8 . N:C9 N:C10nN:D1 N:D2 . V:D3 V:D4 V:D5 V:D6 V:D7 V:D8 . N:D9 N:D10nN:E1 N:E2 . V:E3 V:E4 V:E5 V:E6 V:E7 V:E8 . N:E9 N:E10nN:F1 N:F2 . V:F3 V:F4 V:F5 V:F6 V:F7 V:F8 . N:F9 N:F10nN:G1 N:G2 . V:G3 V:G4 V:G5 V:G6 V:G7 V:G8 . N:G9 N:G10nN:H1 N:H2 . V:H3 V:H4 V:H5 V:H6 V:H7 V:H8 . N:H9 N:H10nN:I1 N:I2 . V:I3 V:I4 V:I5 V:I6 V:I7 V:I8 . N:I9 N:I10nN:J1 N:J2 . V:J3 V:J4 V:J5 V:J6 V:J7 V:J8 . N:J9 N:J10nN:K1 N:K2 . V:K3 V:K4 V:K5 V:K6 V:K7 V:K8 . N:K9 N:K10n'),
+    (4,'2018-08-01','14:00:00','15:30:00','_________________________________________________________n_________________________________________________________nN:A1 N:A2 . V:A3 V:A4 V:A5 V:A6 V:A7 V:A8 . N:A9 N:A10nN:B1 N:B2 . V:B3 V:B4 V:B5 V:B6 V:B7 V:B8 . N:B9 N:B10nN:C1 N:C2 . V:C3 V:C4 V:C5 V:C6 V:C7 V:C8 . N:C9 N:C10nN:D1 N:D2 . V:D3 V:D4 V:D5 V:D6 V:D7 V:D8 . N:D9 N:D10nN:E1 N:E2 . V:E3 V:E4 V:E5 V:E6 V:E7 V:E8 . N:E9 N:E10nN:F1 N:F2 . V:F3 V:F4 V:F5 V:F6 V:F7 V:F8 . N:F9 N:F10nN:G1 N:G2 . V:G3 V:G4 V:G5 V:G6 V:G7 V:G8 . N:G9 N:G10nN:H1 N:H2 . V:H3 V:H4 V:H5 V:H6 V:H7 V:H8 . N:H9 N:H10nN:I1 N:I2 . V:I3 V:I4 V:I5 V:I6 V:I7 V:I8 . N:I9 N:I10nN:J1 N:J2 . V:J3 V:J4 V:J5 V:J6 V:J7 V:J8 . N:J9 N:J10nN:K1 N:K2 . V:K3 V:K4 V:K5 V:K6 V:K7 V:K8 . N:K9 N:K10n'),
+    (5,'2018-08-01','16:00:00','17:30:00','_________________________________________________________n_________________________________________________________nN:A1 N:A2 . V:A3 V:A4 V:A5 V:A6 V:A7 V:A8 . N:A9 N:A10nN:B1 N:B2 . V:B3 V:B4 V:B5 V:B6 V:B7 V:B8 . N:B9 N:B10nN:C1 N:C2 . V:C3 V:C4 V:C5 V:C6 V:C7 V:C8 . N:C9 N:C10nN:D1 N:D2 . V:D3 V:D4 V:D5 V:D6 V:D7 V:D8 . N:D9 N:D10nN:E1 N:E2 . V:E3 V:E4 V:E5 V:E6 V:E7 V:E8 . N:E9 N:E10nN:F1 N:F2 . V:F3 V:F4 V:F5 V:F6 V:F7 V:F8 . N:F9 N:F10nN:G1 N:G2 . V:G3 V:G4 V:G5 V:G6 V:G7 V:G8 . N:G9 N:G10nN:H1 N:H2 . V:H3 V:H4 V:H5 V:H6 V:H7 V:H8 . N:H9 N:H10nN:I1 N:I2 . V:I3 V:I4 V:I5 V:I6 V:I7 V:I8 . N:I9 N:I10nN:J1 N:J2 . V:J3 V:J4 V:J5 V:J6 V:J7 V:J8 . N:J9 N:J10nN:K1 N:K2 . V:K3 V:K4 V:K5 V:K6 V:K7 V:K8 . N:K9 N:K10n');
 
 create table if not exists Accounts (
 	acc_username char(20) primary key,
