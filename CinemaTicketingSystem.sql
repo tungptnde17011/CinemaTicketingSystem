@@ -146,8 +146,8 @@ insert into PriceSeatsOfRoomTypes(rt_name, st_type, price) values
     ('IMAX2D','D',120000.00),
     ('IMAX2D','V',100000.00);
 
-create table if not exists SchedulesTime(
-	sched_id int primary key ,
+create table if not exists SchedulesDetails(
+	sched_id int primary key auto_increment ,
     sche_id int ,
     sched_dateShow date not null,
     sched_timeStart time not null,
