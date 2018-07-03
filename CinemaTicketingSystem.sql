@@ -9,7 +9,12 @@ create table if not exists Cinemas(
     cine_name char(50) not null unique,
     cine_phone char(11) not null
 );
-    
+    insert into Cinemas(cine_address, cine_name, cine_phone) values
+		('Tầng 8 của TTTM Vincom, số 2 Phạm Ngọc Thạch, Đống Đa, Hà Nội','BHD Star Phạm Ngọc Thạch','0861231654'),
+        ('Tầng 5, TTTM Vincom Center, 159 Xa Lộ Hà Nội, Quận 2, TP.HCM', 'BHD Star Thảo Điền','0862645820'),
+        ('Lầu 5, Siêu Thị Vincom 3/2, 3C Đường 3/2, Quận 10, TPHCM', 'BHD STAR 3/2','0862315489'),
+        ('Tầng B1&B2, TTTM Vincom, số 190 Quang Trung, Gò Vấp, Tp.HCM','BHD STAR QUANG TRUNG','0893123548'),
+        ('Vincom Huế, 50A Hùng Vương tổ 10, Phú Nhuận, Thành phố Huế, Thừa Thiên Huế ','BHD STAR HUẾ','0863124896');
 create table if not exists Movies(
 	movie_id int primary key auto_increment,
     movie_name char(100) unique,
@@ -87,7 +92,9 @@ create table if not exists Accounts (
     acc_type char(20) not null,
     constraint fk_Cinemas_Accounts foreign key (cine_id) references Cinemas(cine_id)
 );
-
+insert into Accounts(acc_name, cine_id, acc_password, acc_type) values
+	('Manager_01',1,'123456','M'),
+    ('Staff_01',1,'123456','S');
 
 drop user if exists 'CTSUser'@'localhost';
 create user if not exists 'CTSUser'@'localhost' identified by '123456';
@@ -101,3 +108,4 @@ create user if not exists 'CTSUser'@'localhost' identified by '123456';
     grant all on SeatTypes to 'CTSUser'@'localhost';
     grant all on PriceSeatsOfRoomTypes to 'CTSUser'@'localhost';
     grant all on SchedulesDetails to 'CTSUser'@'localhost';
+select * from movies;
