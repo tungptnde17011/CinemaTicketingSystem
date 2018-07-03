@@ -146,7 +146,7 @@ create table if not exists Accounts (
     acc_type char(20) not null,
     constraint fk_Cinemas_Accounts foreign key (cine_id) references Cinemas(cine_id)
 );
-insert into Accounts(acc_name, cine_id, acc_password, acc_type) values
+insert into Accounts(acc_username, cine_id, acc_password, acc_type) values
 	('manager_01',1,'123456','m'),
     ('staff_01',1,'123456','s');
 
