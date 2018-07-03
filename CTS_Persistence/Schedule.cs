@@ -13,8 +13,9 @@ namespace CTS_Persistence
         public int? MovieId{get;set;}
         public List<ScheduleDetail> ScheduleDetails{get;set;}
         public Schedule(){}
-        public Schedule(int? scheStatus, string scheWeekdays, string scheTimeline, int? roomId, int? movieId, List<ScheduleDetail> scheduleDetails)
+        public Schedule(int? scheId, int? scheStatus, string scheWeekdays, string scheTimeline, int? roomId, int? movieId, List<ScheduleDetail> scheduleDetails)
         {
+            this.ScheId = scheId;
             this.ScheStatus = scheStatus;
             this.ScheWeekdays = scheWeekdays;
             this.ScheTimeline = scheTimeline;

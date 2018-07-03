@@ -9,8 +9,9 @@ namespace CTS_Persistence
         public string CineName{get;set;}
         public string CinePhone{get;set;}
         public Cinema(){}
-        public Cinema(string cineAddress, string cineName, string cinePhone)
+        public Cinema(int? cineId, string cineAddress, string cineName, string cinePhone)
         {
+            this.CineId = cineId;
             this.CineAddress = cineAddress;
             this.CineName = cineName;
             this.CinePhone = cinePhone;

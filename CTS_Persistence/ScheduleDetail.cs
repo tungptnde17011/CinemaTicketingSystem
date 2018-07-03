@@ -11,8 +11,9 @@ namespace CTS_Persistence
         public string SchedRoomSeats{get;set;}
         public int? ScheId{get;set;}
         public ScheduleDetail() {}
-        public ScheduleDetail(int? scheId, DateTime schedDateShow, DateTime schedTimeStart, DateTime schedTimeEnd, string schedRoomSeats)
+        public ScheduleDetail(int? schedId, int? scheId, DateTime schedDateShow, DateTime schedTimeStart, DateTime schedTimeEnd, string schedRoomSeats)
         {
+            this.SchedId = schedId;
             this.ScheId = scheId;
             this.SchedDateShow = schedDateShow;
             this.SchedTimeStart = schedTimeStart;

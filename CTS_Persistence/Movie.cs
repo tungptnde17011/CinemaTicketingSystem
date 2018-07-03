@@ -13,9 +13,10 @@ namespace CTS_Persistence
         public DateTime MovieDateStart{get;set;}
         public DateTime MovieDateEnd{get;set;}
         public Movie(){}
-        public Movie(string movieName, string movieDescription, string  movieAuthor,
+        public Movie(int? movieId, string movieName, string movieDescription, string  movieAuthor,
         string movieActor, string movieCategory, int? movieTime, DateTime movieDateStart, DateTime movieDateEnd)
         {
+            this.MovieId = movieId;
             this.MovieName = movieName;
             this.MovieDescription = movieDescription;
             this.MovieAuthor = movieAuthor;

@@ -9,8 +9,9 @@ namespace CTS_Persistence
         public string RoomSeats{get;set;}
         public string RTName{get;set;}
         public Room(){}
-        public Room(string roomName, string roomSeats, string rtName)
+        public Room(int? roomId, string roomName, string roomSeats, string rtName)
         {
+            this.RoomId = roomId;
             this.RoomName = roomName;
             this.RoomSeats = roomSeats;
             this.RTName = rtName;

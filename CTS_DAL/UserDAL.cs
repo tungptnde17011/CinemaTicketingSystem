@@ -11,9 +11,24 @@ namespace CTS_DAL
 
         public User Login(string username, string password)
         {
-            string query = @"select * from Accounts where acc_username = "+ username +" and acc_password="+ password +";";
+            query = @"select * from Accounts where acc_username = '"+ username +"' and acc_password= '"+ password +"';";
             DBHelper.OpenConnection();
-            return null;
+
+            reader = DBHelper.ExecQuery(query);
+            User user = null;
+            if (reader.Read())
+            {
+                user = GetUser(reader);
+            }
+            DBHelper.CloseConnection();
+
+            return user;
+        }
+
+        private User GetUser(MySqlDataReader reader)
+        {
+            User user = new User(reader.GetString("acc_username"), reader.GetString("acc_password"), reader.GetString("acc_type"), null);
+            return user;
         }
     }
 }
