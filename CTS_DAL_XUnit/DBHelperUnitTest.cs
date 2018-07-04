@@ -11,12 +11,14 @@ namespace CTS_DAL_XUnit
         public void GetConnectionTest()
         {
             Assert.NotNull(DBHelper.GetConnection());
+            // DBHelper.CloseConnection();
         }
 
         [Fact]
         public void OpenConnectionTest()
         {
             Assert.NotNull(DBHelper.OpenConnection());
+            // DBHelper.CloseConnection();
         }
     }
 }
