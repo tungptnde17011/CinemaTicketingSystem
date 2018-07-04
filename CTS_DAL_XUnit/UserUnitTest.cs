@@ -7,7 +7,7 @@ namespace CTS_DAL_XUnit
 {
     public class UserUnitTest
     {
-        UserDAL userDAL =  new UserDAL();
+        private UserDAL userDAL = new UserDAL();
 
         [Fact]
         public void LoginTest1()
@@ -34,13 +34,13 @@ namespace CTS_DAL_XUnit
         [Fact]
         public void LoginTest3()
         {
-            Assert.Null(userDAL.Login("customer_01","123456789"));
+            Assert.Null(userDAL.Login("customer_01", "123456789"));
         }
 
         [Fact]
         public void LoginTest4()
         {
-            Assert.Null(userDAL.Login("?^%",".:=="));
+            Assert.Null(userDAL.Login("?^%", ".:=="));
         }
     }
 }

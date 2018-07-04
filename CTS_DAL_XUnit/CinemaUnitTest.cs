@@ -7,7 +7,7 @@ namespace CTS_DAL_XUnit
 {
     public class CinemaUnitTest
     {
-        CinemaDAL cinemaDAL =  new CinemaDAL();
+        private CinemaDAL cinemaDAL = new CinemaDAL();
 
         [Fact]
         public void GetCinemaByCineIdTest1()

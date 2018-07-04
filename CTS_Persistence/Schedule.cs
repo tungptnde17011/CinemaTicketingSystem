@@ -5,14 +5,15 @@ namespace CTS_Persistence
 {
     public class Schedule
     {
-        public int? ScheId{get;set;}
-        public int? ScheStatus{get;set;}
-        public string ScheWeekdays{get;set;}
-        public string ScheTimeline{get;set;}
-        public int? RoomId{get;set;}
-        public int? MovieId{get;set;}
-        public List<ScheduleDetail> ScheduleDetails{get;set;}
-        public Schedule(){}
+        public int? ScheId { get; set; }
+        public int? ScheStatus { get; set; }
+        public string ScheWeekdays { get; set; }
+        public string ScheTimeline { get; set; }
+        public int? RoomId { get; set; }
+        public int? MovieId { get; set; }
+        public List<ScheduleDetail> ScheduleDetails { get; set; }
+
+        public Schedule() { }
         public Schedule(int? scheId, int? scheStatus, string scheWeekdays, string scheTimeline, int? roomId, int? movieId, List<ScheduleDetail> scheduleDetails)
         {
             this.ScheId = scheId;

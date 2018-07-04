@@ -26,7 +26,5 @@ namespace CTS_DAL
 
             return connection;
         }
-
-
     }
 }

@@ -8,8 +8,8 @@ namespace CTS_DAL
     public class UserDAL
     {
         private string query;
-        private MySqlDataReader reader;
         private MySqlConnection connection;
+        private MySqlDataReader reader;
 
         public User Login(string username, string password)
         {
@@ -32,7 +32,7 @@ namespace CTS_DAL
                     if (reader.Read())
                     {
                         user = GetUser(reader);
-                    }   
+                    }
                 }
             }
 

@@ -8,8 +8,8 @@ namespace CTS_DAL
     public class RoomDAL
     {
         private string query;
+        private MySqlConnection connection;
         private MySqlDataReader reader;
-        MySqlConnection connection;
 
         public Room GetRoomByRoomId(int? roomId)
         {
@@ -31,24 +31,28 @@ namespace CTS_DAL
             return room;
         }
 
-        // public List<Room> GetRoomsByCineId(int? cineId)
-        // {
-        //     query = $"select * from Rooms where cine_id = "+ cineId +";";
-        //     DBHelper.OpenConnection();
+        public List<Room> GetRoomsByCineId(int? cineId)
+        {
+            query = $"select * from Rooms where cine_id = " + cineId + ";";
 
-        //     List<Room> rooms = null;
-        //     reader = DBHelper.ExecQuery(query);
-        //     while (reader.Read())
-        //     {
-        //         rooms.Add(GetRoom(reader));
-        //     }
-        //     reader.Close();
-        //     DBHelper.CloseConnection();
+            List<Room> rooms = null;
+            using (connection = DBHelper.OpenConnection())
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                using (reader = command.ExecuteReader())
+                {
+                    rooms = new List<Room>();
+                    while (reader.Read())
+                    {
+                        rooms.Add(GetRoom(reader));
+                    }
+                }
+            }
 
-        //     return rooms;
-        // }
+            return rooms;
+        }
 
-        private Room GetRoom(MySqlDataReader reader)
+        public Room GetRoom(MySqlDataReader reader)
         {
             int roomId = reader.GetInt32("room_id");
             string roomName = reader.GetString("room_name");
