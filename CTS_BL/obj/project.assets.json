@@ -47,7 +47,7 @@
           "lib/netstandard2.0/MySql.Data.dll": {}
         }
       },
-      "NETStandard.Library/2.0.0": {
+      "NETStandard.Library/2.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -400,10 +400,10 @@
         "mysql.data.nuspec"
       ]
     },
-    "NETStandard.Library/2.0.0": {
-      "sha512": "7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
+    "NETStandard.Library/2.0.1": {
+      "sha512": "oA6nwv9MhEKYvLpjZ0ggSpb1g4CQViDVQjLUcDWg598jtvJbpfeP2reqwI1GLW2TbxC/Ml7xL6BBR1HmKPXlTg==",
       "type": "package",
-      "path": "netstandard.library/2.0.0",
+      "path": "netstandard.library/2.0.1",
       "files": [
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -524,7 +524,7 @@
         "build/netstandard2.0/ref/netstandard.dll",
         "build/netstandard2.0/ref/netstandard.xml",
         "lib/netstandard1.0/_._",
-        "netstandard.library.2.0.0.nupkg.sha512",
+        "netstandard.library.2.0.1.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
     },
@@ -1626,27 +1626,27 @@
     ".NETStandard,Version=v2.0": [
       "CTS_DAL >= 1.0.0",
       "CTS_Persistence >= 1.0.0",
-      "NETStandard.Library >= 2.0.0"
+      "NETStandard.Library >= 2.0.1"
     ]
   },
   "packageFolders": {
-    "/Users/user/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\vuong\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL/CTS_BL.csproj",
+      "projectUniqueName": "D:\\xxx\\CinemaTicketingSystem\\CTS_BL\\CTS_BL.csproj",
       "projectName": "CTS_BL",
-      "projectPath": "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL/CTS_BL.csproj",
-      "packagesPath": "/Users/user/.nuget/packages/",
-      "outputPath": "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL/obj/",
+      "projectPath": "D:\\xxx\\CinemaTicketingSystem\\CTS_BL\\CTS_BL.csproj",
+      "packagesPath": "C:\\Users\\vuong\\.nuget\\packages\\",
+      "outputPath": "D:\\xxx\\CinemaTicketingSystem\\CTS_BL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/user/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\vuong\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -1657,11 +1657,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_DAL/CTS_DAL.csproj": {
-              "projectPath": "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_DAL/CTS_DAL.csproj"
+            "D:\\xxx\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj": {
+              "projectPath": "D:\\xxx\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj"
             },
-            "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/CTS_Persistence.csproj": {
-              "projectPath": "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/CTS_Persistence.csproj"
+            "D:\\xxx\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj": {
+              "projectPath": "D:\\xxx\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj"
             }
           }
         }
@@ -1678,7 +1678,7 @@
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.0.0, )",
+            "version": "[2.0.1, )",
             "autoReferenced": true
           }
         },
