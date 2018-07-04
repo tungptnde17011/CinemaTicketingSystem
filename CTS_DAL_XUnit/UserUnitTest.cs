@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using CTS_DAL;
+using CTS_Persistence;
 
 namespace CTS_DAL_XUnit
 {
@@ -11,13 +12,23 @@ namespace CTS_DAL_XUnit
         [Fact]
         public void LoginTest1()
         {
-            Assert.NotNull(userDAL.Login("manager_01", "123456"));
+            string username = "manager_01";
+            string password = "123456";
+            User user = userDAL.Login(username, password);
+
+            Assert.NotNull(user);
+            Assert.Equal(username, user.Username);
         }
 
         [Fact]
         public void LoginTest2()
         {
-            Assert.NotNull(userDAL.Login("staff_01", "123456"));
+            string username = "staff_01";
+            string password = "123456";
+            User user = userDAL.Login(username, password);
+
+            Assert.NotNull(user);
+            Assert.Equal(username, user.Username);
         }
 
         [Fact]

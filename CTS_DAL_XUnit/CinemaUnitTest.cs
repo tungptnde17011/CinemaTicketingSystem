@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using CTS_DAL;
+using CTS_Persistence;
 
 namespace CTS_DAL_XUnit
 {
@@ -11,7 +12,10 @@ namespace CTS_DAL_XUnit
         [Fact]
         public void GetCinemaByCineIdTest1()
         {
-            Assert.NotNull(cinemaDAL.GetCinemaByCineId(1));
+            Cinema cine = cinemaDAL.GetCinemaByCineId(1);
+
+            Assert.NotNull(cine);
+            Assert.Equal(1, cine.CineId);
         }
 
         [Fact]
