@@ -7,9 +7,9 @@ namespace CTS_DAL
 {
     public class RoomDAL
     {
-        private string query;
         private MySqlConnection connection;
         private MySqlDataReader reader;
+        private string query;
 
         public Room GetRoomByRoomId(int? roomId)
         {

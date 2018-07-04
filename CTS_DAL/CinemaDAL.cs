@@ -6,9 +6,9 @@ namespace CTS_DAL
 {
     public class CinemaDAL
     {
-        private string query;
         private MySqlConnection connection;
         private MySqlDataReader reader;
+        private string query;
 
         public Cinema GetCinemaByCineId(int? cineId)
         {

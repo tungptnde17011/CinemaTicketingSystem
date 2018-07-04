@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+using CTS_Persistence;
+using MySql.Data.MySqlClient;
+
+namespace CTS_DAL
+{
+    public class MovieDAL
+    {
+        private string query;
+        private MySqlConnection connection;
+        private MySqlDataReader reader;
+
+        public Movie GetMovieByMovieId(int? movieId)
+        {
+            query = $"select * from Movies where movie_id = " + movieId + ";";
+
+            Movie movie = null;
+            using (connection = DBHelper.OpenConnection())
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                using (reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        movie = GetMovie(reader);
+                    }
+                }
+            }
+
+            return movie;
+        }
+
+        public List<Movie> GetMoviesByCineId(int? cineId)
+        {
+            query = $"select * from Shows inner join Movies on Shows.movie_id = Movies.movie_id where cine_id = " + cineId + ";";
+
+            List<Movie> movies = null;
+            using (connection = DBHelper.OpenConnection())
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                using (reader = command.ExecuteReader())
+                {
+                    movies = new List<Movie>();
+                    while (reader.Read())
+                    {
+                        movies.Add(GetMovie(reader));
+                    }
+                }
+            }
+
+            return movies;
+        }
+
+        public Movie GetMovie(MySqlDataReader reader)
+        {
+            int movieId = reader.GetInt32("movie_id");
+            string movieName = reader.GetString("movie_name");
+            string movieDescription = reader.GetString("movie_description");
+            string movieAuthor = reader.GetString("movie_author");
+            string movieActor = reader.GetString("movie_actor");
+            string movieCategory = reader.GetString("movie_category");
+            int movieTime = reader.GetInt32("movie_time");
+            DateTime movieDateStart = reader.GetDateTime("movie_dateStart");
+            DateTime movieDateEnd = reader.GetDateTime("movie_dateEnd");
+
+            Movie movie = new Movie(movieId, movieName, movieDescription, movieAuthor, movieActor, 
+                                    movieCategory, movieTime, movieDateStart, movieDateEnd);
+
+            return movie;
+        }
+    }
+}

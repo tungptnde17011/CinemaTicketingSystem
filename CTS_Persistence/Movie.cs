@@ -15,7 +15,7 @@ namespace CTS_Persistence
 
         public Movie() { }
         public Movie(int? movieId, string movieName, string movieDescription, string movieAuthor,
-        string movieActor, string movieCategory, int? movieTime, DateTime movieDateStart, DateTime movieDateEnd)
+                    string movieActor, string movieCategory, int? movieTime, DateTime movieDateStart, DateTime movieDateEnd)
         {
             this.MovieId = movieId;
             this.MovieName = movieName;
@@ -26,6 +26,19 @@ namespace CTS_Persistence
             this.MovieTime = movieTime;
             this.MovieDateStart = movieDateStart;
             this.MovieDateEnd = movieDateEnd;
+        }
+
+        public override bool Equals(object obj)
+        {
+            Movie movie = (Movie)obj;
+
+            return MovieId == movie.MovieId;
+        }
+
+        public override int GetHashCode()
+        {
+            return (MovieId + MovieName + MovieDescription + MovieAuthor + MovieActor +
+                    MovieCategory + MovieTime + MovieDateStart + MovieDateEnd).GetHashCode();
         }
     }
 }

@@ -32,15 +32,16 @@ namespace CTS_DAL_XUnit
         [Fact]
         public void GetRoomsByCineIdTest1()
         {
-            List<Room> rooms = roomDAL.GetRoomsByCineId(1);
+            int cineId = 1;
+            List<Room> rooms = roomDAL.GetRoomsByCineId(cineId);
 
-            query = $"select * from Rooms where cine_id = 1 order by rand() limit 1;";
+            query = $"select * from Rooms where cine_id = "+ cineId +" order by rand() limit 1;";
             Room roomRand = GetRoomExecQuery(query);
 
-            query = $"select * from Rooms where cine_id = 1 order by room_id asc limit 1;";
+            query = $"select * from Rooms where cine_id = "+ cineId +" order by room_id asc limit 1;";
             Room roomTop = GetRoomExecQuery(query);
 
-            query = $"select * from Rooms where cine_id = 1 order by room_id desc limit 1;";
+            query = $"select * from Rooms where cine_id = "+ cineId +" order by room_id desc limit 1;";
             Room roomBottom = GetRoomExecQuery(query);
 
             Assert.NotNull(rooms);
@@ -49,8 +50,9 @@ namespace CTS_DAL_XUnit
             Assert.NotNull(roomBottom);
 
             Assert.Contains(roomRand, rooms);
-            Assert.Contains(roomTop, rooms);
-            Assert.Contains(roomBottom, rooms);
+
+            Assert.True(rooms.IndexOf(roomTop) == 0);
+            Assert.True(rooms.IndexOf(roomBottom) == (rooms.Count - 1));
         }
 
         [Fact]
