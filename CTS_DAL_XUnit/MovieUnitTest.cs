@@ -10,7 +10,7 @@ namespace CTS_DAL_XUnit
     public class MovieUnitTest
     {
         private MovieDAL movieDAL = new MovieDAL();
-        private MySqlConnection connection;
+        private MySqlConnection connection = DBHelper.OpenConnection();
         private MySqlDataReader reader;
         private string query;
 
@@ -63,18 +63,22 @@ namespace CTS_DAL_XUnit
 
         private Movie GetMovieExecQuery(string query)
         {
-            Movie movie = null;
-            using (connection = DBHelper.OpenConnection())
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
-                using (reader = command.ExecuteReader())
+                connection.Open();
+            }
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+            Movie movie = null;
+            using (reader = command.ExecuteReader())
+            {
+                while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        movie = movieDAL.GetMovie(reader);
-                    }
+                    movie = movieDAL.GetMovie(reader);
                 }
             }
+            
+            connection.Close();
 
             return movie;
         }

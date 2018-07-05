@@ -10,10 +10,10 @@ namespace CTS_DAL_XUnit
     public class ScheduleDetailUnitTest
     {
         private ScheduleDetailDAL schedDetailDAL = new ScheduleDetailDAL();
-        private MySqlConnection connection;
+        private MySqlConnection connection = DBHelper.OpenConnection();
         private MySqlDataReader reader;
         private string query;
-        
+
         [Fact]
         public void CreateScheduleDetailsTest1()
         {
@@ -75,18 +75,22 @@ namespace CTS_DAL_XUnit
 
         private ScheduleDetail GetScheduleDetailExecQuery(string query)
         {
-            ScheduleDetail schedDetail = null;
-            using (connection = DBHelper.OpenConnection())
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
-                using (reader = command.ExecuteReader())
+                connection.Open();
+            }
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+            ScheduleDetail schedDetail = null;
+            using (reader = command.ExecuteReader())
+            {
+                while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        schedDetail = schedDetailDAL.GetScheduleDetail(reader);
-                    }
+                    schedDetail = schedDetailDAL.GetScheduleDetail(reader);
                 }
             }
+
+            connection.Close();
 
             return schedDetail;
         }

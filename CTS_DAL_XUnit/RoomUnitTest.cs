@@ -10,7 +10,7 @@ namespace CTS_DAL_XUnit
     public class RoomUnitTest
     {
         private RoomDAL roomDAL = new RoomDAL();
-        private MySqlConnection connection;
+        private MySqlConnection connection = DBHelper.OpenConnection();
         private MySqlDataReader reader;
         private string query;
 
@@ -35,13 +35,13 @@ namespace CTS_DAL_XUnit
             int cineId = 1;
             List<Room> rooms = roomDAL.GetRoomsByCineId(cineId);
 
-            query = $"select * from Rooms where cine_id = "+ cineId +" order by rand() limit 1;";
+            query = $"select * from Rooms where cine_id = " + cineId + " order by rand() limit 1;";
             Room roomRand = GetRoomExecQuery(query);
 
-            query = $"select * from Rooms where cine_id = "+ cineId +" order by room_id asc limit 1;";
+            query = $"select * from Rooms where cine_id = " + cineId + " order by room_id asc limit 1;";
             Room roomTop = GetRoomExecQuery(query);
 
-            query = $"select * from Rooms where cine_id = "+ cineId +" order by room_id desc limit 1;";
+            query = $"select * from Rooms where cine_id = " + cineId + " order by room_id desc limit 1;";
             Room roomBottom = GetRoomExecQuery(query);
 
             Assert.NotNull(rooms);
@@ -63,20 +63,24 @@ namespace CTS_DAL_XUnit
 
         private Room GetRoomExecQuery(string query)
         {
-            Room room = null;
-            using (connection = DBHelper.OpenConnection())
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
-                using (reader = command.ExecuteReader())
+                connection.Open();
+            }
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+            Room room = null;
+            using (reader = command.ExecuteReader())
+            {
+                while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        room = roomDAL.GetRoom(reader);
-                    }
+                    room = roomDAL.GetRoom(reader);
                 }
             }
+        
+            connection.Close();    
 
             return room;
         }
-    }
+}
 }
