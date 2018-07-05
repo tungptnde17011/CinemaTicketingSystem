@@ -10,22 +10,30 @@ namespace CTS_DAL
         private MySqlDataReader reader;
         private string query;
 
+        public CinemaDAL()
+        {
+            connection = DBHelper.OpenConnection();
+        }
+
         public Cinema GetCinemaByCineId(int? cineId)
         {
-            query = $"select * from Cinemas where cine_id = " + cineId + ";";
-
-            Cinema cinema = null;
-            using (connection = DBHelper.OpenConnection())
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
-                using (reader = command.ExecuteReader())
+                connection.Open();
+            }
+
+            query = $"select * from Cinemas where cine_id = " + cineId + ";";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            Cinema cinema = null;
+            using (reader = command.ExecuteReader())
+            {
+                if (reader.Read())
                 {
-                    if (reader.Read())
-                    {
-                        cinema = GetCinema(reader);
-                    }
+                    cinema = GetCinema(reader);
                 }
             }
+
+            connection.Close();
 
             return cinema;
         }

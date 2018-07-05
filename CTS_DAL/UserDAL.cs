@@ -11,6 +11,11 @@ namespace CTS_DAL
         private MySqlDataReader reader;
         private string query;
 
+        public UserDAL()
+        {
+            connection = DBHelper.OpenConnection();
+        }
+
         public User Login(string username, string password)
         {
             Regex regex = new Regex("[a-zA-Z0-9_]");
@@ -21,20 +26,23 @@ namespace CTS_DAL
                 return null;
             }
 
-            query = @"select * from Accounts where acc_username = '" + username + "' and acc_password= '" + password + "';";
-
-            User user = null;
-            using (connection = DBHelper.OpenConnection())
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
-                using (reader = command.ExecuteReader())
+                connection.Open();
+            }
+
+            query = @"select * from Accounts where acc_username = '" + username + "' and acc_password= '" + password + "';";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            User user = null;
+            using (reader = command.ExecuteReader())
+            {
+                if (reader.Read())
                 {
-                    if (reader.Read())
-                    {
-                        user = GetUser(reader);
-                    }
+                    user = GetUser(reader);
                 }
             }
+
+            connection.Close();
 
             if (user != null)
             {

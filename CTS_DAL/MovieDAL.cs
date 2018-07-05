@@ -11,43 +11,54 @@ namespace CTS_DAL
         private MySqlConnection connection;
         private MySqlDataReader reader;
 
+        public MovieDAL()
+        {
+            connection = DBHelper.OpenConnection();
+        }
+
         public Movie GetMovieByMovieId(int? movieId)
         {
-            query = $"select * from Movies where movie_id = " + movieId + ";";
-
-            Movie movie = null;
-            using (connection = DBHelper.OpenConnection())
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
-                using (reader = command.ExecuteReader())
+                connection.Open();
+            }
+
+            query = $"select * from Movies where movie_id = " + movieId + ";";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            Movie movie = null;
+            using (reader = command.ExecuteReader())
+            {
+                if (reader.Read())
                 {
-                    if (reader.Read())
-                    {
-                        movie = GetMovie(reader);
-                    }
+                    movie = GetMovie(reader);
                 }
             }
+
+            connection.Close();
 
             return movie;
         }
 
         public List<Movie> GetMoviesByCineId(int? cineId)
         {
-            query = $"select * from Shows inner join Movies on Shows.movie_id = Movies.movie_id where cine_id = " + cineId + ";";
-
-            List<Movie> movies = null;
-            using (connection = DBHelper.OpenConnection())
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
-                using (reader = command.ExecuteReader())
+                connection.Open();
+            }
+
+            query = $"select * from Shows inner join Movies on Shows.movie_id = Movies.movie_id where cine_id = " + cineId + ";";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            List<Movie> movies = null;
+            using (reader = command.ExecuteReader())
+            {
+                movies = new List<Movie>();
+                while (reader.Read())
                 {
-                    movies = new List<Movie>();
-                    while (reader.Read())
-                    {
-                        movies.Add(GetMovie(reader));
-                    }
+                    movies.Add(GetMovie(reader));
                 }
             }
+
+            connection.Close();
 
             return movies;
         }
@@ -64,7 +75,7 @@ namespace CTS_DAL
             DateTime movieDateStart = reader.GetDateTime("movie_dateStart");
             DateTime movieDateEnd = reader.GetDateTime("movie_dateEnd");
 
-            Movie movie = new Movie(movieId, movieName, movieDescription, movieAuthor, movieActor, 
+            Movie movie = new Movie(movieId, movieName, movieDescription, movieAuthor, movieActor,
                                     movieCategory, movieTime, movieDateStart, movieDateEnd);
 
             return movie;

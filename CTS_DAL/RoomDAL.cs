@@ -11,43 +11,54 @@ namespace CTS_DAL
         private MySqlDataReader reader;
         private string query;
 
+        public RoomDAL()
+        {
+            connection = DBHelper.OpenConnection();
+        }
+
         public Room GetRoomByRoomId(int? roomId)
         {
-            query = $"select * from Rooms where room_id = " + roomId + ";";
-
-            Room room = null;
-            using (connection = DBHelper.OpenConnection())
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
-                using (reader = command.ExecuteReader())
+                connection.Open();
+            }
+
+            query = $"select * from Rooms where room_id = " + roomId + ";";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            Room room = null;
+            using (reader = command.ExecuteReader())
+            {
+                if (reader.Read())
                 {
-                    if (reader.Read())
-                    {
-                        room = GetRoom(reader);
-                    }
+                    room = GetRoom(reader);
                 }
             }
+
+            connection.Close();
 
             return room;
         }
 
         public List<Room> GetRoomsByCineId(int? cineId)
         {
-            query = $"select * from Rooms where cine_id = " + cineId + ";";
-
-            List<Room> rooms = null;
-            using (connection = DBHelper.OpenConnection())
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
-                using (reader = command.ExecuteReader())
+                connection.Open();
+            }
+
+            query = $"select * from Rooms where cine_id = " + cineId + ";";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            List<Room> rooms = null;
+            using (reader = command.ExecuteReader())
+            {
+                rooms = new List<Room>();
+                while (reader.Read())
                 {
-                    rooms = new List<Room>();
-                    while (reader.Read())
-                    {
-                        rooms.Add(GetRoom(reader));
-                    }
+                    rooms.Add(GetRoom(reader));
                 }
             }
+
+            connection.Close();
 
             return rooms;
         }
