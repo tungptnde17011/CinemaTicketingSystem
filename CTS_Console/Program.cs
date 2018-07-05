@@ -45,32 +45,7 @@ namespace CTS_Console
             }
             Console.Write("Nhập Password: ");
             string pw = Password();
-            while (validate(pw) == false)
-            {
-                Console.WriteLine("Password không được chứa ký tự đặc biệt!");
-                Console.WriteLine("Bạn có muốn trở về màn hình chính?(Y/N)");
-                char choice = Convert.ToChar(Console.ReadLine());
-                switch (choice)
-                {
-                    case 'y':
-                        MenuChoice();
-                        break;
-                    case 'Y':
-                        MenuChoice();
-                        break;
-                    case 'n':
-                        Console.Write("Nhập lại Password: ");
-                        pw = Password();
-                        break;
-                    case 'N':
-                        Console.Write("Nhập lại Password: ");
-                        pw = Password();
-                        break;
-                    default:
-                        continue;
-                }
-                return;
-            }
+
             UserBL ubl = new UserBL();
             while (ubl.Login(un, pw) == null)
             {
@@ -93,29 +68,7 @@ namespace CTS_Console
                 }
                 Console.Write("Nhập lại Password: ");
                 pw = Password();
-                while (validate(pw) == false)
-                {
-                    Console.WriteLine("Password không được chứa ký tự đặc biệt!");
-                    Console.WriteLine("Bạn có muốn trở về màn hình chính?(Y/N)");
-                    char choice = Convert.ToChar(Console.ReadLine());
-                    switch (choice)
-                    {
-                        case 'y':
-                            MenuChoice();
-                            break;
-                        case 'Y':
-                            MenuChoice();
-                            break;
-                        case 'n':
-                            break;
-                        case 'N':
-                            break;
-                        default:
-                            continue;
-                    }
-                    Console.Write("Nhập lại Password: ");
-                    pw = Password();
-                }
+
             }
             if (ubl.Login(un, pw).Type == "m")
             {

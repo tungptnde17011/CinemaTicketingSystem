@@ -15,3 +15,4 @@ D:\project\CinemaTicketingSystem\CTS_Console\obj\Debug\netcoreapp2.0\CTS_Console
 D:\project\CinemaTicketingSystem\CTS_Console\obj\Debug\netcoreapp2.0\CTS_Console.AssemblyInfo.cs
 D:\project\CinemaTicketingSystem\CTS_Console\obj\Debug\netcoreapp2.0\CTS_Console.dll
 D:\project\CinemaTicketingSystem\CTS_Console\obj\Debug\netcoreapp2.0\CTS_Console.pdb
+D:\project\CinemaTicketingSystem\CTS_Console\bin\Debug\netcoreapp2.0\ConnectionString.txt
