@@ -13,7 +13,6 @@
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL_XUnit/bin/Debug/netcoreapp2.0/CTS_BL.pdb
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL_XUnit/bin/Debug/netcoreapp2.0/CTS_Persistence.pdb
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL_XUnit/bin/Debug/netcoreapp2.0/CTS_DAL.pdb
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL_XUnit/obj/Debug/netcoreapp2.0/CTS_BL_XUnit.csprojResolveAssemblyReference.cache
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL_XUnit/obj/Debug/netcoreapp2.0/CTS_BL_XUnit.csproj.CoreCompileInputs.cache
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL_XUnit/obj/Debug/netcoreapp2.0/CTS_BL_XUnit.AssemblyInfoInputs.cache
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL_XUnit/obj/Debug/netcoreapp2.0/CTS_BL_XUnit.AssemblyInfo.cs
