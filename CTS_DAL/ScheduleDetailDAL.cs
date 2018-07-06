@@ -16,43 +16,44 @@ namespace CTS_DAL
             connection = DBHelper.OpenConnection();
         }
 
-        public bool CreateScheduleDetails(List<ScheduleDetail> schedDetails)
-        {
-            bool result = false;
-            if(schedDetails == null || schedDetails.Count == 0)
-            {
-                return result;
-            }
+        // public bool CreateScheduleDetails(List<ScheduleDetail> schedDetails, MySqlConnection conn, MySqlCommand command)
+        // {
+        //     bool result = false;
+        //     if(schedDetails == null || schedDetails.Count == 0)
+        //     {
+        //         return result;
+        //     }
 
-            if(connection.State == System.Data.ConnectionState.Closed)
-            {
-                connection.Open();
-            }
+        //     // if(connection.State == System.Data.ConnectionState.Closed)
+        //     // {
+        //     //     connection.Open();
+        //     // }
+        //     connection = conn;
 
-            query = "insert into SchedulesDetails(sche_id, sched_timeStart, sched_timeEnd, sched_roomSeats) values";
-            string schedDetailValue;
-            string timeStart;
-            string timeEnd;
-            foreach (ScheduleDetail schedDetail in schedDetails)
-            {
-                timeStart = schedDetail.SchedTimeStart.ToString("yyyy/MM/dd HH:mm:ss");
-                timeEnd = schedDetail.SchedTimeEnd.ToString("yyyy/MM/dd HH:mm:ss");
-                schedDetailValue = "("+ schedDetail.ScheId +",'"+ timeStart +"','"+ timeEnd +"','"+ schedDetail.SchedRoomSeats +"'),";
+        //     query = "insert into SchedulesDetails(sche_id, sched_timeStart, sched_timeEnd, sched_roomSeats) values";
+        //     string schedDetailValue;
+        //     string timeStart;
+        //     string timeEnd;
+        //     foreach (ScheduleDetail schedDetail in schedDetails)
+        //     {
+        //         timeStart = schedDetail.SchedTimeStart.ToString("yyyy/MM/dd HH:mm:ss");
+        //         timeEnd = schedDetail.SchedTimeEnd.ToString("yyyy/MM/dd HH:mm:ss");
+        //         schedDetailValue = "("+ schedDetail.ScheId +",'"+ timeStart +"','"+ timeEnd +"','"+ schedDetail.SchedRoomSeats +"'),";
 
-                query = query + schedDetailValue;
-            }
+        //         query = query + schedDetailValue;
+        //     }
 
-            query = query.Substring(0, query.Length - 1) + ";";
-            MySqlCommand command = new MySqlCommand(query, connection);
-            if(command.ExecuteNonQuery() > 0)
-            {
-                result = true;
-            }
+        //     query = query.Substring(0, query.Length - 1) + ";";
+        //     command.CommandText = query;
+        //     if(command.ExecuteNonQuery() > 0)
+        //     {
+        //         result = true;
+        //     }
 
-            connection.Close();
+        //     connection.Close();
 
-            return result;
-        }
+        //     return result;
+        // }
 
         public ScheduleDetail GetScheduleDetailBySchedId(int? schedId)
         {

@@ -21,7 +21,7 @@ namespace CTS_DAL
             Regex regex = new Regex("[a-zA-Z0-9_]");
             MatchCollection matchCollectionUsername = regex.Matches(username);
             MatchCollection matchCollectionPassword = regex.Matches(password);
-            if (matchCollectionUsername.Count <= 0 || matchCollectionPassword.Count <= 0)
+            if (matchCollectionUsername.Count < username.Length || matchCollectionPassword.Count < password.Length)
             {
                 return null;
             }
