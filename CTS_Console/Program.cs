@@ -75,7 +75,7 @@ namespace CTS_Console
                     Console.Write("Nhập lại Password: ");
                     pw = Password();
                 }
-
+                
             }
             if (ubl.Login(un, pw).Type == "m")
             {
@@ -110,7 +110,7 @@ namespace CTS_Console
             {
                 Regex regex = new Regex("[a-zA-Z0-9_]");
                 MatchCollection matchCollectionstr = regex.Matches(str);
-                Console.WriteLine(matchCollectionstr.Count);
+                // Console.WriteLine(matchCollectionstr.Count);
                 if (matchCollectionstr.Count < str.Length)
                 {
                     return false;

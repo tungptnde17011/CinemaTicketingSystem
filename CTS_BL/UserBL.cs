@@ -14,7 +14,7 @@ namespace CTS_BL
             Regex regex = new Regex("[a-zA-Z0-9_]");
             MatchCollection matchCollectionUsername = regex.Matches(username);
             MatchCollection matchCollectionPassword = regex.Matches(password);
-            if(matchCollectionUsername.Count <= username.Length || matchCollectionPassword.Count <= password.Length)
+            if(matchCollectionUsername.Count < username.Length || matchCollectionPassword.Count < password.Length)
             {
                 return null;
             }
