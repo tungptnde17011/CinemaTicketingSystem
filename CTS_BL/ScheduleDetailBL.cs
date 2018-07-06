@@ -9,10 +9,10 @@ namespace CTS_BL
     public class ScheduleDetailBL
     {
         private ScheduleDetailDAL sddal = new ScheduleDetailDAL();
-        public bool CreateScheduleDetails(List<ScheduleDetail> schedDetails)
-        {
-            return sddal.CreateScheduleDetails(schedDetails);
-        }
+        // public bool CreateScheduleDetails(List<ScheduleDetail> schedDetails)
+        // {
+        //     return sddal.CreateScheduleDetails(schedDetails);
+        // }
         public ScheduleDetail GetScheduleDetailBySchedId(int? schedId)
         {
             Regex regex = new Regex("[0-9]");
