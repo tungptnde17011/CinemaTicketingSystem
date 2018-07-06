@@ -39,6 +39,24 @@ namespace CTS_Console
             string pw = Password();
             while ((validate(un, 0) == false) || (validate(pw, 0) == false))
             {
+                Console.Write("Đăng nhập lỗi, bạn có muốn tiếp tục đăng nhập không? (Y/N)");
+                Char choice = Convert.ToChar(Console.ReadLine());
+                switch(choice)
+                {
+                    case 'Y':
+                        break;
+                    case 'y':
+                        break;
+                    case 'n':
+                        MenuChoice();
+                        return;
+                    case 'N':
+                        MenuChoice();
+                        return;
+                    default:
+                        continue;
+                        // break;
+                }
                 Console.Clear();
                 Console.WriteLine("Username và Password không được chứa ký tự đặc biệt! ");
                 Console.WriteLine(row1);
@@ -54,6 +72,24 @@ namespace CTS_Console
             UserBL ubl = new UserBL();
             while (ubl.Login(un, pw) == null)
             {
+                Console.Write("Đăng nhập lỗi, bạn có muốn tiếp tục đăng nhập không? (Y/N)");
+                Char choice = Convert.ToChar(Console.ReadLine());
+                switch(choice)
+                {
+                    case 'Y':
+                        break;
+                    case 'y':
+                        break;
+                    case 'n':
+                        MenuChoice();
+                        return;
+                    case 'N':
+                        MenuChoice();
+                        return;
+                    default:
+                        continue;
+                        // break;
+                }
                 Console.Clear();
                 Console.WriteLine("Sai Username, Password!");
                 Console.WriteLine(row1);
@@ -65,6 +101,24 @@ namespace CTS_Console
                 pw = Password();
                 while ((validate(un, 0) == false) || (validate(pw, 0) == false))
                 {
+                    Console.Write("Đăng nhập lỗi, bạn có muốn tiếp tục đăng nhập không? (Y/N)");
+                 choice = Convert.ToChar(Console.ReadLine());
+                switch(choice)
+                {
+                    case 'Y':
+                        break;
+                    case 'y':
+                        break;
+                    case 'n':
+                        MenuChoice();
+                        return;
+                    case 'N':
+                        MenuChoice();
+                        return;
+                    default:
+                        continue;
+                        // break;
+                }
                     Console.Clear();
                     Console.WriteLine("Username và Password không được chứa ký tự đặc biệt! ");
                     Console.WriteLine(row1);
@@ -127,7 +181,7 @@ namespace CTS_Console
                 }
                 return true;
             }
-            else if (status == 3)
+            else if (status == 2)
             {
                 Regex regex = new Regex("[0-9]");
                 MatchCollection matchCollectionstr = regex.Matches(str);
