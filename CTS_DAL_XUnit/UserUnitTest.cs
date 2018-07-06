@@ -40,7 +40,7 @@ namespace CTS_DAL_XUnit
         [Fact]
         public void LoginTest4()
         {
-            Assert.Null(userDAL.Login("?^%", ".:=="));
+            Assert.Null(userDAL.Login("'?^%'", "'.:=='"));
         }
     }
 }

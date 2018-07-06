@@ -14,17 +14,17 @@ namespace CTS_DAL_XUnit
         private MySqlDataReader reader;
         private string query;
 
-        [Fact]
-        public void CreateScheduleDetailsTest1()
-        {
-            List<ScheduleDetail> schedDetails = new List<ScheduleDetail>();
-            DateTime timeStart = new DateTime(2018, 8, 2, 7, 0, 0);
-            DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
-            schedDetails.Add(new ScheduleDetail(null, 1, timeStart, timeEnd, "Room Seat"));
-            schedDetails.Add(new ScheduleDetail(null, 2, timeStart, timeEnd, "Room Seat"));
+        // [Fact]
+        // public void CreateScheduleDetailsTest1()
+        // {
+        //     List<ScheduleDetail> schedDetails = new List<ScheduleDetail>();
+        //     DateTime timeStart = new DateTime(2018, 8, 2, 7, 0, 0);
+        //     DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
+        //     schedDetails.Add(new ScheduleDetail(null, 1, timeStart, timeEnd, "Room Seat"));
+        //     schedDetails.Add(new ScheduleDetail(null, 2, timeStart, timeEnd, "Room Seat"));
 
-            Assert.True(schedDetailDAL.CreateScheduleDetails(schedDetails));
-        }
+        //     Assert.True(schedDetailDAL.CreateScheduleDetails(schedDetails));
+        // }
 
         [Fact]
         public void GetScheduleDetailBySchedIdTest1()
