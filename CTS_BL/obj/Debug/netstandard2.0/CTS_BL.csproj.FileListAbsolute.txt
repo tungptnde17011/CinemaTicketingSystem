@@ -11,17 +11,3 @@
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL/obj/Debug/netstandard2.0/CTS_BL.AssemblyInfo.cs
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL/obj/Debug/netstandard2.0/CTS_BL.dll
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_BL/obj/Debug/netstandard2.0/CTS_BL.pdb
-D:\project\CinemaTicketingSystem\CTS_BL\bin\Debug\netstandard2.0\ConnectionString.txt
-D:\project\CinemaTicketingSystem\CTS_BL\bin\Debug\netstandard2.0\CTS_BL.deps.json
-D:\project\CinemaTicketingSystem\CTS_BL\bin\Debug\netstandard2.0\CTS_BL.dll
-D:\project\CinemaTicketingSystem\CTS_BL\bin\Debug\netstandard2.0\CTS_BL.pdb
-D:\project\CinemaTicketingSystem\CTS_BL\bin\Debug\netstandard2.0\CTS_DAL.dll
-D:\project\CinemaTicketingSystem\CTS_BL\bin\Debug\netstandard2.0\CTS_Persistence.dll
-D:\project\CinemaTicketingSystem\CTS_BL\bin\Debug\netstandard2.0\CTS_DAL.pdb
-D:\project\CinemaTicketingSystem\CTS_BL\bin\Debug\netstandard2.0\CTS_Persistence.pdb
-D:\project\CinemaTicketingSystem\CTS_BL\obj\Debug\netstandard2.0\CTS_BL.csproj.CoreCompileInputs.cache
-D:\project\CinemaTicketingSystem\CTS_BL\obj\Debug\netstandard2.0\CTS_BL.AssemblyInfoInputs.cache
-D:\project\CinemaTicketingSystem\CTS_BL\obj\Debug\netstandard2.0\CTS_BL.AssemblyInfo.cs
-D:\project\CinemaTicketingSystem\CTS_BL\obj\Debug\netstandard2.0\CTS_BL.dll
-D:\project\CinemaTicketingSystem\CTS_BL\obj\Debug\netstandard2.0\CTS_BL.pdb
-D:\project\CinemaTicketingSystem\CTS_BL\obj\Debug\netstandard2.0\CTS_BL.csprojResolveAssemblyReference.cache
