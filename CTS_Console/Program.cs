@@ -22,7 +22,8 @@ namespace CTS_Console
                     MenuLogin();
                     break;
                 case 2:
-                    return;
+                    Environment.Exit(0);
+                    break;
             }
         }
         private static void MenuLogin()
@@ -37,11 +38,19 @@ namespace CTS_Console
             string un = Console.ReadLine();
             Console.Write("Nhập Password: ");
             string pw = Password();
+            char choice;
             while ((validate(un, 0) == false) || (validate(pw, 0) == false))
             {
                 Console.Write("Đăng nhập lỗi, bạn có muốn tiếp tục đăng nhập không? (Y/N)");
-                Char choice = Convert.ToChar(Console.ReadLine());
-                switch(choice)
+                try
+                {
+                    choice = Convert.ToChar(Console.ReadLine());
+                }
+                catch
+                {
+                    continue;
+                }
+                switch (choice)
                 {
                     case 'Y':
                         break;
@@ -49,10 +58,10 @@ namespace CTS_Console
                         break;
                     case 'n':
                         MenuChoice();
-                        return;
+                        break;
                     case 'N':
                         MenuChoice();
-                        return;
+                        break;
                     default:
                         continue;
                         // break;
@@ -73,8 +82,15 @@ namespace CTS_Console
             while (ubl.Login(un, pw) == null)
             {
                 Console.Write("Đăng nhập lỗi, bạn có muốn tiếp tục đăng nhập không? (Y/N)");
-                Char choice = Convert.ToChar(Console.ReadLine());
-                switch(choice)
+                try
+                {
+                    choice = Convert.ToChar(Console.ReadLine());
+                }
+                catch
+                {
+                    continue;
+                }
+                switch (choice)
                 {
                     case 'Y':
                         break;
@@ -82,10 +98,10 @@ namespace CTS_Console
                         break;
                     case 'n':
                         MenuChoice();
-                        return;
+                        break;
                     case 'N':
                         MenuChoice();
-                        return;
+                        break;
                     default:
                         continue;
                         // break;
@@ -102,23 +118,30 @@ namespace CTS_Console
                 while ((validate(un, 0) == false) || (validate(pw, 0) == false))
                 {
                     Console.Write("Đăng nhập lỗi, bạn có muốn tiếp tục đăng nhập không? (Y/N)");
-                 choice = Convert.ToChar(Console.ReadLine());
-                switch(choice)
-                {
-                    case 'Y':
-                        break;
-                    case 'y':
-                        break;
-                    case 'n':
-                        MenuChoice();
-                        return;
-                    case 'N':
-                        MenuChoice();
-                        return;
-                    default:
+                    try
+                    {
+                        choice = Convert.ToChar(Console.ReadLine());
+                    }
+                    catch
+                    {
                         continue;
-                        // break;
-                }
+                    }
+                    switch (choice)
+                    {
+                        case 'Y':
+                            break;
+                        case 'y':
+                            break;
+                        case 'n':
+                            MenuChoice();
+                            break;
+                        case 'N':
+                            MenuChoice();
+                            break;
+                        default:
+                            continue;
+                            // break;
+                    }
                     Console.Clear();
                     Console.WriteLine("Username và Password không được chứa ký tự đặc biệt! ");
                     Console.WriteLine(row1);
@@ -129,7 +152,7 @@ namespace CTS_Console
                     Console.Write("Nhập lại Password: ");
                     pw = Password();
                 }
-                
+
             }
             if (ubl.Login(un, pw).Type == "m")
             {
