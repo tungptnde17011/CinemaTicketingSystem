@@ -26,5 +26,59 @@ namespace CTS_DAL_XUnit
 
             Assert.True(scheDAL.CreateSchedule(sche));
         }
+
+        [Fact]
+        public void GetSchedulesByMovieIdTest1()
+        {
+            int movieId = 3;
+            List<Schedule> sches = scheDAL.GetSchedulesByMovieId(movieId);
+
+            query = $"select * from Schedules where movie_id = " + movieId + " order by rand() limit 1;";
+            Schedule scheRand = GetScheduleExecQuery(query);
+
+            query = $"select * from Schedules where movie_id = " + movieId + " order by sche_id asc limit 1;";
+            Schedule scheTop = GetScheduleExecQuery(query);
+
+            query = $"select * from Schedules where movie_id = " + movieId + " order by sche_id desc limit 1;";
+            Schedule scheBottom = GetScheduleExecQuery(query);
+
+            Assert.NotNull(sches);
+            Assert.NotNull(scheRand);
+            Assert.NotNull(scheTop);
+            Assert.NotNull(scheBottom);
+
+            Assert.Contains(scheRand, sches);
+
+            Assert.True(sches.IndexOf(scheTop) == 0);
+            Assert.True(sches.IndexOf(scheBottom) == (sches.Count - 1));
+        }
+
+        [Fact]
+        public void GetSchedulesByMovieIdTest2()
+        {
+            Assert.Equal(new List<Schedule>(), scheDAL.GetSchedulesByMovieId(0));
+        }
+
+        private Schedule GetScheduleExecQuery(string query)
+        {
+            if (connection.State == System.Data.ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+            Schedule sche = null;
+            using (reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    sche = scheDAL.GetSchedule(reader);
+                }
+            }
+
+            connection.Close();
+
+            return sche;
+        }
     }
 }

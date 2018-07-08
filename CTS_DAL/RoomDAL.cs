@@ -23,7 +23,7 @@ namespace CTS_DAL
                 connection.Open();
             }
 
-            query = $"select * from Rooms where room_id = " + roomId + ";";
+            query = @"select * from Rooms where room_id = " + roomId + ";";
             MySqlCommand command = new MySqlCommand(query, connection);
             Room room = null;
             using (reader = command.ExecuteReader())

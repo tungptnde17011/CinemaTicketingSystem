@@ -164,6 +164,8 @@ insert into PriceSeatsOfRoomTypes(rt_name, st_type, price) values
     ('IMAX2D','N',70000.00),
     ('IMAX2D','D',120000.00),
     ('IMAX2D','V',100000.00);
+    
+    select * from PriceSeatsOfRoomTypes where rt_name = '3D' group by st_type desc;
 
 create table if not exists SchedulesDetails(
 	sched_id int primary key auto_increment ,
@@ -182,6 +184,8 @@ insert into SchedulesDetails(sche_id, sched_timeStart, sched_timeEnd, sched_room
     (5,'2018/08/01 16:00:00','2018/08/01 17:30:00','_________________________________________________________n_________________________________________________________nN:A1 N:A2 . V:A3 V:A4 V:A5 V:A6 V:A7 V:A8 . N:A9 N:A10nN:B1 N:B2 . V:B3 V:B4 V:B5 V:B6 V:B7 V:B8 . N:B9 N:B10nN:C1 N:C2 . V:C3 V:C4 V:C5 V:C6 V:C7 V:C8 . N:C9 N:C10nN:D1 N:D2 . V:D3 V:D4 V:D5 V:D6 V:D7 V:D8 . N:D9 N:D10nN:E1 N:E2 . V:E3 V:E4 V:E5 V:E6 V:E7 V:E8 . N:E9 N:E10nN:F1 N:F2 . V:F3 V:F4 V:F5 V:F6 V:F7 V:F8 . N:F9 N:F10nN:G1 N:G2 . V:G3 V:G4 V:G5 V:G6 V:G7 V:G8 . N:G9 N:G10nN:H1 N:H2 . V:H3 V:H4 V:H5 V:H6 V:H7 V:H8 . N:H9 N:H10nN:I1 N:I2 . V:I3 V:I4 V:I5 V:I6 V:I7 V:I8 . N:I9 N:I10nN:J1 N:J2 . V:J3 V:J4 V:J5 V:J6 V:J7 V:J8 . N:J9 N:J10nN:K1 N:K2 . V:K3 V:K4 V:K5 V:K6 V:K7 V:K8 . N:K9 N:K10n');
 
 select * from SchedulesDetails;
+select * from Schedules where movie_id = 3;
+-- update SchedulesDetails set sched_roomSeats = "RoomSeat" where sched_id = 3;
 
 create table if not exists Accounts (
 	acc_username char(20) primary key,

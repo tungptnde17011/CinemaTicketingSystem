@@ -24,5 +24,16 @@ namespace CTS_Persistence
             this.MovieId = movieId;
             this.ScheduleDetails = scheduleDetails;
         }
+        public override bool Equals(object obj)
+        {
+            Schedule sche = (Schedule)obj;
+
+            return ScheId == sche.ScheId;
+        }
+
+        public override int GetHashCode()
+        {
+            return (ScheId + ScheStatus + ScheWeekdays + ScheTimeline + RoomId + MovieId + ScheduleDetails).GetHashCode();
+        }
     }
 }

@@ -77,10 +77,10 @@ namespace CTS_DAL_XUnit
                     room = roomDAL.GetRoom(reader);
                 }
             }
-        
-            connection.Close();    
+
+            connection.Close();
 
             return room;
         }
-}
+    }
 }
