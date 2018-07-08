@@ -16,4 +16,26 @@
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_DAL_XUnit/obj/Debug/netcoreapp2.0/CTS_DAL_XUnit.AssemblyInfo.cs
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_DAL_XUnit/obj/Debug/netcoreapp2.0/CTS_DAL_XUnit.dll
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_DAL_XUnit/obj/Debug/netcoreapp2.0/CTS_DAL_XUnit.pdb
+<<<<<<< HEAD
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_DAL_XUnit/obj/Debug/netcoreapp2.0/CTS_DAL_XUnit.csprojResolveAssemblyReference.cache
+=======
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\ConnectionString.txt
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\CTS_DAL_XUnit.deps.json
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\CTS_DAL_XUnit.runtimeconfig.json
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\CTS_DAL_XUnit.runtimeconfig.dev.json
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\CTS_DAL_XUnit.dll
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\CTS_DAL_XUnit.pdb
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\CTS_DAL.dll
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\CTS_Persistence.dll
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\CTS_DAL.pdb
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\bin\Debug\netcoreapp2.0\CTS_Persistence.pdb
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\obj\Debug\netcoreapp2.0\CTS_DAL_XUnit.csproj.CoreCompileInputs.cache
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\obj\Debug\netcoreapp2.0\CTS_DAL_XUnit.AssemblyInfoInputs.cache
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\obj\Debug\netcoreapp2.0\CTS_DAL_XUnit.AssemblyInfo.cs
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\obj\Debug\netcoreapp2.0\CTS_DAL_XUnit.dll
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\obj\Debug\netcoreapp2.0\CTS_DAL_XUnit.pdb
+D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\obj\Debug\netcoreapp2.0\CTS_DAL_XUnit.csprojResolveAssemblyReference.cache
+>>>>>>> f76c3faeee6bb4c257c76a6624defa3554fecadc
