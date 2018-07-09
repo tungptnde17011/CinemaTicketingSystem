@@ -15,9 +15,14 @@ namespace CTS_BL
         // }
         public ScheduleDetail GetScheduleDetailBySchedId(int? schedId)
         {
+            
             Regex regex = new Regex("[0-9]");
             MatchCollection matchCollection = regex.Matches(schedId.ToString());
-            if (matchCollection.Count < schedId.ToString().Length)
+            if (schedId == null)
+            {
+                return null;
+            }
+            else if (matchCollection.Count < schedId.ToString().Length)
             {
                 return null;
             }
@@ -27,7 +32,11 @@ namespace CTS_BL
         {
             Regex regex = new Regex("[0-9]");
             MatchCollection matchCollection = regex.Matches(scheId.ToString());
-            if (matchCollection.Count < scheId.ToString().Length)
+            if (scheId == null)
+            {
+                return null;
+            }
+            else if (matchCollection.Count < scheId.ToString().Length)
             {
                 return null;
             }

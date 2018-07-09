@@ -16,7 +16,11 @@ namespace CTS_BL
         {
             Regex regex = new Regex("[0-9]");
             MatchCollection matchCollection = regex.Matches(movieId.ToString());
-            if (matchCollection.Count < movieId.ToString().Length)
+            if (movieId == null)
+            {
+                return null;
+            }
+            else if (matchCollection.Count < movieId.ToString().Length)
             {
                 return null;
             }
