@@ -102,13 +102,14 @@ namespace CTS_Console
             Console.WriteLine(row1);
             Console.Write("Chọn lịch chiếu: ");
             int scheno = input(Console.ReadLine());
-            Console.WriteLine(lsd[0].SchedId);
+            Console.WriteLine(lsd[scheno-1].SchedId);
             while (scheno > lsd.Count)
             {
                 Console.Write("Chọn sai lịch chiếu, mời nhập lại: ");
                 scheno = input(Console.ReadLine());
             }
-            sched.SchedId = lsd[scheno-1].SchedId;
+            int? schedId = lsd[scheno-1].SchedId;
+            sched = sdbl.GetScheduleDetailBySchedId(schedId);
              
             string[] seat = ChoiceSeats(sched);
         }
@@ -116,7 +117,7 @@ namespace CTS_Console
         {
             // Console.Clear();
             string roomSeats = sched.SchedRoomSeats;
-           Console.WriteLine(roomSeats);
+        //    Console.WriteLine(roomSeats);
             string[] seats = roomSeats.Split(" ");
 
             DrawRoomSeats(seats);
