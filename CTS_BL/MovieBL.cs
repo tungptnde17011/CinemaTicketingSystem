@@ -30,11 +30,19 @@ namespace CTS_BL
         {
             Regex regex = new Regex("[0-9]");
             MatchCollection matchCollection = regex.Matches(cineId.ToString());
-            if (matchCollection.Count < cineId.ToString().Length)
+            if (cineId == null)
+            {
+                return null;
+            }
+            else if (matchCollection.Count < cineId.ToString().Length)
             {
                 return null;
             }
             return mdal.GetMoviesByCineId(cineId);
+        }
+        public List<Movie> GetMoviesByCineIdAndDateNow(int? cineId)
+        {
+            return mdal.GetMoviesByCineIdAndDateNow(cineId);
         }
     }
 }

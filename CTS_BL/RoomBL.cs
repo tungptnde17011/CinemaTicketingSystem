@@ -15,7 +15,11 @@ namespace CTS_BL
         {
             Regex regex = new Regex("[0-9]");
             MatchCollection matchCollection = regex.Matches(roomId.ToString());
-            if (matchCollection.Count < roomId.ToString().Length)
+            if (roomId == null)
+            {
+                return null;
+            }
+            else if (matchCollection.Count < roomId.ToString().Length)
             {
                 return null;
             }
@@ -25,7 +29,11 @@ namespace CTS_BL
         {
             Regex regex = new Regex("[0-9]");
             MatchCollection matchCollection = regex.Matches(cineId.ToString());
-            if (matchCollection.Count < cineId.ToString().Length)
+            if (cineId == null)
+            {
+                return null;
+            }
+            else if (matchCollection.Count < cineId.ToString().Length)
             {
                 return null;
             }

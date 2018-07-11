@@ -42,5 +42,9 @@ namespace CTS_BL
             }
             return sddal.GetScheduleDetailsByScheId(scheId);
         }
+        public List<ScheduleDetail> GetScheduleDetailsBySchedIdAndTimeNow(int? scheId)
+        {
+            return sddal.GetScheduleDetailsByScheIdAndDateNow(scheId);
+        }
     }
 }

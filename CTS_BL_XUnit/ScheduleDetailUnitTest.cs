@@ -39,5 +39,11 @@ namespace CTS_BL_XUnit
         {
             Assert.Null( sdbl.GetScheduleDetailsByScheId(null));
         }
+
+        [Fact]
+        public void GetScheduleDetailsBySchedIdAndTimeNowTest1()
+        {
+            Assert.Null(sdbl.GetScheduleDetailsByScheId(3));
+        }
     }
 }

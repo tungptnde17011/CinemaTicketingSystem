@@ -10,13 +10,6 @@ namespace CTS_BL
         ScheduleDAL sdal = new ScheduleDAL();
         public bool CreateSchedule(Schedule sche)
         {
-            foreach (var item in GetSchedulesByMovieId(sche.RoomId))
-            {
-                if(sche.ScheTimeline == item.ScheTimeline && sche.RoomId == item.RoomId )
-                {
-                    return false;
-                }
-            }
             return sdal.CreateSchedule(sche);
         }
         public List<Schedule> GetSchedulesByMovieId(int? movieId)
