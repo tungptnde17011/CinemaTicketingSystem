@@ -31,14 +31,14 @@ namespace CTS_Console
             Console.WriteLine(row1);
             Console.WriteLine(" ĐĂNG NHẬP");
             Console.WriteLine(row2);
-            Console.Write("Nhập Username: ");
+            Console.Write("Tên đăng nhập: ");
             string un = Console.ReadLine();
-            Console.Write("Nhập Password: ");
+            Console.Write("Mật khẩu: ");
             string pw = Password();
             string choice;
             while ((validate(un) == false) || (validate(pw) == false))
             {
-                Console.Write("Username và Password không được chứa kí tự đặc biệt, bạn có muốn tiếp tục đăng nhập không? (C/K)");
+                Console.Write("Tên đăng nhập và mật khẩu không được chứa kí tự đặc biệt, bạn có muốn tiếp tục đăng nhập không? (C/K)");
                 choice = Console.ReadLine();
 
                 switch (choice)
@@ -63,9 +63,9 @@ namespace CTS_Console
                 Console.WriteLine(row1);
                 Console.WriteLine(" ĐĂNG NHẬP");
                 Console.WriteLine(row2);
-                Console.Write("Nhập lại Username: ");
+                Console.Write("Tên đăng nhập: ");
                 un = Console.ReadLine();
-                Console.Write("Nhập lại Password: ");
+                Console.Write("Mật khẩu: ");
                 pw = Password();
             }
 
@@ -74,7 +74,7 @@ namespace CTS_Console
             while (ubl.Login(un, pw) == null)
             {
 
-                Console.Write("Username hoặc Password không đúng, bạn có muốn tiếp tục đăng nhập không? (C/K)");
+                Console.Write("Tên đăng nhập hoặc mật khẩu không đúng, bạn có muốn tiếp tục đăng nhập không? (C/K)");
                 choice = Console.ReadLine();
 
                 switch (choice)
@@ -99,13 +99,13 @@ namespace CTS_Console
                 Console.WriteLine(row1);
                 Console.WriteLine(" ĐĂNG NHẬP");
                 Console.WriteLine(row2);
-                Console.Write("Nhập lại Username: ");
+                Console.Write("Tên đăng nhập: ");
                 un = Console.ReadLine();
-                Console.Write("Nhập lại Password: ");
+                Console.Write("Mật khẩu: ");
                 pw = Password();
                 while ((validate(un) == false) || (validate(pw) == false))
                 {
-                    Console.Write("Username và Password không được chứa kí tự đặc biệt, bạn có muốn tiếp tục đăng nhập không? (C/K)");
+                    Console.Write("Tên đăng nhập và mật khẩu không được chứa kí tự đặc biệt, bạn có muốn tiếp tục đăng nhập không? (C/K)");
                     choice = Console.ReadLine();
 
                     switch (choice)
@@ -130,9 +130,9 @@ namespace CTS_Console
                     Console.WriteLine(row1);
                     Console.WriteLine(" ĐĂNG NHẬP");
                     Console.WriteLine(row2);
-                    Console.Write("Nhập lại Username: ");
+                    Console.Write("Tên đăng nhập: ");
                     un = Console.ReadLine();
-                    Console.Write("Nhập lại Password: ");
+                    Console.Write("Mật khẩu: ");
                     pw = Password();
                 }
 
