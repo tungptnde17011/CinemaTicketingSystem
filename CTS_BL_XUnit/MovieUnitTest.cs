@@ -26,17 +26,17 @@ namespace CTS_BL_XUnit
         [Fact]
         public void GetMovieByCineIdTest1()
         {
-            Assert.NotNull(mbl.GetMovieByCineId(1));
+            Assert.NotNull(mbl.GetMoviesByCineId(1));
         }
         [Fact]
         public void GetMovieByCineIdTest2()
         {
-            Assert.Equal(new List<Movie>(), mbl.GetMovieByCineId(0));
+            Assert.Equal(new List<Movie>(), mbl.GetMoviesByCineId(0));
         }
         [Fact]
         public void GetMovieByCineIdTest3()
         {
-            Assert.Null(mbl.GetMovieByCineId(null));
+            Assert.Null(mbl.GetMoviesByCineId(null));
         }
         
     }

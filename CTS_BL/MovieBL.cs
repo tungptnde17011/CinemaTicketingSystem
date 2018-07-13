@@ -26,7 +26,7 @@ namespace CTS_BL
             }
             return mdal.GetMovieByMovieId(movieId);
         }
-        public List<Movie> GetMovieByCineId(int? cineId)
+        public List<Movie> GetMoviesByCineId(int? cineId)
         {
             Regex regex = new Regex("[0-9]");
             MatchCollection matchCollection = regex.Matches(cineId.ToString());

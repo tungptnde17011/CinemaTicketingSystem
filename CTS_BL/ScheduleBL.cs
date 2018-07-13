@@ -20,5 +20,17 @@ namespace CTS_BL
             }
             return sdal.GetSchedulesByMovieId(movieId);
         }
+        public Schedule GetScheduleByMovieIdAndRoomId(int? movieId, int? roomId)
+        {
+            if ((movieId == null) || (roomId == null))
+            {
+                return null;
+            }
+            return sdal.GetScheduleByMovieIdAndRoomId(movieId, roomId);
+        }
+        public Schedule GetScheduleByScheId(int? scheId)
+        {
+            return sdal.GetScheduleByScheId(scheId);
+        }
     }
 }

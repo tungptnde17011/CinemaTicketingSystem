@@ -8,7 +8,7 @@ namespace CTS_Console
 {
     public class Menus
     {
-        public  void MenuChoice()
+        public void MenuChoice()
         {
             Console.Clear();
             string[] choice = { "Đăng nhập", "Thoát chương trình" };
@@ -36,21 +36,21 @@ namespace CTS_Console
             Console.Write("Nhập Password: ");
             string pw = Password();
             string choice;
-            while ((validate(un, 0) == false) || (validate(pw, 0) == false))
+            while ((validate(un) == false) || (validate(pw) == false))
             {
-                Console.Write("Đăng nhập lỗi, bạn có muốn tiếp tục đăng nhập không? (Y/N)");
+                Console.Write("Username và Password không được chứa kí tự đặc biệt, bạn có muốn tiếp tục đăng nhập không? (C/K)");
                 choice = Console.ReadLine();
 
                 switch (choice)
                 {
-                    case "Y":
+                    case "C":
                         break;
-                    case "y":
+                    case "c":
                         break;
-                    case "n":
+                    case "K":
                         MenuChoice();
                         break;
-                    case "N":
+                    case "k":
                         MenuChoice();
                         break;
                     default:
@@ -59,7 +59,7 @@ namespace CTS_Console
                         // break;
                 }
                 Console.Clear();
-                Console.WriteLine("Username và Password không được chứa ký tự đặc biệt! ");
+                // Console.WriteLine("Username và Password không được chứa ký tự đặc biệt! ");
                 Console.WriteLine(row1);
                 Console.WriteLine(" ĐĂNG NHẬP");
                 Console.WriteLine(row2);
@@ -74,19 +74,19 @@ namespace CTS_Console
             while (ubl.Login(un, pw) == null)
             {
 
-                Console.Write("Đăng nhập lỗi, bạn có muốn tiếp tục đăng nhập không? (Y/N)");
+                Console.Write("Username hoặc Password không đúng, bạn có muốn tiếp tục đăng nhập không? (C/K)");
                 choice = Console.ReadLine();
 
                 switch (choice)
                 {
-                    case "Y":
+                    case "C":
                         break;
-                    case "y":
+                    case "c":
                         break;
-                    case "n":
+                    case "K":
                         MenuChoice();
                         break;
-                    case "N":
+                    case "k":
                         MenuChoice();
                         break;
                     default:
@@ -95,7 +95,7 @@ namespace CTS_Console
                         // break;
                 }
                 Console.Clear();
-                Console.WriteLine("Sai Username, Password!");
+                // Console.WriteLine("Sai Username, Password!");
                 Console.WriteLine(row1);
                 Console.WriteLine(" ĐĂNG NHẬP");
                 Console.WriteLine(row2);
@@ -103,21 +103,21 @@ namespace CTS_Console
                 un = Console.ReadLine();
                 Console.Write("Nhập lại Password: ");
                 pw = Password();
-                while ((validate(un, 0) == false) || (validate(pw, 0) == false))
+                while ((validate(un) == false) || (validate(pw) == false))
                 {
-                    Console.Write("Đăng nhập lỗi, bạn có muốn tiếp tục đăng nhập không? (Y/N)");
+                    Console.Write("Username và Password không được chứa kí tự đặc biệt, bạn có muốn tiếp tục đăng nhập không? (C/K)");
                     choice = Console.ReadLine();
 
                     switch (choice)
                     {
-                        case "Y":
+                        case "C":
                             break;
-                        case "y":
+                        case "c":
                             break;
-                        case "n":
+                        case "K":
                             MenuChoice();
                             break;
-                        case "N":
+                        case "k":
                             MenuChoice();
                             break;
                         default:
@@ -126,7 +126,7 @@ namespace CTS_Console
                             // break;
                     }
                     Console.Clear();
-                    Console.WriteLine("Username và Password không được chứa ký tự đặc biệt! ");
+                    // Console.WriteLine("Username và Password không được chứa ký tự đặc biệt! ");
                     Console.WriteLine(row1);
                     Console.WriteLine(" ĐĂNG NHẬP");
                     Console.WriteLine(row2);
@@ -146,10 +146,8 @@ namespace CTS_Console
                 menuStaff(ubl.Login(un, pw));
             }
         }
-        public  bool validate(string str, int status)
+        public bool validate(string str)
         {
-            if (status == 0)
-            {
                 Regex regex = new Regex("[a-zA-Z0-9_]");
                 MatchCollection matchCollectionstr = regex.Matches(str);
                 // Console.WriteLine(matchCollectionstr.Count);
@@ -158,44 +156,30 @@ namespace CTS_Console
                     return false;
                 }
                 return true;
-            }
-            else if (status == 1)
-            {
-                Regex regex = new Regex("[0-9]");
-                MatchCollection matchCollectionstr = regex.Matches(str);
-                if ((str.Length < 1) || (str.Length > 2) || (matchCollectionstr.Count < str.Length) || (Int16.Parse(str)) > 23 || (Int16.Parse(str) < 0))
-                {
-                    return false;
-                }
-                return true;
-            }
-            else if (status == 2)
-            {
-                Regex regex = new Regex("[0-9]");
-                MatchCollection matchCollectionstr = regex.Matches(str);
-                if ((str.Length < 1) || (str.Length > 2) || (matchCollectionstr.Count < str.Length) || (Int16.Parse(str)) > 60 || (Int16.Parse(str) < 0))
-                {
-                    return false;
-                }
-                return true;
-            }
-            return false;
+            
         }
-        public  void menuManager(User us)
+        public void menuManager(User us)
         {
             Console.Clear();
             string[] managermenu = { "Tạo lịch chiếu phim", "Đăng xuất" };
             int mana = Menu("Chào mừng bạn đến với DHB Cineplex", managermenu);
             switch (mana)
             {
-
+                case 1:
+                    Console.Clear();
+                    ConsoleManager cm = new ConsoleManager();
+                    cm.CreateSchedule(us);
+                    break;
                 case 2:
                     Console.Clear();
                     MenuChoice();
                     break;
+                default:
+                    menuManager(us);
+                    return;
             }
         }
-        public  void menuStaff(User us)
+        public void menuStaff(User us)
         {
             Console.Clear();
             string[] staffmenu = { "Đặt vé.", "Đăng xuất." };
@@ -211,9 +195,12 @@ namespace CTS_Console
                     Console.Clear();
                     MenuChoice();
                     break;
+                default:
+                    menuStaff(us);
+                    return;
             }
         }
-        public  string Password()
+        public string Password()
         {
             StringBuilder sb = new StringBuilder();
             while (true)
@@ -238,7 +225,7 @@ namespace CTS_Console
             }
             return sb.ToString();
         }
-        public  short Menu(string title, string[] menuItems)
+        public short Menu(string title, string[] menuItems)
         {
             short choose = 0;
             string line1 = "========================================";
