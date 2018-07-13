@@ -148,15 +148,15 @@ namespace CTS_Console
         }
         public bool validate(string str)
         {
-                Regex regex = new Regex("[a-zA-Z0-9_]");
-                MatchCollection matchCollectionstr = regex.Matches(str);
-                // Console.WriteLine(matchCollectionstr.Count);
-                if (matchCollectionstr.Count < str.Length)
-                {
-                    return false;
-                }
-                return true;
-            
+            Regex regex = new Regex("[a-zA-Z0-9_]");
+            MatchCollection matchCollectionstr = regex.Matches(str);
+            // Console.WriteLine(matchCollectionstr.Count);
+            if (matchCollectionstr.Count < str.Length)
+            {
+                return false;
+            }
+            return true;
+
         }
         public void menuManager(User us)
         {
@@ -215,12 +215,15 @@ namespace CTS_Console
                 {
                     if (sb.Length > 0)
                     {
-                        Console.Write("\b\0\b");
+                        Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+                        Console.Write(" ");
+                        Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
                         sb.Length--;
                     }
                     continue;
                 }
                 Console.Write('*');
+
                 sb.Append(cki.KeyChar);
             }
             return sb.ToString();
