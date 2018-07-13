@@ -6109,23 +6109,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/user/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\vuong\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_DAL_XUnit/CTS_DAL_XUnit.csproj",
+      "projectUniqueName": "d:\\project\\CinemaTicketingSystem\\CTS_DAL_XUnit\\CTS_DAL_XUnit.csproj",
       "projectName": "CTS_DAL_XUnit",
-      "projectPath": "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_DAL_XUnit/CTS_DAL_XUnit.csproj",
-      "packagesPath": "/Users/user/.nuget/packages/",
-      "outputPath": "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_DAL_XUnit/obj/",
+      "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_DAL_XUnit\\CTS_DAL_XUnit.csproj",
+      "packagesPath": "C:\\Users\\vuong\\.nuget\\packages\\",
+      "outputPath": "d:\\project\\CinemaTicketingSystem\\CTS_DAL_XUnit\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/user/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\vuong\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -6136,11 +6136,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_DAL/CTS_DAL.csproj": {
-              "projectPath": "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_DAL/CTS_DAL.csproj"
+            "d:\\project\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj": {
+              "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj"
             },
-            "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/CTS_Persistence.csproj": {
-              "projectPath": "/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/CTS_Persistence.csproj"
+            "d:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj": {
+              "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj"
             }
           }
         }
