@@ -16,3 +16,4 @@ D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\obj\Debug\netcoreapp2.0\CTS_DAL_X
 D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\obj\Debug\netcoreapp2.0\CTS_DAL_XUnit.AssemblyInfo.cs
 D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\obj\Debug\netcoreapp2.0\CTS_DAL_XUnit.dll
 D:\project\CinemaTicketingSystem\CTS_DAL_XUnit\obj\Debug\netcoreapp2.0\CTS_DAL_XUnit.pdb
+d:\project\CinemaTicketingSystem\CTS_DAL_XUnit\obj\Debug\netcoreapp2.0\CTS_DAL_XUnit.csprojResolveAssemblyReference.cache

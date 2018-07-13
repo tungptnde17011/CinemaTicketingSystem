@@ -73,6 +73,12 @@ namespace CTS_DAL_XUnit
             Assert.Equal(new List<ScheduleDetail>(), schedDetailDAL.GetScheduleDetailsByScheId(0));
         }
 
+        [Fact]
+        public void GetScheduleDetailsByScheIdAndDateNowTest1()
+        {
+            Assert.NotNull(schedDetailDAL.GetScheduleDetailsByScheIdAndDateNow(3));
+        }
+
         private ScheduleDetail GetScheduleDetailExecQuery(string query)
         {
             if (connection.State == System.Data.ConnectionState.Closed)

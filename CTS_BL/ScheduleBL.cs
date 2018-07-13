@@ -10,13 +10,6 @@ namespace CTS_BL
         ScheduleDAL sdal = new ScheduleDAL();
         public bool CreateSchedule(Schedule sche)
         {
-            foreach (var item in GetSchedulesByMovieId(sche.RoomId))
-            {
-                if(sche.ScheTimeline == item.ScheTimeline && sche.RoomId == item.RoomId )
-                {
-                    return false;
-                }
-            }
             return sdal.CreateSchedule(sche);
         }
         public List<Schedule> GetSchedulesByMovieId(int? movieId)
@@ -26,6 +19,18 @@ namespace CTS_BL
                 return null;
             }
             return sdal.GetSchedulesByMovieId(movieId);
+        }
+        public Schedule GetScheduleByMovieIdAndRoomId(int? movieId, int? roomId)
+        {
+            if ((movieId == null) || (roomId == null))
+            {
+                return null;
+            }
+            return sdal.GetScheduleByMovieIdAndRoomId(movieId, roomId);
+        }
+        public Schedule GetScheduleByScheId(int? scheId)
+        {
+            return sdal.GetScheduleByScheId(scheId);
         }
     }
 }

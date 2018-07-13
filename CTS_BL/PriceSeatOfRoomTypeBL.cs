@@ -10,6 +10,10 @@ namespace CTS_BL
         PriceSeatOfRoomTypeDAL psortdal = new PriceSeatOfRoomTypeDAL();
         public List<PriceSeatOfRoomType> GetPriceSeatsOfRoomTypeByRTName(string rtName)
         {
+            if (rtName == null)
+            {
+                return null;
+            }
             return psortdal.GetPriceSeatsOfRoomTypeByRTName(rtName);
         }
     }

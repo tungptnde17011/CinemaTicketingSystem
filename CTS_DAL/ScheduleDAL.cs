@@ -123,6 +123,53 @@ namespace CTS_DAL
             return sches;
         }
 
+        public Schedule GetScheduleByScheId(int? scheId)
+        {
+            if (connection.State == System.Data.ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+
+            query = $"select * from Schedules where sche_id = " + scheId + ";";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            Schedule sche = null;
+            using (reader = command.ExecuteReader())
+            {
+                sche = new Schedule();
+                while (reader.Read())
+                {
+                    sche = GetSchedule(reader);
+                }
+            }
+
+            connection.Close();
+
+            return sche;
+        }
+
+        public Schedule GetScheduleByMovieIdAndRoomId(int? movieId, int? roomId)
+        {
+            if (connection.State == System.Data.ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+
+            query = $"select * from Schedules where movie_id = " + movieId + " and room_id = "+ roomId +";";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            Schedule sche = null;
+            using (reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    sche = GetSchedule(reader);
+                }
+            }
+
+            connection.Close();
+
+            return sche;
+        }
+
         public Schedule GetSchedule(MySqlDataReader reader)
         {
             int scheId = reader.GetInt32("sche_id");
