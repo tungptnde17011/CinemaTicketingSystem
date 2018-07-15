@@ -1617,11 +1617,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\project\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj",
+      "projectUniqueName": "D:\\project\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj",
       "projectName": "CTS_DAL",
-      "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj",
+      "projectPath": "D:\\project\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj",
       "packagesPath": "C:\\Users\\vuong\\.nuget\\packages\\",
-      "outputPath": "d:\\project\\CinemaTicketingSystem\\CTS_DAL\\obj\\",
+      "outputPath": "D:\\project\\CinemaTicketingSystem\\CTS_DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1638,8 +1638,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "d:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj": {
-              "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj"
+            "D:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj": {
+              "projectPath": "D:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj"
             }
           }
         }
@@ -1671,13 +1671,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file d:\\project\\CinemaTicketingSystem\\CTS_DAL\\obj\\CTS_DAL.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

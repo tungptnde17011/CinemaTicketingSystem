@@ -18,6 +18,10 @@ namespace CTS_DAL
 
         public Room GetRoomByRoomId(int? roomId)
         {
+            if (roomId == null)
+            {
+                return null;
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
@@ -41,6 +45,10 @@ namespace CTS_DAL
 
         public List<Room> GetRoomsByCineId(int? cineId)
         {
+            if (cineId == null)
+            {
+                return null;
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();

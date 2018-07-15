@@ -66,6 +66,16 @@ namespace CTS_DAL_XUnit
         {
             Assert.NotNull(movieDAL.GetMoviesByCineIdAndDateNow(1));
         }
+        [Fact]
+        public void GetMoviesByCineIdAndDateNowTest2()
+        {
+            Assert.Equal(new List<Movie>(), movieDAL.GetMoviesByCineIdAndDateNow(0));
+        }
+        [Fact]
+        public void GetMoviesByCineIdAndDateNowTest3()
+        {
+            Assert.Null(movieDAL.GetMoviesByCineIdAndDateNow(null));
+        }
 
         private Movie GetMovieExecQuery(string query)
         {

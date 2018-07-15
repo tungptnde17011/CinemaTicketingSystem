@@ -26,7 +26,30 @@ namespace CTS_DAL_XUnit
 
             Assert.True(scheDAL.CreateSchedule(sche));
         }
+        [Fact]
+        public void CreateScheduleTest2()
+        {
+            List<ScheduleDetail> schedDetails = new List<ScheduleDetail>();
+            // DateTime timeStart = new DateTime(2018, 8, 2, 7, 0, 0);
+            // DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
+            schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
+            schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
+            Schedule sche = new Schedule(null, 0, null, "07:00, 07:00", 1, 4, schedDetails);
 
+            Assert.False(scheDAL.CreateSchedule(sche));
+        }
+        [Fact]
+        public void CreateScheduleTest3()
+        {
+            List<ScheduleDetail> schedDetails = new List<ScheduleDetail>();
+            // DateTime timeStart = new DateTime(2018, 8, 2, 7, 0, 0);
+            // DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
+            // schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
+            // schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
+            Schedule sche = new Schedule(null, 0, null, "07:00, 07:00", 1, 2, null);
+
+            Assert.False(scheDAL.CreateSchedule(sche));
+        }
         [Fact]
         public void GetSchedulesByMovieIdTest1()
         {
@@ -58,7 +81,27 @@ namespace CTS_DAL_XUnit
         {
             Assert.Equal(new List<Schedule>(), scheDAL.GetSchedulesByMovieId(0));
         }
-
+        [Fact]
+        public void GetSchedulesByMovieIdTest3()
+        {
+            Assert.Null(scheDAL.GetSchedulesByMovieId(null));
+        }
+        [Fact]
+        public void GetScheduleBySchedIdTest1()
+        {
+            Assert.NotNull(scheDAL.GetSchedulesByMovieId(1));
+        }
+        [Fact]
+        public void GetScheduleBySchedIdTest2()
+        {
+            Assert.Equal(new List<Schedule>(),scheDAL.GetSchedulesByMovieId(0));
+        }
+        [Fact]
+        public void GetScheduleBySchedIdTest3()
+        {
+            Assert.Null(scheDAL.GetSchedulesByMovieId(null));
+        }
+        
         private Schedule GetScheduleExecQuery(string query)
         {
             if (connection.State == System.Data.ConnectionState.Closed)

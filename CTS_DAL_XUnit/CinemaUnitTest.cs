@@ -23,5 +23,10 @@ namespace CTS_DAL_XUnit
         {
             Assert.Null(cinemaDAL.GetCinemaByCineId(0));
         }
+        [Fact]
+        public void GetCinemaByCineIdTest3()
+        {
+            Assert.Null(cinemaDAL.GetCinemaByCineId(null));
+        }
     }
 }

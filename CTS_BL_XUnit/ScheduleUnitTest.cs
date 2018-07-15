@@ -48,5 +48,45 @@ namespace CTS_BL_XUnit
         {
             Assert.Null(sbl.GetSchedulesByMovieId(null));
         }
-    }   
+        [Fact]
+        public void GetSchedulesByMovieIdAndRoomIdTest1()
+        {
+            Assert.Null(sbl.GetScheduleByMovieIdAndRoomId(null, 1));
+        }
+        [Fact]
+        public void GetSchedulesByMovieIdAndRoomIdTest2()
+        {
+            Assert.Null(sbl.GetScheduleByMovieIdAndRoomId(1, null));
+        }
+        [Fact]
+        public void GetSchedulesByMovieIdAndRoomIdTest3()
+        {
+            Assert.NotNull(sbl.GetScheduleByMovieIdAndRoomId(1, 1));
+        }
+        [Fact]
+        public void GetSchedulesByMovieIdAndRoomIdTest4()
+        {
+            Assert.Null(sbl.GetScheduleByMovieIdAndRoomId(0, 1));
+        }
+        [Fact]
+        public void GetSchedulesByMovieIdAndRoomIdTest5()
+        {
+            Assert.Null(sbl.GetScheduleByMovieIdAndRoomId(0, 1));
+        }
+        [Fact]
+        public void GetSchedulesByScheIdTest1()
+        {
+            Assert.NotNull(sbl.GetScheduleByScheId(1));
+        }
+        [Fact]
+        public void GetSchedulesByScheIdTest2()
+        {
+            Assert.Null(sbl.GetScheduleByScheId(0));
+        }
+        [Fact]
+        public void GetSchedulesByScheIdTest3()
+        {
+            Assert.Null(sbl.GetScheduleByScheId(null));
+        }
+    }
 }

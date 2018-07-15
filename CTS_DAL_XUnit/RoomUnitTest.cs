@@ -28,7 +28,11 @@ namespace CTS_DAL_XUnit
         {
             Assert.Null(roomDAL.GetRoomByRoomId(0));
         }
-
+        [Fact]
+        public void GetRoomByRoomIdTest3()
+        {
+            Assert.Null(roomDAL.GetRoomByRoomId(null));
+        }
         [Fact]
         public void GetRoomsByCineIdTest1()
         {
@@ -60,7 +64,11 @@ namespace CTS_DAL_XUnit
         {
             Assert.Equal(new List<Room>(), roomDAL.GetRoomsByCineId(0));
         }
-
+        [Fact]
+        public void GetRoomsByCineIdTest3()
+        {
+            Assert.Null(roomDAL.GetRoomsByCineId(null));
+        }
         private Room GetRoomExecQuery(string query)
         {
             if (connection.State == System.Data.ConnectionState.Closed)

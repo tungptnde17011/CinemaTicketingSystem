@@ -13,13 +13,14 @@ namespace CTS_BL
         private RoomDAL rdal = new RoomDAL();
         public Room GetRoomByRoomId(int? roomId)
         {
-            Regex regex = new Regex("[0-9]");
-            MatchCollection matchCollection = regex.Matches(roomId.ToString());
             if (roomId == null)
             {
                 return null;
             }
-            else if (matchCollection.Count < roomId.ToString().Length)
+
+            Regex regex = new Regex("[0-9]");
+            MatchCollection matchCollection = regex.Matches(roomId.ToString());
+            if (matchCollection.Count < roomId.ToString().Length)
             {
                 return null;
             }
@@ -27,13 +28,14 @@ namespace CTS_BL
         }
         public List<Room> GetRoomByCineId(int? cineId)
         {
-            Regex regex = new Regex("[0-9]");
-            MatchCollection matchCollection = regex.Matches(cineId.ToString());
             if (cineId == null)
             {
                 return null;
             }
-            else if (matchCollection.Count < cineId.ToString().Length)
+
+            Regex regex = new Regex("[0-9]");
+            MatchCollection matchCollection = regex.Matches(cineId.ToString());
+            if (matchCollection.Count < cineId.ToString().Length)
             {
                 return null;
             }

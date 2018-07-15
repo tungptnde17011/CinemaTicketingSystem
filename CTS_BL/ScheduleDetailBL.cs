@@ -15,14 +15,14 @@ namespace CTS_BL
         // }
         public ScheduleDetail GetScheduleDetailBySchedId(int? schedId)
         {
-            
-            Regex regex = new Regex("[0-9]");
-            MatchCollection matchCollection = regex.Matches(schedId.ToString());
             if (schedId == null)
             {
                 return null;
             }
-            else if (matchCollection.Count < schedId.ToString().Length)
+
+            Regex regex = new Regex("[0-9]");
+            MatchCollection matchCollection = regex.Matches(schedId.ToString());
+            if (matchCollection.Count < schedId.ToString().Length)
             {
                 return null;
             }
@@ -30,13 +30,14 @@ namespace CTS_BL
         }
         public List<ScheduleDetail> GetScheduleDetailsByScheId(int? scheId)
         {
-            Regex regex = new Regex("[0-9]");
-            MatchCollection matchCollection = regex.Matches(scheId.ToString());
             if (scheId == null)
             {
                 return null;
             }
-            else if (matchCollection.Count < scheId.ToString().Length)
+
+            Regex regex = new Regex("[0-9]");
+            MatchCollection matchCollection = regex.Matches(scheId.ToString());
+            if (matchCollection.Count < scheId.ToString().Length)
             {
                 return null;
             }
@@ -44,6 +45,10 @@ namespace CTS_BL
         }
         public List<ScheduleDetail> GetScheduleDetailsBySchedIdAndTimeNow(int? scheId)
         {
+            if (scheId == null)
+            {
+                return null;
+            }
             return sddal.GetScheduleDetailsByScheIdAndDateNow(scheId);
         }
     }

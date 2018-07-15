@@ -17,6 +17,10 @@ namespace CTS_DAL
 
         public Cinema GetCinemaByCineId(int? cineId)
         {
+            if (cineId == null)
+            {
+                return null;
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();

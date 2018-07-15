@@ -10,7 +10,7 @@ namespace CTS_BL_XUnit
         MovieBL mbl = new MovieBL();
         [Fact]
         public void GetMovieByMovieIdTest1()
-        {   
+        {
             Assert.NotNull(mbl.GetMovieByMovieId(1));
         }
         [Fact]
@@ -38,6 +38,20 @@ namespace CTS_BL_XUnit
         {
             Assert.Null(mbl.GetMoviesByCineId(null));
         }
-        
+        [Fact]
+        public void GetMovieByMovieIdAndDateNowTest1()
+        {
+            Assert.NotNull(mbl.GetMoviesByCineIdAndDateNow(1));
+        }
+        [Fact]
+        public void GetMovieByMovieIdAndDateNowTest2()
+        {
+            Assert.Equal(new List<Movie>(),mbl.GetMoviesByCineIdAndDateNow(0));
+        }
+        [Fact]
+        public void GetMovieByMovieIdAndDateNowTest3()
+        {
+            Assert.Null(mbl.GetMoviesByCineIdAndDateNow(null));
+        }
     }
 }

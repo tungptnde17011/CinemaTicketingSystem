@@ -36,11 +36,15 @@ namespace CTS_DAL_XUnit
         }
 
         [Fact]
-        public void GetMovieByMovieIdTest2()
+        public void GetScheduleDetailBySchedIdTest2()
         {
             Assert.Null(schedDetailDAL.GetScheduleDetailBySchedId(0));
         }
-
+        [Fact]
+        public void GetScheduleDetailBySchedIdTest3()
+        {
+            Assert.Null(schedDetailDAL.GetScheduleDetailBySchedId(null));
+        }
         [Fact]
         public void GetScheduleDetailsByScheIdTest1()
         {
@@ -74,11 +78,25 @@ namespace CTS_DAL_XUnit
         }
 
         [Fact]
+        public void GetScheduleDetailsByScheIdTest3()
+        {
+            Assert.Null(schedDetailDAL.GetScheduleDetailsByScheId(null));
+        }
+        [Fact]
         public void GetScheduleDetailsByScheIdAndDateNowTest1()
         {
             Assert.NotNull(schedDetailDAL.GetScheduleDetailsByScheIdAndDateNow(3));
         }
-
+        [Fact]
+        public void GetScheduleDetailsByScheIdAndDateNowTest2()
+        {
+            Assert.Null(schedDetailDAL.GetScheduleDetailsByScheIdAndDateNow(null));
+        }
+        [Fact]
+        public void GetScheduleDetailsByScheIdAndDateNowTest3()
+        {
+            Assert.Equal(new List<ScheduleDetail>(), schedDetailDAL.GetScheduleDetailsByScheIdAndDateNow(0));
+        }
         private ScheduleDetail GetScheduleDetailExecQuery(string query)
         {
             if (connection.State == System.Data.ConnectionState.Closed)

@@ -57,6 +57,10 @@ namespace CTS_DAL
 
         public ScheduleDetail GetScheduleDetailBySchedId(int? schedId)
         {
+            if (schedId == null)
+            {
+                return null;
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
@@ -80,6 +84,10 @@ namespace CTS_DAL
 
         public List<ScheduleDetail> GetScheduleDetailsByScheId(int? scheId)
         {
+            if (scheId == null)
+            {
+                return null;
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
@@ -104,6 +112,10 @@ namespace CTS_DAL
 
         public List<ScheduleDetail> GetScheduleDetailsByScheIdAndDateNow(int? scheId)
         {
+            if (scheId == null)
+            {
+                return null;
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();

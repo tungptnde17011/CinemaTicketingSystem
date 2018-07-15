@@ -37,13 +37,23 @@ namespace CTS_BL_XUnit
         [Fact]
         public void GetScheduleDetailsByScheIdTest3()
         {
-            Assert.Null( sdbl.GetScheduleDetailsByScheId(null));
+            Assert.Null(sdbl.GetScheduleDetailsByScheId(null));
         }
 
         [Fact]
         public void GetScheduleDetailsBySchedIdAndTimeNowTest1()
         {
-            Assert.Null(sdbl.GetScheduleDetailsByScheId(3));
+            Assert.Equal(new List<ScheduleDetail>(), sdbl.GetScheduleDetailsBySchedIdAndTimeNow(0));
+        }
+        [Fact]
+        public void GetScheduleDetailsBySchedIdAndTimeNowTest2()
+        {
+            Assert.Null(sdbl.GetScheduleDetailsBySchedIdAndTimeNow(null));
+        }
+        [Fact]
+        public void GetScheduleDetailsBySchedIdAndTimeNowTest3()
+        {
+            Assert.NotNull(sdbl.GetScheduleDetailsBySchedIdAndTimeNow(1));
         }
     }
 }

@@ -101,11 +101,14 @@ namespace CTS_DAL
 
         public List<Schedule> GetSchedulesByMovieId(int? movieId)
         {
+            if (movieId == null)
+            {
+                return null;
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
             }
-
             query = $"select * from Schedules where movie_id = " + movieId + ";";
             MySqlCommand command = new MySqlCommand(query, connection);
             List<Schedule> sches = null;
@@ -125,17 +128,19 @@ namespace CTS_DAL
 
         public Schedule GetScheduleByScheId(int? scheId)
         {
+            if (scheId == null)
+            {
+                return null;
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
             }
-
             query = $"select * from Schedules where sche_id = " + scheId + ";";
             MySqlCommand command = new MySqlCommand(query, connection);
             Schedule sche = null;
             using (reader = command.ExecuteReader())
             {
-                sche = new Schedule();
                 while (reader.Read())
                 {
                     sche = GetSchedule(reader);
@@ -149,12 +154,15 @@ namespace CTS_DAL
 
         public Schedule GetScheduleByMovieIdAndRoomId(int? movieId, int? roomId)
         {
+            if ((movieId == null) || (roomId == null))
+            {
+                return null;
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
             }
-
-            query = $"select * from Schedules where movie_id = " + movieId + " and room_id = "+ roomId +";";
+            query = $"select * from Schedules where movie_id = " + movieId + " and room_id = " + roomId + ";";
             MySqlCommand command = new MySqlCommand(query, connection);
             Schedule sche = null;
             using (reader = command.ExecuteReader())

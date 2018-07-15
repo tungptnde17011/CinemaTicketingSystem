@@ -30,6 +30,10 @@ namespace CTS_BL
         }
         public Schedule GetScheduleByScheId(int? scheId)
         {
+            if (scheId == null)
+            {
+                return null;
+            }
             return sdal.GetScheduleByScheId(scheId);
         }
     }
