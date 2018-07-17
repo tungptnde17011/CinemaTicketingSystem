@@ -8,7 +8,6 @@ namespace CTS_Console
 {
     public class Program
     {
-
         static void Main(string[] args)
         {
             Menus m = new Menus();

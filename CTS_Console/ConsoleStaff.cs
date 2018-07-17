@@ -248,8 +248,28 @@ namespace CTS_Console
                 }
 
             }
-
-
+            string[] prices = (psort.Price).ToString().Split("");
+            string price = "";
+            int balance = prices.Length%3;
+            for (int i = 0; i < prices.Length; i++)
+            {
+                if (i == 0)
+                {
+                    price = price + prices[i].ToString();
+                }
+                if ((i-balance)%3==0)
+                {
+                    price = price + prices[i].ToString() + ",";
+                }
+                else if (i == prices.Length-1)
+                {
+                    price = price + prices[i].ToString();
+                }
+                else
+                {
+                    price = price + prices[i].ToString();
+                }
+            }
             string[] left = {cine.CineName,a,b,cine.CinePhone,
             DateTime.Now.ToString("dd/MM/yyyy")+"     "+sched.SchedTimeStart?.ToString("HH:mm")+
             " - "+sched.SchedTimeEnd?.ToString("HH:mm"),movie.MovieName,
@@ -257,7 +277,7 @@ namespace CTS_Console
             "Gồm"+" Seat"+" Cinema","5% VAT",DateTime.Now.ToString("HH:mm dd/MM/yyyy")+"      "+user.Username};
             string[] right = {cine.CineName,a,b,movie.MovieName,"Time: "+sched.SchedTimeStart?.ToString("HH:mm")+
             " - "+sched.SchedTimeEnd?.ToString("HH:mm"),"Date: "+DateTime.Now.ToString("dd/MM/yyyy"),
-            "Hall: "+room.RoomName,"Seat: "+seat,psort.STType,"Price: "+psort.Price,DateTime.Now.ToString("HH:mm dd/MM/yyyy")};
+            "Hall: "+room.RoomName,"Seat: "+seat,psort.STType,"Price: "+price,DateTime.Now.ToString("HH:mm dd/MM/yyyy")};
             int length = 0;
             int length1 = 0;
             int length2 = 0;
