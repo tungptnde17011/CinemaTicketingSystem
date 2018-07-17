@@ -61,7 +61,7 @@ namespace CTS_Console
             List<ScheduleDetail> lsd = new List<ScheduleDetail>();
             foreach (var itemListSchedule in ls)
             {
-                List<ScheduleDetail> newlsd = sdbl.GetScheduleDetailsBySchedIdAndTimeNow(itemListSchedule.ScheId);
+                List<ScheduleDetail> newlsd = sdbl.GetScheduleDetailsByScheIdAndTimeNow(itemListSchedule.ScheId);
                 foreach (var itemListScheduleDetail in newlsd)
                 {
                     lsd.Add(itemListScheduleDetail);
@@ -261,15 +261,20 @@ namespace CTS_Console
             int length = 0;
             int length1 = 0;
             int length2 = 0;
-            for (int i = 0; i < left.Length; i++)
-            {
-                if ((left[i] + right[i]).Length > length)
+            
+                if ((left[2]).Length > left[5].Length)
                 {
-                    length = (left[i] + right[i]).Length;
-                    length1 = left[i].Length;
-                    length2 = right[i].Length;
+                    length = (left[2] + left[2]).Length;
+                    length1 = left[2].Length;
+                    length2 = left[2].Length;
                 }
-            }
+                else if (true)
+                {
+                    length = (left[5] + left[5]).Length;
+                    length1 = left[5].Length;
+                    length2 = left[5].Length;
+                }
+                            
             for (int i = 0; i < length + 7; i++)
             {
                 Console.Write("_");

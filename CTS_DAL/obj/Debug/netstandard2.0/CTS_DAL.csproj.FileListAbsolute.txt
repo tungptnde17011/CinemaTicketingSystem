@@ -9,4 +9,3 @@ D:\project\CinemaTicketingSystem\CTS_DAL\obj\Debug\netstandard2.0\CTS_DAL.Assemb
 D:\project\CinemaTicketingSystem\CTS_DAL\obj\Debug\netstandard2.0\CTS_DAL.AssemblyInfo.cs
 D:\project\CinemaTicketingSystem\CTS_DAL\obj\Debug\netstandard2.0\CTS_DAL.dll
 D:\project\CinemaTicketingSystem\CTS_DAL\obj\Debug\netstandard2.0\CTS_DAL.pdb
-D:\project\CinemaTicketingSystem\CTS_DAL\obj\Debug\netstandard2.0\CTS_DAL.csprojResolveAssemblyReference.cache

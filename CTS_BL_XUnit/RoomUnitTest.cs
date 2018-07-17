@@ -26,17 +26,17 @@ namespace CTS_BL_XUnit
         [Fact]
         public void GetRoomByCineIdTest1()
         {
-            Assert.NotNull(rbl.GetRoomByCineId(1));
+            Assert.NotNull(rbl.GetRoomsByCineId(1));
         }
         [Fact]
         public void GetRoomByCineIdTest2()
         {
-            Assert.Equal(new List<Room>(), rbl.GetRoomByCineId(0));
+            Assert.Equal(new List<Room>(), rbl.GetRoomsByCineId(0));
         }
         [Fact]
         public void GetRoomByCineIdTest3()
         {
-            Assert.Null(rbl.GetRoomByCineId(null));
+            Assert.Null(rbl.GetRoomsByCineId(null));
         }
     }
 }

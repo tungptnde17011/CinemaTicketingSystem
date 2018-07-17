@@ -75,7 +75,31 @@ namespace CTS_DAL_XUnit
             Assert.True(sches.IndexOf(scheTop) == 0);
             Assert.True(sches.IndexOf(scheBottom) == (sches.Count - 1));
         }
-
+        [Fact]
+        public void GetScheduleByMovieIdAndRoomIdTest1()
+        {
+            Assert.NotNull(scheDAL.GetScheduleByMovieIdAndRoomId(1, 1));
+        }
+        [Fact]
+        public void GetScheduleByMovieIdAndRoomIdTest2()
+        {
+            Assert.Null(scheDAL.GetScheduleByMovieIdAndRoomId(1, null));
+        }
+        [Fact]
+        public void GetScheduleByMovieIdAndRoomIdTest3()
+        {
+            Assert.NotNull(scheDAL.GetScheduleByMovieIdAndRoomId(null, 1));
+        }
+        [Fact]
+        public void GetScheduleByMovieIdAndRoomIdTest4()
+        {
+            Assert.NotNull(scheDAL.GetScheduleByMovieIdAndRoomId(0, 1));
+        }
+        [Fact]
+        public void GetScheduleByMovieIdAndRoomIdTest5()
+        {
+            Assert.NotNull(scheDAL.GetScheduleByMovieIdAndRoomId(1, 0));
+        }
         [Fact]
         public void GetSchedulesByMovieIdTest2()
         {
@@ -94,14 +118,14 @@ namespace CTS_DAL_XUnit
         [Fact]
         public void GetScheduleBySchedIdTest2()
         {
-            Assert.Equal(new List<Schedule>(),scheDAL.GetSchedulesByMovieId(0));
+            Assert.Equal(new List<Schedule>(), scheDAL.GetSchedulesByMovieId(0));
         }
         [Fact]
         public void GetScheduleBySchedIdTest3()
         {
             Assert.Null(scheDAL.GetSchedulesByMovieId(null));
         }
-        
+
         private Schedule GetScheduleExecQuery(string query)
         {
             if (connection.State == System.Data.ConnectionState.Closed)

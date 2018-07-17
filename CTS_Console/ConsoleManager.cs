@@ -362,7 +362,7 @@ namespace CTS_Console
             Console.WriteLine("[Danh sách phòng]\n");
             string[] proper = { "RoomId", "RoomName", "RTName" };
             string[] col = { "ID", "Tên phòng", "Loại phòng" };
-            lr = rbl.GetRoomByCineId(us.Cine.CineId);
+            lr = rbl.GetRoomsByCineId(us.Cine.CineId);
             cs.DisplayTableData(lr, proper, col, null);
             Console.WriteLine(row1);
             Console.Write("\nChọn phòng(Theo ID): "); sche.RoomId = cs.input(Console.ReadLine());

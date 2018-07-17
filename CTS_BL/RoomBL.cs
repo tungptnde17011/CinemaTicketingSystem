@@ -26,7 +26,7 @@ namespace CTS_BL
             }
             return rdal.GetRoomByRoomId(roomId);
         }
-        public List<Room> GetRoomByCineId(int? cineId)
+        public List<Room> GetRoomsByCineId(int? cineId)
         {
             if (cineId == null)
             {
