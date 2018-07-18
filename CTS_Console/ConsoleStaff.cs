@@ -109,8 +109,8 @@ namespace CTS_Console
                 Schedule schez = new Schedule();
                 schez = sbl.GetScheduleByScheId(itemlsd.ScheId);
                 Room rooms = rbl.GetRoomByRoomId(schez.RoomId);
-                Console.WriteLine(count + ". Bắt đầu từ: " + itemlsd.SchedTimeStart?.ToString()+" -> "+itemlsd.SchedTimeStart?.ToString("HH:mm")+" Tại phòng: "+rooms.RoomName);
-                
+                Console.WriteLine(count + ". Bắt đầu từ: " + itemlsd.SchedTimeStart?.ToString() + " -> " + itemlsd.SchedTimeStart?.ToString("HH:mm") + " Tại phòng: " + rooms.RoomName);
+
             }
             Console.WriteLine(row1);
             Console.Write("Chọn lịch chiếu (theo số thứ tự): ");
@@ -168,7 +168,8 @@ namespace CTS_Console
                 foreach (var item in seat)
                 {
                     if (itemlpsort.STType == item[0].ToString())
-                    {   psort = new PriceSeatOfRoomType();
+                    {
+                        psort = new PriceSeatOfRoomType();
                         psort.STType = itemlpsort.STType;
                         psort.RTName = itemlpsort.RTName;
                         psort.Price = itemlpsort.Price;
@@ -248,22 +249,22 @@ namespace CTS_Console
                 }
 
             }
-            string[] prices = (psort.Price).ToString().Split("");
+            string prices = psort.Price.ToString();
             string price = "";
-            int balance = prices.Length%3;
+            int balance = (prices.Length-1)%3;
             for (int i = 0; i < prices.Length; i++)
             {
                 if (i == 0)
                 {
-                    price = price + prices[i].ToString();
+                    price = price + prices[i];
                 }
-                if ((i-balance)%3==0)
+                else if (i == prices.Length - 1)
                 {
-                    price = price + prices[i].ToString() + ",";
+                    price = price + prices[i];
                 }
-                else if (i == prices.Length-1)
+                else if ((i - balance) % 3 == 0)
                 {
-                    price = price + prices[i].ToString();
+                    price = price + prices[i] + ",";
                 }
                 else
                 {
@@ -273,34 +274,34 @@ namespace CTS_Console
             string[] left = {cine.CineName,a,b,cine.CinePhone,
             DateTime.Now.ToString("dd/MM/yyyy")+"     "+sched.SchedTimeStart?.ToString("HH:mm")+
             " - "+sched.SchedTimeEnd?.ToString("HH:mm"),movie.MovieName,
-            psort.STType+" Ghế"+" Rạp",psort.Price+" "+seat+" "+room.RoomName,
+            psort.STType+" Ghế"+" Rạp",price+"d"+" "+seat+" "+room.RoomName,
             "Gồm"+" Seat"+" Cinema","5% VAT",DateTime.Now.ToString("HH:mm dd/MM/yyyy")+"      "+user.Username};
             string[] right = {cine.CineName,a,b,movie.MovieName,"Time: "+sched.SchedTimeStart?.ToString("HH:mm")+
             " - "+sched.SchedTimeEnd?.ToString("HH:mm"),"Date: "+DateTime.Now.ToString("dd/MM/yyyy"),
-            "Hall: "+room.RoomName,"Seat: "+seat,psort.STType,"Price: "+price,DateTime.Now.ToString("HH:mm dd/MM/yyyy")};
+            "Hall: "+room.RoomName,"Seat: "+seat,psort.STType,"Price: "+price+"d",DateTime.Now.ToString("HH:mm dd/MM/yyyy")};
             int length = 0;
             int length1 = 0;
             int length2 = 0;
-            
-                if ((left[2]).Length > left[5].Length)
-                {
-                    length = (left[2] + left[2]).Length;
-                    length1 = left[2].Length;
-                    length2 = left[2].Length;
-                }
-                else if (true)
-                {
-                    length = (left[5] + left[5]).Length;
-                    length1 = left[5].Length;
-                    length2 = left[5].Length;
-                }
-                            
+
+            if ((left[2]).Length > left[5].Length)
+            {
+                length = (left[2] + left[2]).Length;
+                length1 = left[2].Length;
+                length2 = left[2].Length;
+            }
+            else if (true)
+            {
+                length = (left[5] + left[5]).Length;
+                length1 = left[5].Length;
+                length2 = left[5].Length;
+            }
+
             for (int i = 0; i < length + 7; i++)
             {
                 Console.Write("_");
             }
             Console.WriteLine();
-            for (int i = 0; i < left.Length; i++) 
+            for (int i = 0; i < left.Length; i++)
             {
                 string lefti;
                 if (i > 5 && i < 9)
