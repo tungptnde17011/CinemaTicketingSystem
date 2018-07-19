@@ -39,7 +39,7 @@ namespace CTS_Console
                 Console.Write("Không có mã này, mời bạn nhập lại: "); sche.MovieId = cs.input(Console.ReadLine());
             }
             cine = us.Cine;
-            // Console.Clear();
+            Console.Clear();
             // row1 = "========================================";
             // row2 = "----------------------------------------";
             Console.WriteLine(row1);
