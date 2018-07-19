@@ -12,7 +12,7 @@ namespace CTS_Console
         {
             Console.Clear();
             string[] choice = { "Đăng nhập", "Thoát chương trình" };
-            int choose = Menu("Chào mừng bạn", choice);
+            int choose = Menu("HỆ THỐNG BÁN VÉ RẠP CHIẾU PHIM", choice);
             switch (choose)
             {
                 case 1:
@@ -26,8 +26,8 @@ namespace CTS_Console
         public void MenuLogin()
         {
             Console.Clear();
-            string row1 = "========================================";
-            string row2 = "----------------------------------------";
+            string row1 = "=====================================================================";
+            string row2 = "---------------------------------------------------------------------";
             Console.WriteLine(row1);
             Console.WriteLine(" ĐĂNG NHẬP");
             Console.WriteLine(row2);
@@ -38,7 +38,7 @@ namespace CTS_Console
             string choice;
             while ((validate(un) == false) || (validate(pw) == false))
             {
-                Console.Write("Tên đăng nhập và mật khẩu không được chứa kí tự đặc biệt, bạn có muốn tiếp tục đăng nhập không? (C/K)");
+                Console.Write("Tên đăng nhập / mật khẩu không được chứa kí tự đặc biệt, bạn có muốn đăng nhập lại không? (C/K)");
                 choice = Console.ReadLine();
 
                 switch (choice)
@@ -74,7 +74,7 @@ namespace CTS_Console
             while (ubl.Login(un, pw) == null)
             {
 
-                Console.Write("Tên đăng nhập hoặc mật khẩu không đúng, bạn có muốn tiếp tục đăng nhập không? (C/K)");
+                Console.Write("Tên đăng nhập / mật khẩu không đúng, bạn có muốn đăng nhập lại không? (C/K)");
                 choice = Console.ReadLine();
 
                 switch (choice)
@@ -105,7 +105,7 @@ namespace CTS_Console
                 pw = Password();
                 while ((validate(un) == false) || (validate(pw) == false))
                 {
-                    Console.Write("Tên đăng nhập và mật khẩu không được chứa kí tự đặc biệt, bạn có muốn tiếp tục đăng nhập không? (C/K)");
+                    Console.Write("Tên đăng nhập/mật khẩu không được chứa kí tự đặc biệt, bạn có muốn đăng nhập lại không? (C/K)");
                     choice = Console.ReadLine();
 
                     switch (choice)
@@ -231,8 +231,8 @@ namespace CTS_Console
         public short Menu(string title, string[] menuItems)
         {
             short choose = 0;
-            string line1 = "========================================";
-            string line2 = "----------------------------------------";
+            string line1 = "=====================================================================";
+            string line2 = "---------------------------------------------------------------------";
             Console.WriteLine(line1);
             Console.WriteLine(" " + title);
             Console.WriteLine(line2);
@@ -241,20 +241,33 @@ namespace CTS_Console
                 Console.WriteLine(" " + (i + 1) + ". " + menuItems[i]);
             }
             Console.WriteLine(line2);
-            do
+            try
             {
-                Console.Write("Bạn chọn: ");
-                try
-                {
-                    choose = Int16.Parse(Console.ReadLine());
-                }
-                catch
-                {
-                    Console.WriteLine("Bạn chọn không đúng!");
-                    continue;
-                }
+                Console.Write("Chọn: ");
+                choose = Int16.Parse(Console.ReadLine());
             }
-            while (choose <= 0 || choose > menuItems.Length);
+            catch (System.Exception)
+            {
+            }
+
+            if (choose == 0 || choose > menuItems.Length)
+            {
+                do
+                {
+
+                    try
+                    {
+                        Console.Write("Bạn chọn không đúng, Mời bạn chọn lại: ");
+                        choose = Int16.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                }
+                while (choose <= 0 || choose > menuItems.Length);
+            }
+
             return choose;
         }
     }

@@ -20,48 +20,50 @@ namespace CTS_Console
         public void CreateSchedule(User us)
         {
             Console.Clear();
-            string row1 = "========================================";
-            string row2 = "----------------------------------------";
+            string row1 = "=====================================================================";
+            string row2 = "---------------------------------------------------------------------";
             Console.WriteLine(row1);
             Console.WriteLine("Tạo lịch chiếu phim.");
             Console.WriteLine(row2);
             Console.WriteLine("[Danh sách Phim]\n");
             MovieBL mbl = new MovieBL();
             string[] properties = { "MovieId", "MovieName", "MovieCategory", "MovieTime", "MovieDateStart", "MovieDateEnd" };
-            string[] cols = { "ID", "Tên phim", "Thể loại", "Thời lượng", "Ngày bắt đầu", "Ngày kết thúc" };
+            string[] cols = { "Mã phim", "Tên phim", "Thể loại", "Thời lượng(Phút)", "Ngày bắt đầu", "Ngày kết thúc" };
             List<Movie> movies = mbl.GetMoviesByCineId(us.Cine.CineId);
             // cine = cbl.GetCinemaByCineId(us.Cine.CineId);
             cs.DisplayTableData(movies, properties, cols, "dd/MM/yyyy");
             Console.WriteLine(row1);
-            Console.Write("\nChọn phim(Theo ID): "); sche.MovieId = cs.input(Console.ReadLine());
+            Console.Write("\nChọn phim(theo mã): "); sche.MovieId = cs.input(Console.ReadLine());
             while (mbl.GetMovieByMovieId(sche.MovieId) == null)
             {
-                Console.Write("Không có ID này, mời nhập lại: "); sche.MovieId = cs.input(Console.ReadLine());
+                Console.Write("Không có mã này, mời bạn nhập lại: "); sche.MovieId = cs.input(Console.ReadLine());
             }
             cine = us.Cine;
-            sche.RoomId = RoomDisplay(us);
+            // Console.Clear();
+            // row1 = "========================================";
+            // row2 = "----------------------------------------";
+            Console.WriteLine(row1);
+            Console.WriteLine("Tạo lịch chiếu phim.");
+            Console.WriteLine(row2);
+            Console.WriteLine("[Danh sách phòng]\n");
+            string[] proper = { "RoomId", "RoomName", "RTName" };
+            string[] col = { "Mã phòng", "Tên phòng", "Loại phòng" };
+            lr = rbl.GetRoomsByCineId(us.Cine.CineId);
+            cs.DisplayTableData(lr, proper, col, null);
+            Console.WriteLine(row1);
+            Console.Write("\nChọn phòng(theo mã): "); sche.RoomId = cs.input(Console.ReadLine());
+            while (rbl.GetRoomByRoomId(sche.RoomId) == null)
+            {
+                Console.Write("Không có mã này, mời bạn nhập lại: "); sche.RoomId = cs.input(Console.ReadLine());
+            }
             ScheduleBL sbl = new ScheduleBL();
             while (sbl.GetScheduleByMovieIdAndRoomId(sche.MovieId, sche.RoomId) != null)
             {
-                Console.Write("Lịch chiếu tại phòng đã tồn tại, bạn có muốn chọn phòng khác?(C/K)?");
-                string choice = Console.ReadLine();
-                switch (choice)
+                Console.Write("Trùng lịch chiếu, mời bạn nhập lại: ");
+                sche.RoomId = cs.input(Console.ReadLine());
+                while (rbl.GetRoomByRoomId(sche.RoomId) == null)
                 {
-                    case "C":
-                        sche.RoomId = RoomDisplay(us);
-                        break;
-                    case "c":
-                        sche.RoomId = RoomDisplay(us);
-                        break;
-                    case "K":
-                        mn.menuManager(us);
-                        return;
-                    case "k":
-                        mn.menuManager(us);
-                        return;
-                    default:
-                        continue;
-                        // break;
+                    Console.Write("Không có mã này, mời bạn nhập lại: "); sche.RoomId = cs.input(Console.ReadLine());
                 }
             }
             movie = mbl.GetMovieByMovieId(sche.MovieId);
@@ -69,7 +71,7 @@ namespace CTS_Console
             List<ScheduleDetail> lsd = DisplayTime(movie, room);
             while (lsd == null)
             {
-                Console.Write("Không tìm thấy khung giờ, bạn có muốn chọn lại?(C/K)");
+                Console.Write("Không tìm thấy khung giờ hoặc trùng, bạn có muốn chọn lại?(C/K)");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {
@@ -113,15 +115,23 @@ namespace CTS_Console
             }
             for (int i = 0; i < count; i++)
             {
-                Console.WriteLine("{0}.{1} -> {2}", i+1, lsd[i].SchedTimeStart?.ToString("HH:mm"), lsd[i].SchedTimeEnd?.ToString("HH:mm"));
-                if (timeline == "")
+                try
                 {
-                    timeline = timeline + lsd[i].SchedTimeStart?.ToString("HH:mm");
+                    Console.WriteLine("{0}.{1} -> {2}", i + 1, lsd[i].SchedTimeStart?.ToString("HH:mm"), lsd[i].SchedTimeEnd?.ToString("HH:mm"));
+                    if (timeline == "")
+                    {
+                        timeline = timeline + lsd[i].SchedTimeStart?.ToString("HH:mm");
+                    }
+                    else
+                    {
+                        timeline = timeline + ", " + lsd[i].SchedTimeStart?.ToString("HH:mm");
+                    }
                 }
-                else
+                catch (System.Exception)
                 {
-                    timeline = timeline + ", " + lsd[i].SchedTimeStart?.ToString("HH:mm");
+
                 }
+
 
             }
             // foreach (var item in lsd)
@@ -198,8 +208,8 @@ namespace CTS_Console
             List<ScheduleDetail> lsd = new List<ScheduleDetail>();
             ScheduleDetail sched = null;
             Console.Clear();
-            string row1 = "========================================";
-            string row2 = "----------------------------------------";
+            string row1 = "=====================================================================";
+            string row2 = "---------------------------------------------------------------------";
             Console.WriteLine(row1);
             Console.WriteLine("Tạo lịch chiếu phim.");
             Console.WriteLine(row2);
@@ -227,91 +237,121 @@ namespace CTS_Console
             }
             Console.WriteLine(row1);
 
-            Console.Write("Chọn khung giờ (theo các số thứ tự): ");
+            Console.Write("Chọn các khung giờ (theo các số thứ tự): ");
             string time = Console.ReadLine();
-            Regex regex = new Regex("[1-9]");
-            Regex regex1 = new Regex("[1-9][0-9]");
-            MatchCollection matchcollection = regex.Matches(time);
-            MatchCollection matchcollection1 = regex1.Matches(time);
-            string[] timeArr = time.Split(",");
-            while (matchcollection.Count != timeArr.Length)
+
+            time = time.Replace(" ", "");
+            // Console.WriteLine(time);
+            Regex regex = new Regex("[0-9,]");
+            // Regex regex1 = new Regex("[1-9][0-9]");
+            
+            // MatchCollection matchcollection1 = regex1.Matches(time);
+            string[] timeArr;
+
+            while (true)
             {
-                Console.Write("Chọn các khung giờ sai, vui lòng chọn lại (Ví dụ: 1,2 ): ");
-                time = Console.ReadLine();
-                matchcollection = regex.Matches(time);
-                matchcollection1 = regex1.Matches(time);
-            }
-            for (i = 0; i < timeArr.Length-1; i++)
-            {
-                for (int j = i+1; j < timeArr.Length; j++)
+                MatchCollection matchcollection = regex.Matches(time);
+                timeArr = time.Split(",");
+                if (matchcollection.Count != time.Length)
                 {
-                    if (timeArr[i] == timeArr[j])
-                    {
-                        return null;
-                    }
+                    Console.Write("Nhập các khung giờ sai định dạng, mời bạn nhập lại (ví dụ: 1,2...): ");
+                    time = Console.ReadLine();
+                    matchcollection = regex.Matches(time);
+                    continue;
                 }
-            }
-            int count = 0;
-            for (i = 0; i < timeArr.Length; i++)
-            {
-                for (int k = 0; k < start.Count; k++)
+
+                int check = 0;
+                for (i = 0; i < timeArr.Length - 1; i++)
                 {
-                    if (Convert.ToInt32(timeArr[i]) == k + 1)
+                    for (int j = i + 1; j < timeArr.Length; j++)
                     {
-                        count++;
+                        if (timeArr[i] == timeArr[j])
+                        {
+                            check = 1;
+                            break;
+                        }
+                    }
+                    if (check == 1)
+                    {
                         break;
                     }
                 }
-            }
-            DateTime daystart = movie.MovieDateStart;
-            DateTime dayend = movie.MovieDateEnd;
-            int dem = 0;
-            if (count == timeArr.Length && count > 0)
-            {
-                while (DateTime.Compare(daystart, dayend) <= 0)
+                if (check == 1)
                 {
-                    dem++;
-                    for (i = 0; i < timeArr.Length; i++)
-                    {
-                        sched = new ScheduleDetail();
-                        int index = Convert.ToInt32(timeArr[i]);
-                        int[] hours = { TimeToInt(start[index - 1]) / 60, TimeToInt(end[index - 1]) / 60 };
-                        int[] minutes = { TimeToInt(start[index - 1]) % 60, TimeToInt(end[index - 1]) % 60 };
-                        sched.SchedRoomSeats = room.RoomSeats;
-                        sched.SchedTimeStart = new DateTime(daystart.Year, daystart.Month, daystart.Day, hours[0], minutes[0], 0);
-                        sched.SchedTimeEnd = new DateTime(daystart.Year, daystart.Month, daystart.Day, hours[1], minutes[1], 0);
-                        // Console.WriteLine("{0}. {1} -> {2}", dem, sched.SchedTimeStart.ToString(), sched.SchedTimeEnd.ToString());
-                        sched.SchedId = null;
-                        sched.ScheId = null;
-                        // Console.WriteLine(sched.SchedTimeStart.ToString());
-                        lsd.Add(sched);
+                    Console.Write("Nhập trùng khung giờ, mời bạn nhập lại: ");
+                    time = Console.ReadLine();
+                    continue;
+                }
 
+                int count = 0;
+                for (i = 0; i < timeArr.Length; i++)
+                {
+                    // Console.WriteLine(timeArr[i]);
+                    for (int k = 0; k < start.Count; k++)
+                    {
+                        if (Convert.ToInt32(timeArr[i].Trim()) == k + 1)
+                        {
+                            count++;
+                            break;
+                        }
                     }
-                    daystart = daystart.AddDays(1);
-                    // if (daystart.Year % 4 == 0 && daystart.Month == 2 && daystart.Day == 29)
-                    // {
-                    //     daystart = new DateTime(daystart.Year, 3, 1);
-                    // }
-                    // else if (daystart.Year % 4 != 0 && daystart.Month == 2 && daystart.Day == 28)
-                    // {
-                    //     daystart = new DateTime(daystart.Year, 3, 1);
-                    // }
-                    // else if (daystart.Month == 12 && daystart.Day == 31)
-                    // {
-                    //     daystart = new DateTime(daystart.Year + 1, 1, 1);
-                    // }
-                    // else if (daystart.Day == 31 && ((daystart.Month == 1) || (daystart.Month == 3) || (daystart.Month == 5) || (daystart.Month == 7) || (daystart.Month == 8) || (daystart.Month == 10)))
-                    // {
-                    //     daystart = new DateTime(daystart.Year, daystart.Month + 1, 1);
-                    // }
-                    // else if (daystart.Day == 30 && ((daystart.Month == 4) || (daystart.Month == 6) || (daystart.Month == 9) || (daystart.Month == 11)))
-                    // {
-                    //     daystart = new DateTime(daystart.Year, daystart.Month + 1, 1);
-                    // }
-                    // else
-                    // {
-                    //     daystart = new DateTime(daystart.Year, daystart.Month, daystart.Day + 1);
-                    // }
+                }
+
+                DateTime daystart = movie.MovieDateStart;
+                DateTime dayend = movie.MovieDateEnd;
+                int dem = 0;
+                if (count == timeArr.Length && count > 0)
+                {
+                    while (DateTime.Compare(daystart, dayend) <= 0)
+                    {
+                        dem++;
+                        for (i = 0; i < timeArr.Length; i++)
+                        {
+                            sched = new ScheduleDetail();
+                            int index = Convert.ToInt32(timeArr[i]);
+                            int[] hours = { TimeToInt(start[index - 1]) / 60, TimeToInt(end[index - 1]) / 60 };
+                            int[] minutes = { TimeToInt(start[index - 1]) % 60, TimeToInt(end[index - 1]) % 60 };
+                            sched.SchedRoomSeats = room.RoomSeats;
+                            sched.SchedTimeStart = new DateTime(daystart.Year, daystart.Month, daystart.Day, hours[0], minutes[0], 0);
+                            sched.SchedTimeEnd = new DateTime(daystart.Year, daystart.Month, daystart.Day, hours[1], minutes[1], 0);
+                            // Console.WriteLine("{0}. {1} -> {2}", dem, sched.SchedTimeStart.ToString(), sched.SchedTimeEnd.ToString());
+                            sched.SchedId = null;
+                            sched.ScheId = null;
+                            // Console.WriteLine(sched.SchedTimeStart.ToString());
+                            lsd.Add(sched);
+
+                        }
+                        daystart = daystart.AddDays(1);
+                        // if (daystart.Year % 4 == 0 && daystart.Month == 2 && daystart.Day == 29)
+                        // {
+                        //     daystart = new DateTime(daystart.Year, 3, 1);
+                        // }
+                        // else if (daystart.Year % 4 != 0 && daystart.Month == 2 && daystart.Day == 28)
+                        // {
+                        //     daystart = new DateTime(daystart.Year, 3, 1);
+                        // }
+                        // else if (daystart.Month == 12 && daystart.Day == 31)
+                        // {
+                        //     daystart = new DateTime(daystart.Year + 1, 1, 1);
+                        // }
+                        // else if (daystart.Day == 31 && ((daystart.Month == 1) || (daystart.Month == 3) || (daystart.Month == 5) || (daystart.Month == 7) || (daystart.Month == 8) || (daystart.Month == 10)))
+                        // {
+                        //     daystart = new DateTime(daystart.Year, daystart.Month + 1, 1);
+                        // }
+                        // else if (daystart.Day == 30 && ((daystart.Month == 4) || (daystart.Month == 6) || (daystart.Month == 9) || (daystart.Month == 11)))
+                        // {
+                        //     daystart = new DateTime(daystart.Year, daystart.Month + 1, 1);
+                        // }
+                        // else
+                        // {
+                        //     daystart = new DateTime(daystart.Year, daystart.Month, daystart.Day + 1);
+                        // }
+                    }
+                    break;
+                }else{
+                    Console.Write("Không có khung giờ, mời bạn nhập lại: ");
+                    time = Console.ReadLine();
+                    continue;
                 }
             }
 
@@ -354,8 +394,8 @@ namespace CTS_Console
         public int RoomDisplay(User us)
         {
             Console.Clear();
-            string row1 = "========================================";
-            string row2 = "----------------------------------------";
+            string row1 = "=====================================================================";
+            string row2 = "---------------------------------------------------------------------";
             Console.WriteLine(row1);
             Console.WriteLine("Tạo lịch chiếu phim.");
             Console.WriteLine(row2);
