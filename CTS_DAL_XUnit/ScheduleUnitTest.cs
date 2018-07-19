@@ -22,7 +22,7 @@ namespace CTS_DAL_XUnit
             DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
             schedDetails.Add(new ScheduleDetail(null, null, timeStart, timeEnd, "Room Seat"));
             schedDetails.Add(new ScheduleDetail(null, null, timeStart, timeEnd, "Room Seat"));
-            Schedule sche = new Schedule(null, 0, null, "07:00, 07:00", 1, 3, schedDetails);
+            Schedule sche = new Schedule(null, 0, null, "07:00, 08:00", 1, 3, schedDetails);
 
             Assert.True(scheDAL.CreateSchedule(sche));
         }
@@ -30,11 +30,11 @@ namespace CTS_DAL_XUnit
         public void CreateScheduleTest2()
         {
             List<ScheduleDetail> schedDetails = new List<ScheduleDetail>();
-            // DateTime timeStart = new DateTime(2018, 8, 2, 7, 0, 0);
-            // DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
+            DateTime timeStart = new DateTime(2018, 8, 2, 7, 0, 0);
+            DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
             schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
             schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
-            Schedule sche = new Schedule(null, 0, null, "07:00, 07:00", 1, 4, schedDetails);
+            Schedule sche = new Schedule(null, 0, null, "07:00, 07:50", 1, 4, schedDetails);
 
             Assert.False(scheDAL.CreateSchedule(sche));
         }
@@ -46,7 +46,7 @@ namespace CTS_DAL_XUnit
             // DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
             // schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
             // schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
-            Schedule sche = new Schedule(null, 0, null, "07:00, 07:00", 1, 2, null);
+            Schedule sche = new Schedule(null, 0, null, "08:00, 08:50", 1, 2, null);
 
             Assert.False(scheDAL.CreateSchedule(sche));
         }
@@ -88,17 +88,17 @@ namespace CTS_DAL_XUnit
         [Fact]
         public void GetScheduleByMovieIdAndRoomIdTest3()
         {
-            Assert.NotNull(scheDAL.GetScheduleByMovieIdAndRoomId(null, 1));
+            Assert.Null(scheDAL.GetScheduleByMovieIdAndRoomId(null, 1));
         }
         [Fact]
         public void GetScheduleByMovieIdAndRoomIdTest4()
         {
-            Assert.NotNull(scheDAL.GetScheduleByMovieIdAndRoomId(0, 1));
+            Assert.Null(scheDAL.GetScheduleByMovieIdAndRoomId(0, 1));
         }
         [Fact]
         public void GetScheduleByMovieIdAndRoomIdTest5()
         {
-            Assert.NotNull(scheDAL.GetScheduleByMovieIdAndRoomId(1, 0));
+            Assert.Null(scheDAL.GetScheduleByMovieIdAndRoomId(1, 0));
         }
         [Fact]
         public void GetSchedulesByMovieIdTest2()

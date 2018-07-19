@@ -296,6 +296,10 @@ namespace CTS_Console
             string time = Console.ReadLine();
 
             time = time.Replace(" ", "");
+            if (time.Substring(time.Length - 1) == ",")
+            {
+                time = time.Substring(0, time.Length - 1);
+            }
             // Console.WriteLine(time);
             Regex regex = new Regex("[0-9,]");
             // Regex regex1 = new Regex("[1-9][0-9]");
