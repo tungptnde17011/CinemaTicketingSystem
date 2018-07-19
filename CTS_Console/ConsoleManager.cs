@@ -40,57 +40,83 @@ namespace CTS_Console
             }
             cine = us.Cine;
             Console.Clear();
-            // row1 = "========================================";
-            // row2 = "----------------------------------------";
-            Console.WriteLine(row1);
-            Console.WriteLine("Tạo lịch chiếu phim.");
-            Console.WriteLine(row2);
-            Console.WriteLine("[Danh sách phòng]\n");
-            string[] proper = { "RoomId", "RoomName", "RTName" };
-            string[] col = { "Mã phòng", "Tên phòng", "Loại phòng" };
-            lr = rbl.GetRoomsByCineId(us.Cine.CineId);
-            cs.DisplayTableData(lr, proper, col, null);
-            Console.WriteLine(row1);
-            Console.Write("\nChọn phòng(theo mã): "); sche.RoomId = cs.input(Console.ReadLine());
-            while (rbl.GetRoomByRoomId(sche.RoomId) == null)
-            {
-                Console.Write("Không có mã này, mời bạn nhập lại: "); sche.RoomId = cs.input(Console.ReadLine());
-            }
+            List<ScheduleDetail> lsd = null;
+            int? scheNewId;
             ScheduleBL sbl = new ScheduleBL();
-            while (sbl.GetScheduleByMovieIdAndRoomId(sche.MovieId, sche.RoomId) != null)
+            Schedule scheNew = null;
+            while (true)
             {
-                Console.Write("Trùng lịch chiếu, mời bạn nhập lại: ");
-                sche.RoomId = cs.input(Console.ReadLine());
+                // row1 = "========================================";
+                // row2 = "----------------------------------------";
+                Console.WriteLine(row1);
+                Console.WriteLine("Tạo lịch chiếu phim.");
+                Console.WriteLine(row2);
+                Console.WriteLine("[Danh sách phòng]\n");
+                string[] proper = { "RoomId", "RoomName", "RTName" };
+                string[] col = { "Mã phòng", "Tên phòng", "Loại phòng" };
+                lr = rbl.GetRoomsByCineId(1);
+                cs.DisplayTableData(lr, proper, col, null);
+                Console.WriteLine(row1);
+                Console.Write("\nChọn phòng(theo mã): "); sche.RoomId = cs.input(Console.ReadLine());
                 while (rbl.GetRoomByRoomId(sche.RoomId) == null)
                 {
                     Console.Write("Không có mã này, mời bạn nhập lại: "); sche.RoomId = cs.input(Console.ReadLine());
                 }
-            }
-            movie = mbl.GetMovieByMovieId(sche.MovieId);
-            room = rbl.GetRoomByRoomId(sche.RoomId);
-            List<ScheduleDetail> lsd = DisplayTime(movie, room);
-            while (lsd == null)
-            {
-                Console.Write("Không tìm thấy khung giờ hoặc trùng, bạn có muốn chọn lại?(C/K)");
-                string choice = Console.ReadLine();
-                switch (choice)
+                // while (sbl.GetScheduleByMovieIdAndRoomId(sche.MovieId, sche.RoomId) != null)
+                // {
+                //     Console.Write("Trùng lịch chiếu, mời bạn nhập lại: ");
+                //     sche.RoomId = cs.input(Console.ReadLine());
+                //     while (rbl.GetRoomByRoomId(sche.RoomId) == null)
+                //     {
+                //         Console.Write("Không có mã này, mời bạn nhập lại: "); sche.RoomId = cs.input(Console.ReadLine());
+                //     }
+                // }
+                scheNew = sbl.GetScheduleByMovieIdAndRoomId(sche.MovieId, sche.RoomId);
+                if (scheNew == null)
                 {
-                    case "C":
-                        lsd = DisplayTime(movie, room);
-                        break;
-                    case "c":
-                        lsd = DisplayTime(movie, room);
-                        break;
-                    case "K":
-                        mn.menuManager(us);
-                        return;
-                    case "k":
-                        mn.menuManager(us);
-                        return;
-                    default:
-                        continue;
-                        // break;
+                    scheNewId = null;
                 }
+                else
+                {
+                    scheNewId = scheNew.ScheId;
+                }
+                movie = mbl.GetMovieByMovieId(sche.MovieId);
+                room = rbl.GetRoomByRoomId(sche.RoomId);
+
+                lsd = DisplayTime(movie, room, scheNew);
+                // Console.Write("Không tìm thấy khung giờ hoặc trùng, bạn có muốn chọn lại?(C/K)");
+                // string choice = Console.ReadLine();
+                // switch (choice)
+                // {
+                //     case "C":
+                //         scheNew = sbl.GetScheduleByMovieIdAndRoomId(sche.MovieId, sche.RoomId);
+                //         movie = mbl.GetMovieByMovieId(sche.MovieId);
+                //         room = rbl.GetRoomByRoomId(sche.RoomId);
+                //         lsd = DisplayTime(movie, room, scheNew);
+                //         break;
+                //     case "c":
+                //         scheNew = sbl.GetScheduleByMovieIdAndRoomId(sche.MovieId, sche.RoomId);
+                //         movie = mbl.GetMovieByMovieId(sche.MovieId);
+                //         room = rbl.GetRoomByRoomId(sche.RoomId);
+                //         lsd = DisplayTime(movie, room, scheNew);
+                //         break;
+                //     case "K":
+                //         mn.menuManager(us);
+                //         return;
+                //     case "k":
+                //         mn.menuManager(us);
+                //         return;
+                //     default:
+                //         continue;
+                //         // break;
+                // }
+                if (lsd != null)
+                {
+                    break;
+                }
+
+                Console.Clear();
+                Console.WriteLine("Phim: {0} tại phòng: {1} đã đủ suất chiếu !", movie.MovieName, room.RoomName);
             }
 
             Console.Clear();
@@ -104,6 +130,11 @@ namespace CTS_Console
             Console.WriteLine("Trong các khung giờ lặp mỗi ngày từ ngày {0} - {1} cụ thể như sau: ", movie.MovieDateStart.ToString("dd/MM/yyyy"), movie.MovieDateEnd.ToString("dd/MM/yyyy"));
             int count = 1;
             string timeline = "";
+
+            if(scheNew != null)
+            {
+                timeline = scheNew.ScheTimeline;
+            }
 
             for (int i = 1; i < lsd.Count - 1; i++)
             {
@@ -153,7 +184,7 @@ namespace CTS_Console
             //     }
             //     count++;
             // }
-            sche = new Schedule(null, 0, null, timeline, sche.RoomId, sche.MovieId, lsd);
+            sche = new Schedule(scheNewId, 0, null, timeline, sche.RoomId, sche.MovieId, lsd);
             Console.WriteLine(row1);
             while (true)
             {
@@ -203,7 +234,7 @@ namespace CTS_Console
             }
 
         }
-        public List<ScheduleDetail> DisplayTime(Movie movie, Room room)
+        public List<ScheduleDetail> DisplayTime(Movie movie, Room room, Schedule sche)
         {
             List<ScheduleDetail> lsd = new List<ScheduleDetail>();
             ScheduleDetail sched = null;
@@ -231,6 +262,30 @@ namespace CTS_Console
             }
             start.RemoveAt(i);
             end.RemoveAt(i);
+
+            if (sche != null)
+            {
+                string timeline = sche.ScheTimeline.Replace(" ", "");
+                string[] timelineArr = timeline.Split(",");
+
+                for (int j = 0; j < timelineArr.Length; j++)
+                {
+                    for (int k = 0; k < start.Count; k++)
+                    {
+                        if (timelineArr[j] == start[k])
+                        {
+                            start.RemoveAt(k);
+                            end.RemoveAt(k);
+                        }
+                    }
+                }
+
+                if (start.Count == 0)
+                {
+                    return null;
+                }
+            }
+
             for (int k = 0; k < start.Count; k++)
             {
                 Console.WriteLine("{0}: {1} -> {2}", k + 1, start[k], end[k]);
@@ -244,7 +299,7 @@ namespace CTS_Console
             // Console.WriteLine(time);
             Regex regex = new Regex("[0-9,]");
             // Regex regex1 = new Regex("[1-9][0-9]");
-            
+
             // MatchCollection matchcollection1 = regex1.Matches(time);
             string[] timeArr;
 
@@ -348,7 +403,9 @@ namespace CTS_Console
                         // }
                     }
                     break;
-                }else{
+                }
+                else
+                {
                     Console.Write("Không có khung giờ, mời bạn nhập lại: ");
                     time = Console.ReadLine();
                     continue;

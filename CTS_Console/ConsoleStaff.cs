@@ -124,17 +124,36 @@ namespace CTS_Console
             sched = sdbl.GetScheduleDetailBySchedId(schedId);
 
             string[] seat;
+            Console.Clear();
             while (true)
             {
-                seat = ChoiceSeats(sched);
+                Console.WriteLine(row1);
+                Console.WriteLine("Đặt vé");
+                Console.WriteLine(row2);
+                Console.WriteLine("[Bản đồ phòng chiếu]");
+                try
+                {
+                    seat = ChoiceSeats(sched).Split(",");
+                }
+                catch (System.Exception)
+                {
+                    seat = null;
+                }
+                
                 if (seat == null)
                 {
-                    Console.WriteLine("không tìm thấy ghế");
+                    Console.Clear();
+                    Console.WriteLine("KHÔNG TÌM THẤY GHẾ !!!");
+                    continue;
+                }
+                else if(seat[0] == "same")
+                {
+                    Console.Clear();
+                    Console.WriteLine("BẠN NHẬP SỐ GHẾ TRÙNG NHAU");
                     continue;
                 }
                 else
                 {
-                    // seat = boughtSeats.Split(",");
                     break;
                 }
             }
@@ -399,7 +418,7 @@ namespace CTS_Console
             return price;
         }
 
-        public static string[] ChoiceSeats(ScheduleDetail sched)
+        public static string ChoiceSeats(ScheduleDetail sched)
         {
             // Console.Clear();
             string roomSeats = sched.SchedRoomSeats;
@@ -435,8 +454,7 @@ namespace CTS_Console
                 {
                     if (choiced[i] == choiced[j])
                     {
-                        Console.WriteLine("Ghế trùng nhau");
-                        ChoiceSeats(sched);
+                        return "same";
                     }
                 }
             }
@@ -464,12 +482,18 @@ namespace CTS_Console
             if (count == choiced.Length && count > 0)
             {
                 roomSeats = "";
+                choice = "";
                 for (int i = 0; i < seats.Length; i++)
                 {
                     roomSeats += seats[i] + " ";
                 }
                 sched.SchedRoomSeats = roomSeats.Trim();
-                return choiced;
+                for (int i = 0; i < choiced.Length; i++)
+                {
+                    choice += choiced[i]+",";
+                }
+
+                return choice.Substring(choice.Length-1);
             }
 
             return null;
