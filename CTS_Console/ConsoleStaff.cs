@@ -45,15 +45,15 @@ namespace CTS_Console
             Console.WriteLine("[Danh sách Phim]\n");
             MovieBL mbl = new MovieBL();
             string[] properties = { "MovieId", "MovieName", "MovieCategory", "MovieTime", "MovieDateStart", "MovieDateEnd" };
-            string[] cols = { "ID", "Tên phim", "Thể loại", "Thời lượng(Phút)", "Ngày bắt đầu", "Ngày kết thúc" };
+            string[] cols = { "Mã phim", "Tên phim", "Thể loại", "Thời lượng(Phút)", "Ngày bắt đầu", "Ngày kết thúc" };
             List<Movie> movies = mbl.GetMoviesByCineIdAndDateNow(us.Cine.CineId);
             cine = cbl.GetCinemaByCineId(us.Cine.CineId);
             DisplayTableData(movies, properties, cols, "dd/MM/yyyy");
             Console.WriteLine(row1);
-            Console.Write("\nChọn phim(Theo ID): "); sche.MovieId = input(Console.ReadLine());
+            Console.Write("\nChọn phim(theo mã): "); sche.MovieId = input(Console.ReadLine());
             while (mbl.GetMovieByMovieId(sche.MovieId) == null)
             {
-                Console.Write("Không có ID này, mời bạn nhập lại: "); sche.MovieId = input(Console.ReadLine());
+                Console.Write("Không có mã này, mời bạn nhập lại: "); sche.MovieId = input(Console.ReadLine());
             }
             movie = mbl.GetMovieByMovieId(sche.MovieId);
 
@@ -133,23 +133,24 @@ namespace CTS_Console
                 Console.WriteLine("[Bản đồ phòng chiếu]");
                 try
                 {
+                    // Console.WriteLine(ChoiceSeats(sched));
                     seat = ChoiceSeats(sched).Split(",");
                 }
                 catch (System.Exception)
                 {
                     seat = null;
                 }
-                
+
                 if (seat == null)
                 {
                     Console.Clear();
                     Console.WriteLine("KHÔNG TÌM THẤY GHẾ !!!");
                     continue;
                 }
-                else if(seat[0] == "same")
+                else if (seat[0] == "same")
                 {
                     Console.Clear();
-                    Console.WriteLine("BẠN NHẬP SỐ GHẾ TRÙNG NHAU");
+                    Console.WriteLine("BẠN NHẬP SỐ GHẾ TRÙNG NHAU !!!");
                     continue;
                 }
                 else
@@ -163,6 +164,7 @@ namespace CTS_Console
             // {
             //     Console.WriteLine(item);
             // }
+            // Console.ReadKey();
             foreach (var itemls in ls)
             {
                 if (itemls.ScheId == sched.ScheId)
@@ -182,13 +184,15 @@ namespace CTS_Console
             {
                 foreach (var item in seat)
                 {
+                    // Console.WriteLine(itemlpsort.st);
+                    // Console.WriteLine(item);
                     if (itemlpsort.STType == item[0].ToString())
                     {
                         // psort = new PriceSeatOfRoomType(itemlpsort.STType,itemlpsort.RTName,itemlpsort.Price);
                         // psort.STType = itemlpsort.STType;
                         // psort.RTName = itemlpsort.RTName;
                         // psort.Price = itemlpsort.Price;
-                        lpsort1.Add(new PriceSeatOfRoomType(itemlpsort.STType, itemlpsort.RTName, itemlpsort.Price));
+                        lpsort1.Add(new PriceSeatOfRoomType(itemlpsort.RTName, itemlpsort.STType, itemlpsort.Price));
                     }
                 }
             }
@@ -203,6 +207,7 @@ namespace CTS_Console
                 price += PrintTicket(sched, sche, room, movie, lpsort1[i], us, cine, seat[i]);
             }
             Console.WriteLine(row1);
+            Console.WriteLine("Tổng tiền vé: {0}", pricevalid(price));
             Console.Write("Nhập số tiền khách hàng trả(đồng): ");
             double cusmoney;
             while (true)
@@ -210,12 +215,18 @@ namespace CTS_Console
                 try
                 {
                     cusmoney = Convert.ToDouble(Console.ReadLine());
+                    if (cusmoney <= 0)
+                    {
+                        Console.Write("Số tiền trả phải lớn hơn 0, mời bạn nhập lại: ");
+                        continue;
+                    }
                 }
                 catch
                 {
-                    Console.Write("Nhập lại số tiền khách hàng trả(đồng): ");
+                    Console.Write("Bạn phải nhập số tiền bằng số, mời nhập lại số tiền khách hàng trả(đồng): ");
                     continue;
                 }
+
                 break;
             }
             int count1 = 1;
@@ -224,16 +235,21 @@ namespace CTS_Console
                 count1++;
                 Console.WriteLine("Khách hàng trả thiếu: {0}", pricevalid(price - cusmoney));
                 price -= cusmoney;
-                Console.WriteLine("Nhập số tiền khách trả lần {0}(đồng): ", count1);
+                Console.Write("Nhập số tiền khách trả lần {0}(đồng): ", count1);
                 while (true)
                 {
                     try
                     {
                         cusmoney = Convert.ToDouble(Console.ReadLine());
+                        if (cusmoney <= 0)
+                        {
+                            Console.Write("Số tiền trả phải lớn hơn 0, mời bạn nhập lại: ");
+                            continue;
+                        }
                     }
                     catch
                     {
-                        Console.Write("Nhập lại số tiền khách hàng trả(đồng): ");
+                        Console.Write("Bạn phải nhập số tiền bằng số, mời nhập lại số tiền khách hàng trả(đồng): ");
                         continue;
                     }
                     break;
@@ -414,7 +430,7 @@ namespace CTS_Console
                     price = price + prices[i].ToString();
                 }
             }
-            price = price + " d";
+            price = price + "đ";
             return price;
         }
 
@@ -429,12 +445,12 @@ namespace CTS_Console
             Console.Write("Chọn ghế (VD: A1,A2): ");
             string choice = Console.ReadLine().ToUpper();
             choice = choice.Replace(" ", "");
-            while (choice.Length < 1)
-            {
-                Console.Write("Chọn lại ghế (VD: A1,A2): ");
-                choice = Console.ReadLine().ToUpper();
-                choice = choice.Replace(" ", "");
-            }
+            // while (choice.Length < 1)
+            // {
+            //     Console.Write("Chọn lại ghế (VD: A1,A2): ");
+            //     choice = Console.ReadLine().ToUpper();
+            //     choice = choice.Replace(" ", "");
+            // }
 
             if (choice.Substring(choice.Length - 1) == ",")
             {
@@ -490,15 +506,14 @@ namespace CTS_Console
                 sched.SchedRoomSeats = roomSeats.Trim();
                 for (int i = 0; i < choiced.Length; i++)
                 {
-                    choice += choiced[i]+",";
+                    choice += choiced[i] + ",";
                 }
 
-                return choice.Substring(choice.Length-1);
+                return choice.Substring(0, choice.Length - 1);
             }
 
             return null;
         }
-
         private static void DrawRoomSeats(string[] seats)
         {
             for (int i = 0; i < seats.Length; i++)

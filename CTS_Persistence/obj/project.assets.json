@@ -183,11 +183,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj",
+      "projectUniqueName": "D:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj",
       "projectName": "CTS_Persistence",
-      "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj",
+      "projectPath": "D:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj",
       "packagesPath": "C:\\Users\\vuong\\.nuget\\packages\\",
-      "outputPath": "d:\\project\\CinemaTicketingSystem\\CTS_Persistence\\obj\\",
+      "outputPath": "D:\\project\\CinemaTicketingSystem\\CTS_Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
