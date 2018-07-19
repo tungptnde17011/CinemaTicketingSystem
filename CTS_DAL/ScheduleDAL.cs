@@ -43,37 +43,50 @@ namespace CTS_DAL
 
             try
             {
-                // Insert Schedule
-                int roomId = sche.RoomId;
-                int movieId = sche.MovieId;
-                int scheStatus = sche.ScheStatus;
-                string scheWeekdays = sche.ScheWeekdays;
-                string scheTimeline = sche.ScheTimeline;
-                query = @"insert into Schedules(room_id, movie_id, sche_status, sche_weekdays, sche_timeline) values" +
-                    "(" + roomId + ", " + movieId + ", " + scheStatus + ", '" + scheWeekdays + "', '" + scheTimeline + "');";
-                command.CommandText = query;
-                command.ExecuteNonQuery();
-
-                //Insert ScheduleDetails
-                command.CommandText = "select LAST_INSERT_ID() as sche_id";
-                using (reader = command.ExecuteReader())
+                int? scheId = 0;
+                if (sche.ScheId == null)
                 {
-                    if (reader.Read())
-                    {
-                        query = "insert into SchedulesDetails(sche_id, sched_timeStart, sched_timeEnd, sched_roomSeats) values";
-                        string schedDetailValue;
-                        string timeStart;
-                        string timeEnd;
-                        foreach (ScheduleDetail schedDetail in sche.ScheduleDetails)
-                        {
-                            schedDetail.ScheId = reader.GetInt32("sche_id");
-                            timeStart = schedDetail.SchedTimeStart?.ToString("yyyy/MM/dd HH:mm:ss");
-                            timeEnd = schedDetail.SchedTimeEnd?.ToString("yyyy/MM/dd HH:mm:ss");
-                            schedDetailValue = "(" + schedDetail.ScheId + ",'" + timeStart + "','" + timeEnd + "','" + schedDetail.SchedRoomSeats + "'),";
+                    // Insert Schedule
+                    int roomId = sche.RoomId;
+                    int movieId = sche.MovieId;
+                    int scheStatus = sche.ScheStatus;
+                    string scheWeekdays = sche.ScheWeekdays;
+                    string scheTimeline = sche.ScheTimeline;
+                    query = @"insert into Schedules(room_id, movie_id, sche_status, sche_weekdays, sche_timeline) values" +
+                        "(" + roomId + ", " + movieId + ", " + scheStatus + ", '" + scheWeekdays + "', '" + scheTimeline + "');";
+                    command.CommandText = query;
+                    command.ExecuteNonQuery();
 
-                            query = query + schedDetailValue;
+                    //Insert ScheduleDetails
+                    command.CommandText = "select LAST_INSERT_ID() as sche_id";
+                    using (reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            scheId = reader.GetInt32("sche_id");
                         }
                     }
+                }
+                else
+                {
+                    scheId = sche.ScheId;
+                    query = "update Schedules set sche_timeline = '"+ sche.ScheTimeline +"' where sche_id = "+ scheId +";";
+                    command.CommandText = query;
+                    command.ExecuteNonQuery();
+                }
+
+                query = "insert into SchedulesDetails(sche_id, sched_timeStart, sched_timeEnd, sched_roomSeats) values";
+                string schedDetailValue;
+                string timeStart;
+                string timeEnd;
+                foreach (ScheduleDetail schedDetail in sche.ScheduleDetails)
+                {
+                    schedDetail.ScheId = scheId;
+                    timeStart = schedDetail.SchedTimeStart?.ToString("yyyy/MM/dd HH:mm:ss");
+                    timeEnd = schedDetail.SchedTimeEnd?.ToString("yyyy/MM/dd HH:mm:ss");
+                    schedDetailValue = "(" + schedDetail.ScheId + ",'" + timeStart + "','" + timeEnd + "','" + schedDetail.SchedRoomSeats + "'),";
+
+                    query = query + schedDetailValue;
                 }
 
                 query = query.Substring(0, query.Length - 1) + ";";
