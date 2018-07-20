@@ -120,10 +120,10 @@ namespace CTS_Console
             {
                 for (int j = i+1; j < lsd.Count; j++)
                 {
-                    int time1 = cm.TimeToInt(lsd[j].SchedTimeStart?.ToString("HH:mm"));
-                    int time2 = cm.TimeToInt(lsd[i].SchedTimeStart?.ToString("HH:mm"));
+                    int time1 = cm.TimeToInt(lsd[i].SchedTimeStart?.ToString("HH:mm"));
+                    int time2 = cm.TimeToInt(lsd[j].SchedTimeStart?.ToString("HH:mm"));
                     // Console.WriteLine(time1+" "+time2);
-                    if (time1 < time2)
+                    if (time1 > time2)
                     {
                         ScheduleDetail newsd = new ScheduleDetail();
                         newsd = lsd[i];
@@ -131,7 +131,7 @@ namespace CTS_Console
                         lsd[j] = newsd;
                     }
                 }
-                newlsd.Add(lsd[i]);
+                // newlsd.Add(lsd[i]);
             }
             foreach (var itemlsd in newlsd)
             {
