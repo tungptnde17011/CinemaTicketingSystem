@@ -23,7 +23,6 @@ namespace CTS_DAL
         [InlineData(3, null, null, null, "")]
         public void BuyTicketTest2(int? schedId, int? scheId, DateTime? schedTimeStart, DateTime? schedTimeEnd, string schedRoomSeats)
         {
-<<<<<<< HEAD
             ScheduleDetail schedDetail = new ScheduleDetail(schedId, scheId, schedTimeStart, schedTimeEnd, schedRoomSeats);
 
             Assert.False(ticketDAL.BuyTicket(schedDetail));
@@ -32,8 +31,6 @@ namespace CTS_DAL
         [Fact]
         public void BuyTicketTest6()
         {
-=======
->>>>>>> cada2c2ddc182587fba22544e950988f37e75780
             Assert.False(ticketDAL.BuyTicket(null));
         }
     }

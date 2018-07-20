@@ -115,7 +115,7 @@ namespace CTS_Console
              //     Console.WriteLine(count + ". Bắt đầu từ: " + itemlsd.SchedTimeStart?.ToString("HH:mm") + " -> " + itemlsd.SchedTimeEnd?.ToString("HH:mm") + " Tại phòng: " + rooms.RoomName);
             // }
             ConsoleManager cm = new ConsoleManager();
-            List<ScheduleDetail> newlsd = new List<ScheduleDetail>();
+            // List<ScheduleDetail> newlsd = new List<ScheduleDetail>();
             for (int i = 0; i < lsd.Count - 1; i++)
             {
                 for (int j = i+1; j < lsd.Count; j++)
@@ -133,7 +133,7 @@ namespace CTS_Console
                 }
                 // newlsd.Add(lsd[i]);
             }
-            foreach (var itemlsd in newlsd)
+            foreach (var itemlsd in lsd)
             {
                 count++;
                 Schedule schez = new Schedule();
@@ -144,12 +144,12 @@ namespace CTS_Console
             Console.WriteLine(row1);
             Console.Write("Chọn lịch chiếu (theo số thứ tự): ");
             int scheno = input(Console.ReadLine());
-            while (scheno > newlsd.Count)
+            while (scheno > lsd.Count)
             {
                 Console.Write("Chọn sai lịch chiếu, mời nhập lại: ");
                 scheno = input(Console.ReadLine());
             }
-            int? schedId = newlsd[scheno - 1].SchedId;
+            int? schedId = lsd[scheno - 1].SchedId;
             sched = sdbl.GetScheduleDetailBySchedId(schedId);
 
             string[] seat;
