@@ -43,14 +43,6 @@ namespace CTS_DAL
         [Fact]
         public void BuyTicketTest5()
         {
-            ScheduleDetail schedDetail = new ScheduleDetail(3, null, null, null, "");
-
-            Assert.False(ticketDAL.BuyTicket(schedDetail));
-        }
-
-        [Fact]
-        public void BuyTicketTest6()
-        {
             Assert.False(ticketDAL.BuyTicket(null));
         }
     }

@@ -30,9 +30,22 @@ namespace CTS_BL_XUnit
             DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
             schedDetails.Add(new ScheduleDetail(null, null, timeStart, timeEnd, "Room Seat"));
             schedDetails.Add(new ScheduleDetail(null, null, timeStart, timeEnd, "Room Seat"));
-            Schedule sche = new Schedule(null, 0, null, "11:00", 3, 3, schedDetails);
+            Schedule sche = new Schedule(null, 0, null, null, 1, 1, schedDetails);
             Assert.False(sbl.CreateSchedule(sche));
         }
+        // [Fact]
+        // public void CreateScheduleTest5()
+        // {
+        //     List<ScheduleDetail> schedDetails = new List<ScheduleDetail>();
+        //     DateTime timeStart = new DateTime(2018, 8, 2, 7, 0, 0);
+        //     DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
+        //     schedDetails.Add(new ScheduleDetail(null, null, timeStart, timeEnd, "Room Seat"));
+        //     schedDetails.Add(new ScheduleDetail(null, null, timeStart, timeEnd, "Room Seat"));
+        //     Schedule sche = new Schedule(null, 0, null, null, 1, 1, schedDetails);
+        //     Assert.False(sbl.CreateSchedule(sche));
+        // }
+        
+        
         [Fact]
         public void GetSchedulesByMovieIdTest1()
         {

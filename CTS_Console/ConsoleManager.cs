@@ -285,7 +285,7 @@ namespace CTS_Console
                     return null;
                 }
             }
-
+            // start.Sort();
             for (int k = 0; k < start.Count; k++)
             {
                 Console.WriteLine("{0}: {1} -> {2}", k + 1, start[k], end[k]);
@@ -355,7 +355,18 @@ namespace CTS_Console
                         }
                     }
                 }
-
+                for (int j = 0; j < timeArr.Length-1; j++)
+                {
+                    for (int k = j+1; k < timeArr.Length; k++)
+                    {
+                        if (Convert.ToInt16(timeArr[k]) < Convert.ToInt16(timeArr[j]))
+                        {
+                            string temp = timeArr[j];
+                            timeArr[j] = timeArr[k];
+                            timeArr[k] = temp;
+                        }
+                    }
+                }
                 DateTime daystart = movie.MovieDateStart;
                 DateTime dayend = movie.MovieDateEnd;
                 int dem = 0;
