@@ -35,16 +35,14 @@ namespace CTS_DAL_XUnit
             Assert.Equal(1, schedDetail.ScheId);
         }
 
-        [Fact]
-        public void GetScheduleDetailBySchedIdTest2()
+        [Theory]
+        [InlineData(0)]
+        [InlineData(null)]
+        public void GetScheduleDetailBySchedIdTest2(int? SchedId)
         {
-            Assert.Null(schedDetailDAL.GetScheduleDetailBySchedId(0));
+            Assert.Null(schedDetailDAL.GetScheduleDetailBySchedId(SchedId));
         }
-        [Fact]
-        public void GetScheduleDetailBySchedIdTest3()
-        {
-            Assert.Null(schedDetailDAL.GetScheduleDetailBySchedId(null));
-        }
+
         [Fact]
         public void GetScheduleDetailsByScheIdTest1()
         {

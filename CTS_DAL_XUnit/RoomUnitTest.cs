@@ -23,16 +23,14 @@ namespace CTS_DAL_XUnit
             Assert.Equal(1, room.RoomId);
         }
 
-        [Fact]
-        public void GetRoomByRoomIdTest2()
+        [Theory]
+        [InlineData(0)]
+        [InlineData(null)]
+        public void GetRoomByRoomIdTest2(int? roomId)
         {
-            Assert.Null(roomDAL.GetRoomByRoomId(0));
+            Assert.Null(roomDAL.GetRoomByRoomId(roomId));
         }
-        [Fact]
-        public void GetRoomByRoomIdTest3()
-        {
-            Assert.Null(roomDAL.GetRoomByRoomId(null));
-        }
+
         [Fact]
         public void GetRoomsByCineIdTest1()
         {

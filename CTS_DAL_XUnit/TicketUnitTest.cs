@@ -16,34 +16,14 @@ namespace CTS_DAL
             Assert.True(ticketDAL.BuyTicket(schedDetail));
         }
 
-        [Fact]
-        public void BuyTicketTest2()
+        [Theory]
+        [InlineData(null, null, null, null, "RoomSeat")]
+        [InlineData(0, null, null, null, "RoomSeat")]
+        [InlineData(3, null, null, null, null)]
+        [InlineData(3, null, null, null, "")]
+        public void BuyTicketTest2(int? schedId, int? scheId, DateTime? schedTimeStart, DateTime? schedTimeEnd, string schedRoomSeats)
         {
-            ScheduleDetail schedDetail = new ScheduleDetail(null, null, null, null, "RoomSeat");
-
-            Assert.False(ticketDAL.BuyTicket(schedDetail));
-        }
-
-        [Fact]
-        public void BuyTicketTest3()
-        {
-            ScheduleDetail schedDetail = new ScheduleDetail(0, null, null, null, "RoomSeat");
-
-            Assert.False(ticketDAL.BuyTicket(schedDetail));
-        }
-
-        [Fact]
-        public void BuyTicketTest4()
-        {
-            ScheduleDetail schedDetail = new ScheduleDetail(3, null, null, null, null);
-
-            Assert.False(ticketDAL.BuyTicket(schedDetail));
-        }
-
-        [Fact]
-        public void BuyTicketTest5()
-        {
-            ScheduleDetail schedDetail = new ScheduleDetail(3, null, null, null, "");
+            ScheduleDetail schedDetail = new ScheduleDetail(schedId, scheId, schedTimeStart, schedTimeEnd, schedRoomSeats);
 
             Assert.False(ticketDAL.BuyTicket(schedDetail));
         }

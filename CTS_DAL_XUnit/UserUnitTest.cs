@@ -9,48 +9,25 @@ namespace CTS_DAL_XUnit
     {
         private UserDAL userDAL = new UserDAL();
 
-        [Fact]
-        public void LoginTest1()
+        [Theory]
+        [InlineData("manager_01", "123456")]
+        [InlineData("staff_01", "123456")]
+        public void LoginTest1(string username, string password)
         {
-            string username = "manager_01";
-            string password = "123456";
             User user = userDAL.Login(username, password);
 
             Assert.NotNull(user);
             Assert.Equal(username, user.Username);
         }
 
-        [Fact]
-        public void LoginTest2()
+        [Theory]
+        [InlineData("customer_01", "123456789")]
+        [InlineData("'?^%'", "'.:=='")]
+        [InlineData("'?^%'",null)]
+        [InlineData(null, "'.:=='")]
+        public void LoginTest3(string username, string password)
         {
-            string username = "staff_01";
-            string password = "123456";
-            User user = userDAL.Login(username, password);
-
-            Assert.NotNull(user);
-            Assert.Equal(username, user.Username);
-        }
-
-        [Fact]
-        public void LoginTest3()
-        {
-            Assert.Null(userDAL.Login("customer_01", "123456789"));
-        }
-
-        [Fact]
-        public void LoginTest4()
-        {
-            Assert.Null(userDAL.Login("'?^%'", "'.:=='"));
-        }
-        [Fact]
-        public void LoginTest5()
-        {
-            Assert.Null(userDAL.Login("'?^%'",null));
-        }
-        [Fact]
-        public void LoginTest6()
-        {
-            Assert.Null(userDAL.Login(null, "'.:=='"));
+            Assert.Null(userDAL.Login(username, password));
         }
     }
 }

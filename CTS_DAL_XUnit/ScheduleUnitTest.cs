@@ -26,6 +26,7 @@ namespace CTS_DAL_XUnit
 
             Assert.True(scheDAL.CreateSchedule(sche));
         }
+
         [Fact]
         public void CreateScheduleTest2()
         {
@@ -38,6 +39,7 @@ namespace CTS_DAL_XUnit
 
             Assert.False(scheDAL.CreateSchedule(sche));
         }
+
         [Fact]
         public void CreateScheduleTest3()
         {
@@ -50,6 +52,7 @@ namespace CTS_DAL_XUnit
 
             Assert.False(scheDAL.CreateSchedule(sche));
         }
+
         [Fact]
         public void GetSchedulesByMovieIdTest1()
         {
@@ -76,31 +79,6 @@ namespace CTS_DAL_XUnit
             Assert.True(sches.IndexOf(scheBottom) == (sches.Count - 1));
         }
         [Fact]
-        public void GetScheduleByMovieIdAndRoomIdTest1()
-        {
-            Assert.NotNull(scheDAL.GetScheduleByMovieIdAndRoomId(1, 1));
-        }
-        [Fact]
-        public void GetScheduleByMovieIdAndRoomIdTest2()
-        {
-            Assert.Null(scheDAL.GetScheduleByMovieIdAndRoomId(1, null));
-        }
-        [Fact]
-        public void GetScheduleByMovieIdAndRoomIdTest3()
-        {
-            Assert.Null(scheDAL.GetScheduleByMovieIdAndRoomId(null, 1));
-        }
-        [Fact]
-        public void GetScheduleByMovieIdAndRoomIdTest4()
-        {
-            Assert.Null(scheDAL.GetScheduleByMovieIdAndRoomId(0, 1));
-        }
-        [Fact]
-        public void GetScheduleByMovieIdAndRoomIdTest5()
-        {
-            Assert.Null(scheDAL.GetScheduleByMovieIdAndRoomId(1, 0));
-        }
-        [Fact]
         public void GetSchedulesByMovieIdTest2()
         {
             Assert.Equal(new List<Schedule>(), scheDAL.GetSchedulesByMovieId(0));
@@ -110,6 +88,24 @@ namespace CTS_DAL_XUnit
         {
             Assert.Null(scheDAL.GetSchedulesByMovieId(null));
         }
+
+        [Fact]
+        public void GetScheduleByMovieIdAndRoomIdTest1()
+        {
+            Assert.NotNull(scheDAL.GetScheduleByMovieIdAndRoomId(1, 1));
+        }
+
+        [Theory]
+        [InlineData(1,null)]
+        [InlineData(null,1)]
+        [InlineData(0,1)]
+        [InlineData(1,0)]
+        public void GetScheduleByMovieIdAndRoomIdTest2(int? movieId, int? roomId)
+        {
+            Assert.Null(scheDAL.GetScheduleByMovieIdAndRoomId(movieId, roomId));
+        }
+        
+
         [Fact]
         public void GetScheduleBySchedIdTest1()
         {

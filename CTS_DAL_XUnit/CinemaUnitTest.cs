@@ -18,15 +18,12 @@ namespace CTS_DAL_XUnit
             Assert.Equal(1, cine.CineId);
         }
 
-        [Fact]
-        public void GetCinemaByCineIdTest2()
+        [Theory]
+        [InlineData(0)]
+        [InlineData(null)]
+        public void GetCinemaByCineIdTest2(int? cineId)
         {
-            Assert.Null(cinemaDAL.GetCinemaByCineId(0));
-        }
-        [Fact]
-        public void GetCinemaByCineIdTest3()
-        {
-            Assert.Null(cinemaDAL.GetCinemaByCineId(null));
+            Assert.Null(cinemaDAL.GetCinemaByCineId(cineId));
         }
     }
 }
