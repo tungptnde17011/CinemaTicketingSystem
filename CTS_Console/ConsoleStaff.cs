@@ -61,8 +61,8 @@ namespace CTS_Console
             List<ScheduleDetail> lsd = new List<ScheduleDetail>();
             foreach (var itemListSchedule in ls)
             {
-                List<ScheduleDetail> newlsd = sdbl.GetScheduleDetailsByScheIdAndTimeNow(itemListSchedule.ScheId);
-                foreach (var itemListScheduleDetail in newlsd)
+                List<ScheduleDetail> newlsdz = sdbl.GetScheduleDetailsByScheIdAndTimeNow(itemListSchedule.ScheId);
+                foreach (var itemListScheduleDetail in newlsdz)
                 {
                     lsd.Add(itemListScheduleDetail);
                 }
@@ -103,24 +103,53 @@ namespace CTS_Console
             Console.WriteLine(row2);
             Console.WriteLine("[Danh sách lịch chiếu]");
             int count = 0;
-            foreach (var itemlsd in lsd)
+            // lsd.Sort( (l,r) => l.SchedTimeStart.CompareTo(r.SchedTimeStart) );
+            // lsd.Sort((x, y) => DateTime.Compare(x.SchedTimeStart, y.SchedTimeStart));
+            // foreach (var item in lsd)
+            // {
+                
+            //  count++;
+             //     Schedule schez = new Schedule();
+             //     schez = sbl.GetScheduleByScheId(itemlsd.ScheId);
+             //     Room rooms = rbl.GetRoomByRoomId(schez.RoomId);
+             //     Console.WriteLine(count + ". Bắt đầu từ: " + itemlsd.SchedTimeStart?.ToString("HH:mm") + " -> " + itemlsd.SchedTimeEnd?.ToString("HH:mm") + " Tại phòng: " + rooms.RoomName);
+            // }
+            ConsoleManager cm = new ConsoleManager();
+            List<ScheduleDetail> newlsd = new List<ScheduleDetail>();
+            for (int i = 0; i < lsd.Count - 1; i++)
+            {
+                for (int j = i+1; j < lsd.Count; j++)
+                {
+                    int time1 = cm.TimeToInt(lsd[j].SchedTimeStart?.ToString("HH:mm"));
+                    int time2 = cm.TimeToInt(lsd[i].SchedTimeStart?.ToString("HH:mm"));
+                    // Console.WriteLine(time1+" "+time2);
+                    if (time1 < time2)
+                    {
+                        ScheduleDetail newsd = new ScheduleDetail();
+                        newsd = lsd[i];
+                        lsd[i] = lsd[j];
+                        lsd[j] = newsd;
+                    }
+                }
+                newlsd.Add(lsd[i]);
+            }
+            foreach (var itemlsd in newlsd)
             {
                 count++;
                 Schedule schez = new Schedule();
                 schez = sbl.GetScheduleByScheId(itemlsd.ScheId);
                 Room rooms = rbl.GetRoomByRoomId(schez.RoomId);
                 Console.WriteLine(count + ". Bắt đầu từ: " + itemlsd.SchedTimeStart?.ToString("HH:mm") + " -> " + itemlsd.SchedTimeEnd?.ToString("HH:mm") + " Tại phòng: " + rooms.RoomName);
-
             }
             Console.WriteLine(row1);
             Console.Write("Chọn lịch chiếu (theo số thứ tự): ");
             int scheno = input(Console.ReadLine());
-            while (scheno > lsd.Count)
+            while (scheno > newlsd.Count)
             {
                 Console.Write("Chọn sai lịch chiếu, mời nhập lại: ");
                 scheno = input(Console.ReadLine());
             }
-            int? schedId = lsd[scheno - 1].SchedId;
+            int? schedId = newlsd[scheno - 1].SchedId;
             sched = sdbl.GetScheduleDetailBySchedId(schedId);
 
             string[] seat;

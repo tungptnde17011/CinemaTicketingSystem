@@ -20,21 +20,5 @@ namespace CTS_BL_XUnit
             ScheduleDetail sd = new ScheduleDetail(null, null, null, null, "RoomSeat");
             Assert.False(tbl.BuyTicket(sd));
         }
-        [Fact]
-        public void BuyTicketTest3()
-        {
-            ScheduleDetail sd = new ScheduleDetail(0,null,null,null,"roomseat");
-            Assert.False(tbl.BuyTicket(sd));
-        }
-        [Fact]
-        public void BuyTicketTest4()
-        {
-            Assert.False(tbl.BuyTicket(new ScheduleDetail(null, null, null, null, "")));
-        }
-        [Fact]
-        public void BuyTicketTest5()
-        {
-            Assert.False(tbl.BuyTicket(null));
-        }
     }
 }

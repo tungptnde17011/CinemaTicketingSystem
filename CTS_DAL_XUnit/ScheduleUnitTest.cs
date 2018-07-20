@@ -33,9 +33,9 @@ namespace CTS_DAL_XUnit
             List<ScheduleDetail> schedDetails = new List<ScheduleDetail>();
             DateTime timeStart = new DateTime(2018, 8, 2, 7, 0, 0);
             DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
-            schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
-            schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
-            Schedule sche = new Schedule(null, 0, null, "07:00, 07:50", 1, 4, schedDetails);
+            schedDetails.Add(new ScheduleDetail(null, null, timeStart, timeEnd, "Room Seat"));
+            schedDetails.Add(new ScheduleDetail(null, null, timeStart, timeEnd, "Room Seat"));
+            Schedule sche = new Schedule(null, 0, null, "07:00, 07:50", 0, 1, schedDetails);
 
             Assert.False(scheDAL.CreateSchedule(sche));
         }
@@ -44,11 +44,11 @@ namespace CTS_DAL_XUnit
         public void CreateScheduleTest3()
         {
             List<ScheduleDetail> schedDetails = new List<ScheduleDetail>();
-            // DateTime timeStart = new DateTime(2018, 8, 2, 7, 0, 0);
-            // DateTime timeEnd = new DateTime(2018, 8, 2, 9, 12, 0);
-            // schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
-            // schedDetails.Add(new ScheduleDetail(null, null, null, null, "Room Seat"));
-            Schedule sche = new Schedule(null, 0, null, "08:00, 08:50", 1, 2, null);
+            DateTime timeStart = new DateTime(2018, 8, 2, 7, 0, 0);
+            DateTime timeEnd = new DateTime(2018, 8, 2, 7, 50, 0);
+            schedDetails.Add(new ScheduleDetail(null, null, timeStart, timeEnd, "Room Seat"));
+            // schedDetails.Add(new ScheduleDetail(null, null, timeStart, timeEnd, "Room Seat"));
+            Schedule sche = new Schedule(null, 0, null, "07:00, 08:00", 1, 0, schedDetails);
 
             Assert.False(scheDAL.CreateSchedule(sche));
         }

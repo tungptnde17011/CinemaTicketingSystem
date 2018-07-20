@@ -32,17 +32,5 @@ namespace CTS_BL_XUnit
             UserBL userBL = new UserBL();
             Assert.Null(userBL.Login("'#!@#!@'", "'><?<>'"));
         }
-        [Fact]
-        public void LoginTest5()
-        {
-            UserBL userBL = new UserBL();
-            Assert.Null(userBL.Login("dasdsa",null));
-        }
-        [Fact]
-        public void LoginTest6()
-        {
-            UserBL userBL = new UserBL();
-            Assert.Null(userBL.Login(null, "><?<>"));
-        }
     }
 }
