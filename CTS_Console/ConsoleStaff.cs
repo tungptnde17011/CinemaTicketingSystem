@@ -107,18 +107,18 @@ namespace CTS_Console
             // lsd.Sort((x, y) => DateTime.Compare(x.SchedTimeStart, y.SchedTimeStart));
             // foreach (var item in lsd)
             // {
-                
+
             //  count++;
-             //     Schedule schez = new Schedule();
-             //     schez = sbl.GetScheduleByScheId(itemlsd.ScheId);
-             //     Room rooms = rbl.GetRoomByRoomId(schez.RoomId);
-             //     Console.WriteLine(count + ". Bắt đầu từ: " + itemlsd.SchedTimeStart?.ToString("HH:mm") + " -> " + itemlsd.SchedTimeEnd?.ToString("HH:mm") + " Tại phòng: " + rooms.RoomName);
+            //     Schedule schez = new Schedule();
+            //     schez = sbl.GetScheduleByScheId(itemlsd.ScheId);
+            //     Room rooms = rbl.GetRoomByRoomId(schez.RoomId);
+            //     Console.WriteLine(count + ". Bắt đầu từ: " + itemlsd.SchedTimeStart?.ToString("HH:mm") + " -> " + itemlsd.SchedTimeEnd?.ToString("HH:mm") + " Tại phòng: " + rooms.RoomName);
             // }
             ConsoleManager cm = new ConsoleManager();
             // List<ScheduleDetail> newlsd = new List<ScheduleDetail>();
             for (int i = 0; i < lsd.Count - 1; i++)
             {
-                for (int j = i+1; j < lsd.Count; j++)
+                for (int j = i + 1; j < lsd.Count; j++)
                 {
                     int time1 = cm.TimeToInt(lsd[i].SchedTimeStart?.ToString("HH:mm"));
                     int time2 = cm.TimeToInt(lsd[j].SchedTimeStart?.ToString("HH:mm"));
@@ -313,29 +313,9 @@ namespace CTS_Console
                 break;
             }
             Console.Clear();
-            while (true)
-            {
-                Console.Write("Tiếp tục đặt vé?(C/K)");
-                string choice = Console.ReadLine();
-                switch (choice)
-                {
-                    case "C":
-                        Ticket(us);
-                        return;
-                    case "c":
-                        Ticket(us);
-                        return;
-                    case "K":
-                        mn.menuStaff(us);
-                        return;
-                    case "k":
-                        mn.menuStaff(us);
-                        return;
-                    default:
-                        continue;
-                        // break;
-                }
-            }
+
+            mn.menuStaff(us);
+
 
         }
         public double PrintTicket(ScheduleDetail sched, Schedule sche, Room room, Movie movie, PriceSeatOfRoomType psort, User user, Cinema cine, string seat)
@@ -452,7 +432,7 @@ namespace CTS_Console
                 }
                 else if ((i - balance) % 3 == 0)
                 {
-                    price = price + prices[i] + ",";
+                    price = price + prices[i] + ".";
                 }
                 else
                 {
