@@ -209,30 +209,8 @@ namespace CTS_Console
                 break;
             }
             Console.Clear();
-            while (true)
-            {
-                Console.Write("Tiếp tục tạo lịch?(C/K)");
-                string choice = Console.ReadLine();
-                switch (choice)
-                {
-                    case "C":
-                        CreateSchedule(us);
-                        return;
-                    case "c":
-                        CreateSchedule(us);
-                        return;
-                    case "K":
+            
                         mn.menuManager(us);
-                        return;
-                    case "k":
-                        mn.menuManager(us);
-                        return;
-                    default:
-                        continue;
-                        // break;
-                }
-            }
-
         }
         public List<ScheduleDetail> DisplayTime(Movie movie, Room room, Schedule sche)
         {

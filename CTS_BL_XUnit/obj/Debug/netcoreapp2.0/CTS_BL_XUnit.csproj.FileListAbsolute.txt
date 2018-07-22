@@ -13,7 +13,6 @@ D:\project\CinemaTicketingSystem\CTS_BL_XUnit\bin\Debug\netcoreapp2.0\CTS_Persis
 D:\project\CinemaTicketingSystem\CTS_BL_XUnit\bin\Debug\netcoreapp2.0\CTS_BL.pdb
 D:\project\CinemaTicketingSystem\CTS_BL_XUnit\bin\Debug\netcoreapp2.0\CTS_Persistence.pdb
 D:\project\CinemaTicketingSystem\CTS_BL_XUnit\bin\Debug\netcoreapp2.0\CTS_DAL.pdb
-D:\project\CinemaTicketingSystem\CTS_BL_XUnit\obj\Debug\netcoreapp2.0\CTS_BL_XUnit.csprojResolveAssemblyReference.cache
 D:\project\CinemaTicketingSystem\CTS_BL_XUnit\obj\Debug\netcoreapp2.0\CTS_BL_XUnit.csproj.CoreCompileInputs.cache
 D:\project\CinemaTicketingSystem\CTS_BL_XUnit\obj\Debug\netcoreapp2.0\CTS_BL_XUnit.AssemblyInfoInputs.cache
 D:\project\CinemaTicketingSystem\CTS_BL_XUnit\obj\Debug\netcoreapp2.0\CTS_BL_XUnit.AssemblyInfo.cs
