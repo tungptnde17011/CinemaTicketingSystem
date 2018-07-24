@@ -131,7 +131,7 @@ namespace CTS_Console
             int count = 1;
             string timeline = "";
 
-            if(scheNew != null)
+            if (scheNew != null)
             {
                 timeline = scheNew.ScheTimeline;
             }
@@ -209,8 +209,8 @@ namespace CTS_Console
                 break;
             }
             Console.Clear();
-            
-                        mn.menuManager(us);
+
+            mn.menuManager(us);
         }
         public List<ScheduleDetail> DisplayTime(Movie movie, Room room, Schedule sche)
         {
@@ -293,6 +293,11 @@ namespace CTS_Console
                 {
                     Console.Write("Nhập các khung giờ sai định dạng, mời bạn nhập lại (ví dụ: 1,2...): ");
                     time = Console.ReadLine();
+                    time = time.Replace(" ", "");
+                    if (time.Substring(time.Length - 1) == ",")
+                    {
+                        time = time.Substring(0, time.Length - 1);
+                    }
                     matchcollection = regex.Matches(time);
                     continue;
                 }
@@ -317,6 +322,11 @@ namespace CTS_Console
                 {
                     Console.Write("Nhập trùng khung giờ, mời bạn nhập lại: ");
                     time = Console.ReadLine();
+                    time = time.Replace(" ", "");
+                    if (time.Substring(time.Length - 1) == ",")
+                    {
+                        time = time.Substring(0, time.Length - 1);
+                    }
                     continue;
                 }
 
@@ -333,9 +343,9 @@ namespace CTS_Console
                         }
                     }
                 }
-                for (int j = 0; j < timeArr.Length-1; j++)
+                for (int j = 0; j < timeArr.Length - 1; j++)
                 {
-                    for (int k = j+1; k < timeArr.Length; k++)
+                    for (int k = j + 1; k < timeArr.Length; k++)
                     {
                         if (Convert.ToInt16(timeArr[k]) < Convert.ToInt16(timeArr[j]))
                         {
