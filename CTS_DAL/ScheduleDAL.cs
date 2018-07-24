@@ -25,10 +25,18 @@ namespace CTS_DAL
                 return result;
             }
 
-            if (connection.State == System.Data.ConnectionState.Closed)
+            try
             {
-                connection.Open();
+                if (connection.State == System.Data.ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
             }
+            catch (System.Exception)
+            {
+                return result;
+            }
+
 
             MySqlCommand command = new MySqlCommand();
             command.Connection = connection;
@@ -70,7 +78,7 @@ namespace CTS_DAL
                 else
                 {
                     scheId = sche.ScheId;
-                    query = "update Schedules set sche_timeline = '"+ sche.ScheTimeline +"' where sche_id = "+ scheId +";";
+                    query = "update Schedules set sche_timeline = '" + sche.ScheTimeline + "' where sche_id = " + scheId + ";";
                     command.CommandText = query;
                     command.ExecuteNonQuery();
                 }

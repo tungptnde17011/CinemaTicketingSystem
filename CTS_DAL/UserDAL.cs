@@ -30,9 +30,16 @@ namespace CTS_DAL
                 return null;
             }
 
-            if (connection.State == System.Data.ConnectionState.Closed)
+            try
             {
-                connection.Open();
+                if (connection.State == System.Data.ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+            }
+            catch (System.Exception)
+            {
+                return null;
             }
 
             query = @"select * from Accounts where acc_username = '" + username + "' and acc_password= '" + password + "';";

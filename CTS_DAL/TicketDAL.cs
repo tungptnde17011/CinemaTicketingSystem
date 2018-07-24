@@ -17,20 +17,28 @@ namespace CTS_DAL
         public bool BuyTicket(ScheduleDetail schedDetail)
         {
             bool result = false;
-            if(schedDetail == null || schedDetail.SchedId == null || schedDetail.SchedId == 0 || 
+            if (schedDetail == null || schedDetail.SchedId == null || schedDetail.SchedId == 0 ||
                 schedDetail.SchedRoomSeats == null || schedDetail.SchedRoomSeats.Equals(""))
             {
                 return result;
             }
 
-            if (connection.State == System.Data.ConnectionState.Closed)
+            try
             {
-                connection.Open();
+                if (connection.State == System.Data.ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+            }
+            catch (System.Exception)
+            {
+                return result;
             }
 
-            query = @"update SchedulesDetails set sched_roomSeats = '"+ schedDetail.SchedRoomSeats +"' where sched_id = "+ schedDetail.SchedId +";";
+
+            query = @"update SchedulesDetails set sched_roomSeats = '" + schedDetail.SchedRoomSeats + "' where sched_id = " + schedDetail.SchedId + ";";
             MySqlCommand command = new MySqlCommand(query, connection);
-            if(command.ExecuteNonQuery() > 0)
+            if (command.ExecuteNonQuery() > 0)
             {
                 result = true;
             }
