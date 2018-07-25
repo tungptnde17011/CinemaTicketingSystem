@@ -152,6 +152,7 @@ namespace CTS_Console
             int? schedId = lsd[scheno - 1].SchedId;
             sched = sdbl.GetScheduleDetailBySchedId(schedId);
 
+            string seatStr = null;
             string[] seat;
             Console.Clear();
             while (true)
@@ -163,7 +164,8 @@ namespace CTS_Console
                 try
                 {
                     // Console.WriteLine(ChoiceSeats(sched));
-                    seat = ChoiceSeats(sched).Split(",");
+                    seatStr = ChoiceSeats(sched);
+                    seat = seatStr.Split(",");
                 }
                 catch (System.Exception)
                 {
@@ -229,25 +231,28 @@ namespace CTS_Console
             Console.WriteLine(row1);
             Console.WriteLine("Đặt vé");
             Console.WriteLine(row2);
-            Console.WriteLine("[Danh sách vé xem phim cần in]");
+            Console.WriteLine("[Thông tin vé đã chọn]");
             double price = 0;
+            Console.WriteLine("Phim: {0}", movie.MovieName);
+            Console.WriteLine("Thời gian chiếu: {0} - {0} -> {1}", sched.SchedTimeStart?.ToString("dd/MM/yyyy"), sched.SchedTimeStart?.ToString("HH:mm"), sched.SchedTimeEnd?.ToString("HH:mm"));
+            Console.WriteLine("Các ghế đã chọn: {0}", seatStr);
             for (int i = 0; i < lpsort1.Count; i++)
             {
-                price += PrintTicket(sched, sche, room, movie, lpsort1[i], us, cine, seat[i]);
+                price += lpsort1[i].Price;
             }
             Console.WriteLine(row1);
             Console.WriteLine("Tổng tiền vé: {0}", pricevalid(price));
             while (true)
             {
-                Console.Write("Xác nhận in vé hiển thị trên màn hình?(C/K)");
+                Console.Write("Xác nhận mua vé?(C/K)");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {
                     case "C":
-                        tbl.BuyTicket(sched);
+                        tbl.SellTicket(sched);
                         break;
                     case "c":
-                        tbl.BuyTicket(sched);
+                        tbl.SellTicket(sched);
                         break;
                     case "K":
                         break;
@@ -287,10 +292,17 @@ namespace CTS_Console
             }
             if ((cusmoney - price) > 0)
             {
-                Console.WriteLine("Khách hàng trả thừa: {0}", pricevalid(cusmoney - price));
+                Console.WriteLine("Tiền trả lại: {0}", pricevalid(cusmoney - price));
             }
             Console.WriteLine(row1);
-            Console.WriteLine("Thanh toán thành công!!!\nBấm phím bất kì để thoát");
+            Console.WriteLine("Thanh toán thành công!!!\nBấm phím bất kì để in vé");
+            Console.ReadKey();
+            Console.Clear();
+            for (int i = 0; i < lpsort1.Count; i++)
+            {
+                PrintTicket(sched, sche, room, movie, lpsort1[i], us, cine, seat[i]);
+            }
+            Console.WriteLine("In vé thành công!!!\nBấm phím bất kì để thoát");
             Console.ReadKey();
             Console.Clear();
 
@@ -431,6 +443,7 @@ namespace CTS_Console
 
             DrawRoomSeats(seats);
 
+            Console.WriteLine();
             Console.Write("Chọn ghế (VD: A1,A2): ");
             string choice = Console.ReadLine().ToUpper();
             choice = choice.Replace(" ", "");
@@ -520,6 +533,8 @@ namespace CTS_Console
                     Console.Write(" " + seats[i] + " ");
                 }
             }
+
+            Console.WriteLine("X: Ghế đã mua --- V: Ghế VIP --- N: Ghế thường --- D: Ghế đôi");
         }
         /* Remove unicode */
         // Start RemoveUnicode(string text)
@@ -572,8 +587,18 @@ namespace CTS_Console
                 {
                     if (item.GetType().GetProperty(properties[i]).GetValue(item) != null)
                     {
-                        int l = RemoveUnicode(item.GetType().GetProperty(properties[i]).GetValue(item).ToString()).Length;
+                        int l = 0;
+                        if (item.GetType().GetProperty(properties[i]).GetValue(item).GetType() == typeof(DateTime))
+                        {
+                            DateTime date = DateTime.Parse(item.GetType().GetProperty(properties[i]).GetValue(item).ToString());
+                            l = date.ToString(formatDate).Length;
+                        }
+                        else
+                        {
+                            l = RemoveUnicode(item.GetType().GetProperty(properties[i]).GetValue(item).ToString()).Length;
 
+                        }
+                        
                         if (l > widthCols[i])
                         {
                             widthCols[i] = l;

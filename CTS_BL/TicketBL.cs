@@ -7,9 +7,9 @@ namespace CTS_BL
     public class TicketBL
     {
         TicketDAL tdal = new TicketDAL();
-        public bool BuyTicket(ScheduleDetail SchedDeltail)
+        public bool SellTicket(ScheduleDetail SchedDeltail)
         {
-            return tdal.BuyTicket(SchedDeltail);
+            return tdal.SellTicket(SchedDeltail);
         }
     }
 }

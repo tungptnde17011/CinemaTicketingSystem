@@ -1,8 +1,8 @@
-D:\project\CinemaTicketingSystem\CTS_Persistence\bin\Debug\netstandard2.0\CTS_Persistence.deps.json
-D:\project\CinemaTicketingSystem\CTS_Persistence\bin\Debug\netstandard2.0\CTS_Persistence.dll
-D:\project\CinemaTicketingSystem\CTS_Persistence\bin\Debug\netstandard2.0\CTS_Persistence.pdb
-D:\project\CinemaTicketingSystem\CTS_Persistence\obj\Debug\netstandard2.0\CTS_Persistence.csproj.CoreCompileInputs.cache
-D:\project\CinemaTicketingSystem\CTS_Persistence\obj\Debug\netstandard2.0\CTS_Persistence.AssemblyInfoInputs.cache
-D:\project\CinemaTicketingSystem\CTS_Persistence\obj\Debug\netstandard2.0\CTS_Persistence.AssemblyInfo.cs
-D:\project\CinemaTicketingSystem\CTS_Persistence\obj\Debug\netstandard2.0\CTS_Persistence.dll
-D:\project\CinemaTicketingSystem\CTS_Persistence\obj\Debug\netstandard2.0\CTS_Persistence.pdb
+/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/bin/Debug/netstandard2.0/CTS_Persistence.deps.json
+/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/bin/Debug/netstandard2.0/CTS_Persistence.dll
+/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/bin/Debug/netstandard2.0/CTS_Persistence.pdb
+/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/obj/Debug/netstandard2.0/CTS_Persistence.csproj.CoreCompileInputs.cache
+/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/obj/Debug/netstandard2.0/CTS_Persistence.AssemblyInfoInputs.cache
+/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/obj/Debug/netstandard2.0/CTS_Persistence.AssemblyInfo.cs
+/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/obj/Debug/netstandard2.0/CTS_Persistence.dll
+/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Persistence/obj/Debug/netstandard2.0/CTS_Persistence.pdb

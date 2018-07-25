@@ -14,7 +14,7 @@ namespace CTS_DAL
             connection = DBHelper.OpenConnection();
         }
 
-        public bool BuyTicket(ScheduleDetail schedDetail)
+        public bool SellTicket(ScheduleDetail schedDetail)
         {
             bool result = false;
             if (schedDetail == null || schedDetail.SchedId == null || schedDetail.SchedId == 0 ||

@@ -9,16 +9,16 @@ namespace CTS_BL_XUnit
     {
         TicketBL tbl = new TicketBL();
         [Fact]
-        public void BuyTicketTest1()
+        public void SellTicketTest1()
         {
             ScheduleDetail sd = new ScheduleDetail(1, null, null, null, "RoomSeat");
-            Assert.True(tbl.BuyTicket(sd));
+            Assert.True(tbl.SellTicket(sd));
         }
         [Fact]
-        public void BuyTicketTest2()
+        public void SellTicketTest2()
         {
             ScheduleDetail sd = new ScheduleDetail(null, null, null, null, "RoomSeat");
-            Assert.False(tbl.BuyTicket(sd));
+            Assert.False(tbl.SellTicket(sd));
         }
     }
 }
