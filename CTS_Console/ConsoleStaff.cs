@@ -237,59 +237,6 @@ namespace CTS_Console
             }
             Console.WriteLine(row1);
             Console.WriteLine("Tổng tiền vé: {0}", pricevalid(price));
-            Console.Write("Nhập số tiền khách hàng trả(đồng): ");
-            double cusmoney;
-            while (true)
-            {
-                try
-                {
-                    cusmoney = Convert.ToDouble(Console.ReadLine());
-                    if (cusmoney <= 0)
-                    {
-                        Console.Write("Số tiền trả phải lớn hơn 0, mời bạn nhập lại: ");
-                        continue;
-                    }
-                }
-                catch
-                {
-                    Console.Write("Bạn phải nhập số tiền bằng số, mời nhập lại số tiền khách hàng trả(đồng): ");
-                    continue;
-                }
-
-                break;
-            }
-            int count1 = 1;
-            while ((cusmoney - price) < 0)
-            {
-                count1++;
-                Console.WriteLine("Khách hàng trả thiếu: {0}", pricevalid(price - cusmoney));
-                price -= cusmoney;
-                Console.Write("Nhập số tiền khách trả lần {0}(đồng): ", count1);
-                while (true)
-                {
-                    try
-                    {
-                        cusmoney = Convert.ToDouble(Console.ReadLine());
-                        if (cusmoney <= 0)
-                        {
-                            Console.Write("Số tiền trả phải lớn hơn 0, mời bạn nhập lại: ");
-                            continue;
-                        }
-                    }
-                    catch
-                    {
-                        Console.Write("Bạn phải nhập số tiền bằng số, mời nhập lại số tiền khách hàng trả(đồng): ");
-                        continue;
-                    }
-                    break;
-                }
-
-            }
-            if ((cusmoney - price) > 0)
-            {
-                Console.WriteLine("Khách hàng trả thừa: {0}", pricevalid(cusmoney - price));
-            }
-            Console.WriteLine(row1);
             while (true)
             {
                 Console.Write("Xác nhận in vé hiển thị trên màn hình?(C/K)");
@@ -312,6 +259,39 @@ namespace CTS_Console
                 }
                 break;
             }
+            Console.Write("Nhập số tiền khách hàng trả(đồng): ");
+            double cusmoney;
+            while (true)
+            {
+                try
+                {
+                    cusmoney = Convert.ToDouble(Console.ReadLine());
+                    if (cusmoney <= 0)
+                    {
+                        Console.Write("Số tiền trả phải lớn hơn 0, mời bạn nhập lại: ");
+                        continue;
+                    }
+                    if (cusmoney < price)
+                    {
+                        Console.Write("Số tiền nhập không đủ, mời bạn nhập lại: ");
+                        continue;
+                    }
+                }
+                catch
+                {
+                    Console.Write("Bạn phải nhập số tiền bằng số, mời nhập lại số tiền khách hàng trả(đồng): ");
+                    continue;
+                }
+
+                break;
+            }
+            if ((cusmoney - price) > 0)
+            {
+                Console.WriteLine("Khách hàng trả thừa: {0}", pricevalid(cusmoney - price));
+            }
+            Console.WriteLine(row1);
+            Console.WriteLine("Thanh toán thành công!!!\nBấm phím bất kì để thoát");
+            Console.ReadKey();
             Console.Clear();
 
             mn.menuStaff(us);
