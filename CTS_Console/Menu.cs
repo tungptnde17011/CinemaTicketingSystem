@@ -8,9 +8,13 @@ namespace CTS_Console
 {
     public class Menus
     {
-        public void MenuChoice()
+        public void MenuChoice(string err)
         {
             Console.Clear();
+            if(err != null)
+            {
+                Console.WriteLine(err);
+            }
             string[] choice = { "Đăng nhập", "Thoát chương trình" };
             int choose = Menu("HỆ THỐNG BÁN VÉ RẠP CHIẾU PHIM", choice);
             switch (choose)
@@ -25,77 +29,15 @@ namespace CTS_Console
         }
         public void MenuLogin()
         {
-            Console.Clear();
-            string row1 = "=====================================================================";
-            string row2 = "---------------------------------------------------------------------";
-            Console.WriteLine(row1);
-            Console.WriteLine(" ĐĂNG NHẬP");
-            Console.WriteLine(row2);
-            Console.Write("Tên đăng nhập: ");
-            string un = Console.ReadLine();
-            Console.Write("Mật khẩu: ");
-            string pw = Password();
-            string choice;
-            while ((validate(un) == false) || (validate(pw) == false))
-            {
-                Console.Write("Tên đăng nhập / mật khẩu không được chứa kí tự đặc biệt, bạn có muốn đăng nhập lại không? (C/K)");
-                choice = Console.ReadLine();
-
-                switch (choice)
-                {
-                    case "C":
-                        break;
-                    case "c":
-                        break;
-                    case "K":
-                        MenuChoice();
-                        break;
-                    case "k":
-                        MenuChoice();
-                        break;
-                    default:
-
-                        continue;
-                        // break;
-                }
-                Console.Clear();
-                // Console.WriteLine("Username và Password không được chứa ký tự đặc biệt! ");
-                Console.WriteLine(row1);
-                Console.WriteLine(" ĐĂNG NHẬP");
-                Console.WriteLine(row2);
-                Console.Write("Tên đăng nhập: ");
-                un = Console.ReadLine();
-                Console.Write("Mật khẩu: ");
-                pw = Password();
-            }
-
-
             UserBL ubl = new UserBL();
-            while (ubl.Login(un, pw) == null)
+            User user = null;
+            string un = null;
+            string pw = null;
+            while (true)
             {
-
-                Console.Write("Tên đăng nhập / mật khẩu không đúng, bạn có muốn đăng nhập lại không? (C/K)");
-                choice = Console.ReadLine();
-
-                switch (choice)
-                {
-                    case "C":
-                        break;
-                    case "c":
-                        break;
-                    case "K":
-                        MenuChoice();
-                        break;
-                    case "k":
-                        MenuChoice();
-                        break;
-                    default:
-                        // Console.Write("Đăng nhập lỗi, bạn có muốn tiếp tục đăng nhập không? (Y/N)");
-                        continue;
-                        // break;
-                }
                 Console.Clear();
-                // Console.WriteLine("Sai Username, Password!");
+                string row1 = "=====================================================================";
+                string row2 = "---------------------------------------------------------------------";
                 Console.WriteLine(row1);
                 Console.WriteLine(" ĐĂNG NHẬP");
                 Console.WriteLine(row2);
@@ -103,45 +45,120 @@ namespace CTS_Console
                 un = Console.ReadLine();
                 Console.Write("Mật khẩu: ");
                 pw = Password();
-                while ((validate(un) == false) || (validate(pw) == false))
+                string choice;
+
+                //
+                if ((validate(un) == false) || (validate(pw) == false))
                 {
-                    Console.Write("Tên đăng nhập/mật khẩu không được chứa kí tự đặc biệt, bạn có muốn đăng nhập lại không? (C/K)");
-                    choice = Console.ReadLine();
+                    Console.Write("Tên đăng nhập / mật khẩu không được chứa kí tự đặc biệt, bạn có muốn đăng nhập lại không? (C/K)");
+                    choice = Console.ReadLine().ToUpper();
+
+                    while (true)
+                    {
+                        if (choice != "C" && choice != "K")
+                        {
+                            Console.Write("Bạn chỉ được nhập (C/K): ");
+                            choice = Console.ReadLine().ToUpper();
+                            continue;
+                        }
+                        break;
+                    }
 
                     switch (choice)
                     {
                         case "C":
-                            break;
+                            continue;
                         case "c":
-                            break;
+                            continue;
                         case "K":
-                            MenuChoice();
+                            MenuChoice(null);
                             break;
                         case "k":
-                            MenuChoice();
+                            MenuChoice(null);
                             break;
                         default:
-                            // Console.Write("Đăng nhập lỗi, bạn có muốn tiếp tục đăng nhập không? (Y/N)");
                             continue;
-                            // break;
                     }
-                    Console.Clear();
-                    // Console.WriteLine("Username và Password không được chứa ký tự đặc biệt! ");
-                    Console.WriteLine(row1);
-                    Console.WriteLine(" ĐĂNG NHẬP");
-                    Console.WriteLine(row2);
-                    Console.Write("Tên đăng nhập: ");
-                    un = Console.ReadLine();
-                    Console.Write("Mật khẩu: ");
-                    pw = Password();
                 }
 
+                //
+                try
+                {
+                    user = ubl.Login(un, pw);
+                }
+                catch (System.NullReferenceException)
+                {
+                    Console.Write("Mất kết nối, bạn có muốn đăng nhập lại không? (C/K)");
+                    choice = Console.ReadLine().ToUpper();
+
+                    while (true)
+                    {
+                        if (choice != "C" && choice != "K")
+                        {
+                            Console.Write("Bạn chỉ được nhập (C/K): ");
+                            choice = Console.ReadLine().ToUpper();
+                            continue;
+                        }
+                        break;
+                    }
+
+                    switch (choice)
+                    {
+                        case "C":
+                            continue;
+                        case "c":
+                            continue;
+                        case "K":
+                            MenuChoice(null);
+                            break;
+                        case "k":
+                            MenuChoice(null);
+                            break;
+                        default:
+                            continue;
+                    }
+                }
+
+                if (user == null)
+                {
+                    Console.Write("Tên đăng nhập / mật khẩu không đúng, bạn có muốn đăng nhập lại không? (C/K)");
+                    choice = Console.ReadLine().ToUpper();
+
+                    while (true)
+                    {
+                        if (choice != "C" && choice != "K")
+                        {
+                            Console.Write("Bạn chỉ được nhập (C/K): ");
+                            choice = Console.ReadLine().ToUpper();
+                            continue;
+                        }
+                        break;
+                    }
+
+                    switch (choice)
+                    {
+                        case "C":
+                            continue;
+                        case "c":
+                            continue;
+                        case "K":
+                            MenuChoice(null);
+                            break;
+                        case "k":
+                            MenuChoice(null);
+                            break;
+                        default:
+                            continue;
+                    }
+                }
+                break;
             }
-            if (ubl.Login(un, pw).Type == "m")
+
+            if (user.Type == "m")
             {
                 menuManager(ubl.Login(un, pw));
             }
-            else if (ubl.Login(un, pw).Type == "s")
+            else if (user.Type == "s")
             {
                 menuStaff(ubl.Login(un, pw));
             }
@@ -168,11 +185,22 @@ namespace CTS_Console
                 case 1:
                     Console.Clear();
                     ConsoleManager cm = new ConsoleManager();
-                    cm.CreateSchedule(us);
+                    try
+                    {
+                        cm.CreateSchedule(us);
+                    }
+                    catch (System.NullReferenceException)
+                    {
+                        MenuChoice("MẤT KẾT NỐI, MỜI BẠN ĐĂNG NHẬP LẠI !!!");
+                    }
+                    catch (MySql.Data.MySqlClient.MySqlException)
+                    {
+                        MenuChoice("MẤT KẾT NỐI, MỜI BẠN ĐĂNG NHẬP LẠI !!!");
+                    }
                     break;
                 case 2:
                     Console.Clear();
-                    MenuChoice();
+                    MenuChoice(null);
                     break;
                 default:
                     menuManager(us);
@@ -189,11 +217,22 @@ namespace CTS_Console
                 case 1:
                     Console.Clear();
                     ConsoleStaff cs = new ConsoleStaff();
-                    cs.Ticket(us);
+                    try
+                    {
+                        cs.Ticket(us);
+                    }
+                    catch (System.NullReferenceException)
+                    {
+                        MenuChoice("MẤT KẾT NỐI, MỜI BẠN ĐĂNG NHẬP LẠI !!!");
+                    }
+                    catch (MySql.Data.MySqlClient.MySqlException)
+                    {
+                        MenuChoice("MẤT KẾT NỐI, MỜI BẠN ĐĂNG NHẬP LẠI !!!");
+                    }
                     break;
                 case 2:
                     Console.Clear();
-                    MenuChoice();
+                    MenuChoice(null);
                     break;
                 default:
                     menuStaff(us);

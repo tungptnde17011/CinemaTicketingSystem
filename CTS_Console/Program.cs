@@ -11,7 +11,7 @@ namespace CTS_Console
         static void Main(string[] args)
         {
             Menus m = new Menus();
-            m.MenuChoice();
+            m.MenuChoice(null);
         }
 
     }

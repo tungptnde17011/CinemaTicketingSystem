@@ -207,6 +207,7 @@ create table if not exists Accounts (
 insert into Accounts(acc_username, cine_id, acc_password, acc_type) values
 	('manager_01',1,'123456','m'),
     ('staff_01',1,'123456','s');
+select * from Accounts;
 
 drop user if exists 'CTSUser'@'localhost';
 create user if not exists 'CTSUser'@'localhost' identified by '123456';

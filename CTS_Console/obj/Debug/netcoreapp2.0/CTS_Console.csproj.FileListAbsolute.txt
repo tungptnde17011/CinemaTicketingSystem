@@ -15,3 +15,4 @@
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/obj/Debug/netcoreapp2.0/CTS_Console.AssemblyInfo.cs
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/obj/Debug/netcoreapp2.0/CTS_Console.dll
 /Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/obj/Debug/netcoreapp2.0/CTS_Console.pdb
+/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/obj/Debug/netcoreapp2.0/CTS_Console.csprojResolveAssemblyReference.cache

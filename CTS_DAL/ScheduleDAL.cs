@@ -25,17 +25,21 @@ namespace CTS_DAL
                 return result;
             }
 
-            try
+            // try
+            // {
+            if (connection == null)
             {
-                if (connection.State == System.Data.ConnectionState.Closed)
-                {
-                    connection.Open();
-                }
+                connection = DBHelper.OpenConnection();
             }
-            catch (System.Exception)
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                return result;
+                connection.Open();
             }
+            // }
+            // catch (System.Exception)
+            // {
+            //     return result;
+            // }
 
 
             MySqlCommand command = new MySqlCommand();
@@ -126,6 +130,10 @@ namespace CTS_DAL
             {
                 return null;
             }
+            if (connection == null)
+            {
+                connection = DBHelper.OpenConnection();
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
@@ -153,6 +161,10 @@ namespace CTS_DAL
             {
                 return null;
             }
+            if (connection == null)
+            {
+                connection = DBHelper.OpenConnection();
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
@@ -178,6 +190,10 @@ namespace CTS_DAL
             if ((movieId == null) || (roomId == null))
             {
                 return null;
+            }
+            if (connection == null)
+            {
+                connection = DBHelper.OpenConnection();
             }
             if (connection.State == System.Data.ConnectionState.Closed)
             {

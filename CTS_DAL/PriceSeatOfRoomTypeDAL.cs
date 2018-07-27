@@ -22,7 +22,10 @@ namespace CTS_DAL
             {
                 return null;
             }
-
+            if (connection == null)
+            {
+                connection = DBHelper.OpenConnection();
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();

@@ -23,17 +23,22 @@ namespace CTS_DAL
                 return result;
             }
 
-            try
+            // try
+            // {
+            if (connection == null)
             {
-                if (connection.State == System.Data.ConnectionState.Closed)
-                {
-                    connection.Open();
-                }
+                connection = DBHelper.OpenConnection();
             }
-            catch (System.Exception)
+
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                return result;
+                connection.Open();
             }
+            // }
+            // catch (System.Exception)
+            // {
+            //     return result;
+            // }
 
 
             query = @"update SchedulesDetails set sched_roomSeats = '" + schedDetail.SchedRoomSeats + "' where sched_id = " + schedDetail.SchedId + ";";

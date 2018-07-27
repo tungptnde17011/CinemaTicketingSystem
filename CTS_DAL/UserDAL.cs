@@ -30,17 +30,22 @@ namespace CTS_DAL
                 return null;
             }
 
-            try
+            // try
+            // {
+            if (connection == null)
             {
-                if (connection.State == System.Data.ConnectionState.Closed)
-                {
-                    connection.Open();
-                }
+                connection = DBHelper.OpenConnection();
             }
-            catch (System.Exception)
+
+            if (connection.State == System.Data.ConnectionState.Closed)
             {
-                return null;
+                connection.Open();
             }
+            // }
+            // catch (System.Exception)
+            // {
+            //     return null;
+            // }
 
             query = @"select * from Accounts where acc_username = '" + username + "' and acc_password= '" + password + "';";
             MySqlCommand command = new MySqlCommand(query, connection);
