@@ -24,3 +24,4 @@ D:\project\CinemaTicketingSystem\CTS_BL\obj\Debug\netstandard2.0\CTS_BL.Assembly
 D:\project\CinemaTicketingSystem\CTS_BL\obj\Debug\netstandard2.0\CTS_BL.AssemblyInfo.cs
 D:\project\CinemaTicketingSystem\CTS_BL\obj\Debug\netstandard2.0\CTS_BL.dll
 D:\project\CinemaTicketingSystem\CTS_BL\obj\Debug\netstandard2.0\CTS_BL.pdb
+D:\project\CinemaTicketingSystem\CTS_BL\obj\Debug\netstandard2.0\CTS_BL.csprojResolveAssemblyReference.cache
