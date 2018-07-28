@@ -61,6 +61,10 @@ namespace CTS_DAL
             {
                 return null;
             }
+            if (connection == null)
+            {
+                connection = DBHelper.OpenConnection();
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
@@ -87,6 +91,10 @@ namespace CTS_DAL
             if (scheId == null)
             {
                 return null;
+            }
+            if (connection == null)
+            {
+                connection = DBHelper.OpenConnection();
             }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
@@ -116,12 +124,16 @@ namespace CTS_DAL
             {
                 return null;
             }
+            if (connection == null)
+            {
+                connection = DBHelper.OpenConnection();
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
             }
 
-            query = $"select * from SchedulesDetails where sche_id = "+ scheId +" and sched_timeStart >= '"+ DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "' and sched_timeStart <= '"+ new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59).ToString("yyyy/MM/dd HH:mm:ss") +"';";
+            query = $"select * from SchedulesDetails where sche_id = " + scheId + " and sched_timeStart >= '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "' and sched_timeStart <= '" + new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59).ToString("yyyy/MM/dd HH:mm:ss") + "';";
             MySqlCommand command = new MySqlCommand(query, connection);
             List<ScheduleDetail> schedDetails = null;
             using (reader = command.ExecuteReader())

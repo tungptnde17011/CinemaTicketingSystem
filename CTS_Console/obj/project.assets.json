@@ -2154,11 +2154,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\project\\CinemaTicketingSystem\\CTS_Console\\CTS_Console.csproj",
+      "projectUniqueName": "d:\\project\\CinemaTicketingSystem\\CTS_Console\\CTS_Console.csproj",
       "projectName": "CTS_Console",
-      "projectPath": "D:\\project\\CinemaTicketingSystem\\CTS_Console\\CTS_Console.csproj",
+      "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_Console\\CTS_Console.csproj",
       "packagesPath": "C:\\Users\\vuong\\.nuget\\packages\\",
-      "outputPath": "D:\\project\\CinemaTicketingSystem\\CTS_Console\\obj\\",
+      "outputPath": "d:\\project\\CinemaTicketingSystem\\CTS_Console\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -2175,11 +2175,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "D:\\project\\CinemaTicketingSystem\\CTS_BL\\CTS_BL.csproj": {
-              "projectPath": "D:\\project\\CinemaTicketingSystem\\CTS_BL\\CTS_BL.csproj"
+            "d:\\project\\CinemaTicketingSystem\\CTS_BL\\CTS_BL.csproj": {
+              "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_BL\\CTS_BL.csproj"
             },
-            "D:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj": {
-              "projectPath": "D:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj"
+            "d:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj": {
+              "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj"
             }
           }
         }
@@ -2206,5 +2206,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file d:\\project\\CinemaTicketingSystem\\CTS_Console\\obj\\CTS_Console.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

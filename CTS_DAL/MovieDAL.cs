@@ -22,6 +22,10 @@ namespace CTS_DAL
             {
                 return null;
             }
+            if (connection == null)
+            {
+                connection = DBHelper.OpenConnection();
+            }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
@@ -48,6 +52,10 @@ namespace CTS_DAL
             if (cineId == null)
             {
                 return null;
+            }
+            if (connection == null)
+            {
+                connection = DBHelper.OpenConnection();
             }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
@@ -76,6 +84,10 @@ namespace CTS_DAL
             if (cineId == null)
             {
                 return null;
+            }
+            if (connection == null)
+            {
+                connection = DBHelper.OpenConnection();
             }
             if (connection.State == System.Data.ConnectionState.Closed)
             {
