@@ -6115,11 +6115,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\project\\CinemaTicketingSystem\\CTS_DAL_XUnit\\CTS_DAL_XUnit.csproj",
+      "projectUniqueName": "D:\\project\\CinemaTicketingSystem\\CTS_DAL_XUnit\\CTS_DAL_XUnit.csproj",
       "projectName": "CTS_DAL_XUnit",
-      "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_DAL_XUnit\\CTS_DAL_XUnit.csproj",
+      "projectPath": "D:\\project\\CinemaTicketingSystem\\CTS_DAL_XUnit\\CTS_DAL_XUnit.csproj",
       "packagesPath": "C:\\Users\\vuong\\.nuget\\packages\\",
-      "outputPath": "d:\\project\\CinemaTicketingSystem\\CTS_DAL_XUnit\\obj\\",
+      "outputPath": "D:\\project\\CinemaTicketingSystem\\CTS_DAL_XUnit\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6136,11 +6136,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "d:\\project\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj": {
-              "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj"
+            "D:\\project\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj": {
+              "projectPath": "D:\\project\\CinemaTicketingSystem\\CTS_DAL\\CTS_DAL.csproj"
             },
-            "d:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj": {
-              "projectPath": "d:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj"
+            "D:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj": {
+              "projectPath": "D:\\project\\CinemaTicketingSystem\\CTS_Persistence\\CTS_Persistence.csproj"
             }
           }
         }

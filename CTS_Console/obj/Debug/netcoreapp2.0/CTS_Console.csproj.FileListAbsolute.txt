@@ -1,21 +1,3 @@
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/ConnectionString.txt
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/CTS_Console.deps.json
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/CTS_Console.runtimeconfig.json
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/CTS_Console.runtimeconfig.dev.json
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/CTS_Console.dll
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/CTS_Console.pdb
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/CTS_BL.dll
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/CTS_DAL.dll
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/CTS_Persistence.dll
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/CTS_BL.pdb
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/CTS_Persistence.pdb
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/bin/Debug/netcoreapp2.0/CTS_DAL.pdb
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/obj/Debug/netcoreapp2.0/CTS_Console.csproj.CoreCompileInputs.cache
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/obj/Debug/netcoreapp2.0/CTS_Console.AssemblyInfoInputs.cache
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/obj/Debug/netcoreapp2.0/CTS_Console.AssemblyInfo.cs
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/obj/Debug/netcoreapp2.0/CTS_Console.dll
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/obj/Debug/netcoreapp2.0/CTS_Console.pdb
-<<<<<<< HEAD
 D:\project\CinemaTicketingSystem\CTS_Console\bin\Debug\netcoreapp2.0\ConnectionString.txt
 D:\project\CinemaTicketingSystem\CTS_Console\bin\Debug\netcoreapp2.0\CTS_Console.deps.json
 D:\project\CinemaTicketingSystem\CTS_Console\bin\Debug\netcoreapp2.0\CTS_Console.runtimeconfig.json
@@ -28,12 +10,8 @@ D:\project\CinemaTicketingSystem\CTS_Console\bin\Debug\netcoreapp2.0\CTS_Persist
 D:\project\CinemaTicketingSystem\CTS_Console\bin\Debug\netcoreapp2.0\CTS_BL.pdb
 D:\project\CinemaTicketingSystem\CTS_Console\bin\Debug\netcoreapp2.0\CTS_Persistence.pdb
 D:\project\CinemaTicketingSystem\CTS_Console\bin\Debug\netcoreapp2.0\CTS_DAL.pdb
-D:\project\CinemaTicketingSystem\CTS_Console\obj\Debug\netcoreapp2.0\CTS_Console.csprojResolveAssemblyReference.cache
 D:\project\CinemaTicketingSystem\CTS_Console\obj\Debug\netcoreapp2.0\CTS_Console.csproj.CoreCompileInputs.cache
 D:\project\CinemaTicketingSystem\CTS_Console\obj\Debug\netcoreapp2.0\CTS_Console.AssemblyInfoInputs.cache
 D:\project\CinemaTicketingSystem\CTS_Console\obj\Debug\netcoreapp2.0\CTS_Console.AssemblyInfo.cs
 D:\project\CinemaTicketingSystem\CTS_Console\obj\Debug\netcoreapp2.0\CTS_Console.dll
 D:\project\CinemaTicketingSystem\CTS_Console\obj\Debug\netcoreapp2.0\CTS_Console.pdb
-=======
-/Volumes/D/Dev/ProjectSEM1/CinemaTicketingSystem/CTS_Console/obj/Debug/netcoreapp2.0/CTS_Console.csprojResolveAssemblyReference.cache
->>>>>>> 4ad34c58afc556b18ec30f27e7451a78735faac3

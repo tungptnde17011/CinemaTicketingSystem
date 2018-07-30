@@ -281,6 +281,11 @@ namespace CTS_Console
                         Console.Write("Số tiền nhập không đủ, mời bạn nhập lại: ");
                         continue;
                     }
+                    if (cusmoney >999999999)
+                    {
+                        Console.Write("Số tiền quá lớn, mời bạn nhập lại: ");
+                        continue;
+                    }
                 }
                 catch
                 {
